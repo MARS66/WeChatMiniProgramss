@@ -1,0 +1,196 @@
+.caontent{
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.photo{
+  width: 100%;
+  height: 300rpx;
+  position: relative;
+}
+.back{
+  width: 100%;
+  height: 100%;
+}
+.back>image{
+  width: 100%;
+  height: 100%;
+}
+.avatar{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  background-color:white;
+  border: 1rpx solid rgba(216, 214, 214, 0.527);
+  bottom: -80rpx;
+  left: 20rpx;
+}
+.avatar image{
+  width: 100%;
+  height: 100%;
+}
+.info{
+  width: 100%;
+}
+.underphoto{
+  width: 100%;
+  padding-left: 190rpx;
+}
+.name{
+  font-weight: 600;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.yzm{
+  font-weight: 700;
+  font-size: 38rpx;
+  padding: 0 10rpx;
+}
+.gender{
+  display: flex;
+  justify-items: center;
+  align-items: flex-end;
+  font-weight: 400;
+  height: 34rpx;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  text-align: center;
+  line-height: 34rpx;
+  background-color: black;
+  color: #fff;
+  padding-left:10rpx;
+  margin-left: 10rpx;
+}
+.isGone{
+  height: 30rpx;
+  line-height: 30rpx;
+  padding: 2rpx  10rpx 2rpx 10rpx;
+  margin-left: 10rpx;
+  background-color: tomato;
+}
+.cantact{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  padding: 6rpx 0;
+  justify-content: start;
+  align-items: center;
+  height: 40rpx;
+}
+.cantact image{
+  width: 40rpx;
+  height: 40rpx;
+  font-weight: 800;
+  font-size: 38rpx;
+  padding: 0 4rpx;
+}
+.cantact >view{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-right:  20rpx;
+}
+.cantact>text{
+  font-weight: 400;
+  font-size: 28rpx;
+}
+.otherInfo{
+  padding: 0 20rpx;
+}
+.otherInfo>view{
+  padding: 4rpx 0;
+}
+.otherInfo text{
+  letter-spacing: 2rpx;
+}
+.type{
+  letter-spacing: 1rpx;
+  font-weight: 600;
+}
+.photoOuter{
+  padding: 10rpx 20rpx;
+}
+.title{
+  padding: 10rpx 0;
+  font-weight: 600;
+  font-size: 34rpx;
+}
+.list{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.smallhoto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10rpx;
+}
+.smallhoto>image{
+width: 120rpx;
+height: 120rpx;
+background-color:#939597;
+border-radius: 50%;
+}
+.smallhoto>view{
+  text-align: center;
+  font-size: medium;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  font-weight: 600;
+}
+/*使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.1;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+/*对话框 */
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding: 40rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.commodity_attr_box >view{
+width: 60%;
+height: 80rpx;
+margin: 20rpx 0;
+color: #939597;
+font-size: large;
+letter-spacing: 2rpx;
+text-align: center;
+line-height: 80rpx;
+border-radius: 8rpx;
+background: #000;
+}
+.warning{
+background: #d81e06 !important;
+}
+.default{
+  background: #F5DF4D !important;
+  color: #939597 !important;
+  }

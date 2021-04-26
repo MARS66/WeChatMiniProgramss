@@ -1,0 +1,55 @@
+
+.puyuan{
+  width: 666rpx;
+  padding: 0 20rpx;
+  margin: 0 auto;
+}
+.puyuan textarea{
+  width: 100%;
+  font-size: large;
+}
+.title{
+  text-align: center;
+  padding: 20rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.oneItem{
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+.twoItem{
+  display: flex;
+  padding: 0 20rpx;
+  width: 90rpx;
+  flex-direction: column;
+  justify-content: start;
+  height: 140rpx;
+}
+.yiwen{
+  box-sizing: border-box;
+  padding-bottom: 10rpx;
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: 600;
+}
+.hanwen{
+  box-sizing: border-box;
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  padding-top: 10rpx;
+}
+.line{
+  height: 2rpx !important;
+  background-color: #000 !important;
+  width: 100%;
+}
+.epmty{
+  height: 200rpx;
+}
+.epmty2{
+  color: blue;
+}

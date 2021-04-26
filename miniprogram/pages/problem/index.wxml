@@ -1,0 +1,5 @@
+<!--pages/problem/index.wxml-->
+<view>
+  <image src="{{imgUrl}}" mode="aspectFill"></image>
+  <text>如有问题或建议，欢迎您加入QQ群探讨</text>
+</view>

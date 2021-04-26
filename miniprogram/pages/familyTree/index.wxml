@@ -1,0 +1,11 @@
+
+<movable-area wx:if="{{dataSource}}" style="height: {{isiPhoneX?'calc(100vh - 66rpx)':'100vh'}}">
+  <movable-view direction="all" out-of-bounds='true' id="rootTree" style="width:{{width == 0 ? 'auto' : width + 'px'}};height:{{height == 0 ? 'auto' : height + 'px'}};" x="{{-width/2+windowWidth/2}}">
+    <tree-chart dataSource="{{dataSource}}" isRoot="true" />
+  </movable-view>
+</movable-area>
+<view wx:if="{{showEmpty}}" class="empty">
+    <image bindtap="toAddPerson" src="../../static/icon/minzu.png"></image>
+    <view bindtap="toAddPerson">添加立谱第一人</view>
+    <text>添加家谱树的根节点，也就是整个家谱共同的祖先！</text>
+</view>

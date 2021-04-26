@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/familyTree/index",
+    "pages/index/index",
+    "pages/mine/index",
+    "pages/home/index",
+    "pages/charts/line/index",
+    "pages/dataAnalysis/index",
+    "pages/search/index",
+    "pages/familyInfo/index",
+    "pages/addFamily/index",
+    "pages/charts/bar/index",
+    "pages/charts/map/index",
+    "pages/charts/radar/index",
+    "pages/charts/gender/index",
+    "pages/charts/education/index",
+    "pages/charts/sunburst/index",
+    "pages/yiren/index",
+    "pages/help/index",
+    "pages/problem/index",
+    "pages/log/index",
+    "pages/wife/index",
+    "pages/detail/index",
+    "pages/addPerson/index"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "简介",
+        "iconPath": "/static/icon/shouye.png",
+        "selectedIconPath": "/static/icon/shouye1.png"
+      },
+      {
+        "pagePath": "pages/familyTree/index",
+        "text": "家谱树",
+        "iconPath": "/static/icon/guanxi.png",
+        "selectedIconPath": "/static/icon/guanxi0.png"
+      },
+      {
+        "pagePath": "pages/dataAnalysis/index",
+        "text": "数据",
+        "iconPath": "/static/icon/data0.png",
+        "selectedIconPath": "/static/icon/data.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "/static/icon/renyuan2.png",
+        "selectedIconPath": "/static/icon/redying.png"
+      }
+    ],
+    "borderStyle": "white",
+    "color": "#000",
+    "backgroundColor": "#F5DF4D",
+    "selectedColor": "#d81e06"
+  },
+  "window": {
+    "backgroundColor": "#000",
+    "navigationBarTitleText": "彝人族谱",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F5DF4D",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"default"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

@@ -1,0 +1,39 @@
+
+movable-area{
+  overflow: auto;
+  width: 100vw;
+  height: 100%;
+}
+
+movable-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #939597;
+}
+.empty>image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background-color: #939597;
+}
+.empty>view{
+  padding: 10rpx;
+  border-radius: 6rpx;
+  background-color: black;
+  color: white;
+  margin: 20rpx 0;
+}
+.empty>text{
+  width: 60%;
+  white-space: wrap;
+}
+ 

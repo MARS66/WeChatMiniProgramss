@@ -1,0 +1,77 @@
+<!--component/treechart.wxml-->
+<view class="tree-container">
+  <view class="user-super-container">
+    <!-- 画当前节点 -->
+    <view class="user-wife-container">
+
+      <!-- 有妻子 有儿子的情况下 给当前节点添加22.5rpx的右侧内边距-->
+      <view class="user-container" style="padding-right:{{dataSource.wife && dataSource.children?'22.5rpx':'0'}}">
+        <!-- 每个子节点头部画一个垂直的线  根节点除外 -->
+        <view wx:if="{{!isRoot}}" class="vertical-line" />
+        <!-- 用户信息 -->
+        <view class="user-info" bindtap="itemClick" data-item="{{dataSource}}">
+          <image mode="aspectFill" class="user-avatar" src="{{dataSource.avatar ? dataSource.avatar : dataSource.isBoy==='true' ? '../../static/icon/icon_default_man.png' : '../../static/icon/icon_default_woman.png'}}" />
+
+          <view class="user-name {{dataSource.isGone==='true'? 'isGone':'alive'}} {{dataSource.isGone==='false'&&dataSource.isMerry==='false'&&!dataSource.wife? 'user-self':''}}">
+            <view class="user-name-text">
+              <text class="yiwen">{{dataSource.yiwen}}</text>
+              <text class="hanwen">{{dataSource.hanwen}}</text>
+            </view>
+            <image mode="aspectFill" class="user-sex" src="{{dataSource.isBoy==='true'? '../../static/icon/icon_sex_man.png' : '../../static/icon/icon_sex_woman.png'}}" />
+          </view>
+        </view>
+
+        <!-- 如果当前节点有儿子 有妻子 在节点下方画一条垂直的线 -->
+        <view wx:if="{{dataSource.children && dataSource.wife}}" class="vertical-line" />
+      </view>
+
+
+      <!-- 处理配偶 -->
+      <!-- 如果有配偶 没儿子  则画一根水平线关联夫妻关系 -->
+      <view wx:if="{{!dataSource.children && dataSource.wife}}" class="horizontal-line" style="width:35rpx;margin-left:5rpx;margin-right:5rpx;" />
+
+      <!-- 有妻子 没有儿子的情况下 给当前配偶节点添加22.5rpx的左侧内边距-->
+      <view wx:if="{{dataSource.wife}}" class="user-container" style="padding-left:{{dataSource.wife && dataSource.children?'22.5rpx':'0'}}">
+
+        <!-- 每个子节点头部画一个垂直的线 由于是配偶  要透明处理 -->
+        <view wx:if="{{!isRoot}}" class="vertical-line" style="background-color:rgba(0,0,0,0)" />
+        <!-- 用户信息 -->
+        <view class="user-info" bindtap="itemClick" data-iswife="{{true}}" data-item="{{dataSource}}">
+          <image mode="aspectFill" class="user-avatar" src="{{dataSource.wife.avatar? dataSource.wife.avatar : '../../static/icon/icon_default_woman.png' }}" />
+          <view class="user-name {{dataSource.wife.isGone==='true'? 'isGone':'alive'}}">
+            <view class=" user-name-text">
+              <text class="yiwen">{{dataSource.wife.yiwen}}</text>
+              <text class="hanwen">{{dataSource.wife.hanwen}}</text>
+            </view>
+            <image mode="aspectFill" class="user-sex" src="../../static/icon/icon_sex_woman.png" />
+          </view>
+        </view>
+
+        <!-- 如果当前节点有儿子 在配偶下方画一条垂直的线 -->
+        <view wx:if="{{dataSource.children}}" class="vertical-line" />
+      </view>
+    </view>
+    <!-- 如果当前节点有儿子并且有配偶 在夫妻下方画一条水平的线 并设置左下 右下圆角 -->
+    <view wx:if="{{dataSource.children && dataSource.wife}}" class="horizontal-line left-bottom-radius right-bottom-radius" />
+  </view>
+
+  <!-- 有多个儿子 先要画一条垂直的线 再画一条水平的线 -->
+  <view wx:if="{{dataSource.children.length > 1}}" class="vertical-line" />
+
+  <!-- 渲染子节点 如果他的下级最后一个子节点有配偶 则下级的整个布局向右移动144rpx -->
+  <view wx:if="{{dataSource.children}}" class="children-container" style="margin-left:{{dataSource.children[dataSource.children.length-1].wife?'144rpx':'0'}}">
+    <block wx:for="{{dataSource.children}}"  wx:key="index">
+      <view class="children-super">
+        <block wx:if="{{dataSource.children.length > 1}}">
+          <!-- 第一个的情况 -->
+          <view wx:if="{{index==0}}" class="horizontal-line left-top-radius {{item.wife?'first-wife-line':'first-line'}}" />
+          <!-- 最后一个 -->
+          <view wx:elif="{{index==dataSource.children.length-1}}" class="horizontal-line right-top-radius {{item.wife?'last-wife-line':'last-line'}}" />
+          <!-- 中间的 -->
+          <view wx:else class="horizontal-line" style="width:100%" />
+        </block>
+        <tree-chart dataSource="{{item}}" />
+      </view>
+    </block>
+  </view>
+</view>

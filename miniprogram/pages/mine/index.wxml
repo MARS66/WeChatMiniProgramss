@@ -1,0 +1,29 @@
+<view class="caontent" bindlongpress="longTab">
+  <view class="photo">
+    <view class="back">
+      <image src="{{userInfo.bcImg?userInfo.bcImg:imgUrl}}" mode="aspectFill"></image>
+    </view>
+    <view class="avatar">
+      <image  src="{{userInfo.avatar? userInfo.avatar : userInfo.isBoy==='true'||!isBind ? '../../static/icon/icon_default_man.png' : '../../static/icon/icon_default_woman.png'}}"  mode="aspectFill" bindtap="viewImage"></image>
+      <view class="userInfo">
+        <view class="familyType">{{isBind?familyType+'家族':'未绑定角色'}}</view>
+        <view class="name">
+          <view class="yzm">{{userInfo.yiwen}}</view>
+          <view class="hzm">{{userInfo.hanwen}}</view> 
+          <view class="gender" wx:if="{{isBind}}">
+            <view>{{userInfo.isBoy==='true'?'男':'女'}}</view>
+            <view class="isGone">{{userInfo.isMerry==='true'?'已婚':'未婚'}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="auth">
+    <view  class="column" wx:for="{{auth}}" wx:for-item="row"  wx:key="row">
+      <button class="item" wx:for="{{row}}" wx:for-item="item" data-page="{{item.page}}" open-type="{{item.page==='problem'?'feedback':''}}"  wx:key="index" bindtap="issue">
+         <image src="{{item.img}}"></image>
+         <view>{{item.name}}</view>
+      </button>
+    </view>
+  </view>
+</view>

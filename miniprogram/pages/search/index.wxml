@@ -1,0 +1,34 @@
+<!--pages/search/index.wxml-->
+<view class="search">
+  <image src="{{imgUrl}}" mode="aspectFill"></image>
+  <view>
+    <view class="search-input">
+      <input placeholder="输入关键词查询" placeholder-class="placeholder" bindblur="setKeywords" type="text"></input>
+      <text bindtap="search">搜索</text>
+    </view>
+  </view>
+</view>
+<view class="container">
+    <view class="photoOuter" wx:if="{{result.length>0 && keyword}}">
+      <view class="title">共查得{{result.length}}人</view>
+      <view class="list">
+        <view class="smallhoto" wx:for="{{result}}" wx:for-item="item"  wx:key="yiwen">
+          <image bindtap="goHisDetail" data-id="{{item._id}}" src="{{item.avatar? item.avatar: item.isBoy ? '../../static/icon/icon_default_man.png' : '../../resources/images/icon_default_woman.png'}}" mode="aspectFill" ></image>
+          <view bindtap="goHisDetail" data-id="{{item._id}}">{{item.yiwen+item.hanwen}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="epmty" wx:if="{{list.length===0}}"> <text>还没有添加家族成员赶快去添加吧！</text>  
+        <text class="epmty2" bindtap="toAddPerson">去添加</text> </view>
+    <view wx:else class="all">
+      <view class="photoOuter" wx:for="{{list}}" wx:for-item="person" wx:key="index">
+        <view class="title">{{index===0?'立谱人':'第 '+index+' 代'}}</view>
+        <view class="list">
+          <view class="smallhoto" wx:for="{{person}}" wx:for-item="item"  wx:key="id">
+            <image bindtap="goHisDetail" data-id="{{item._id}}" src="{{item.avatar? item.avatar: item.isBoy ? '../../static/icon/icon_default_man.png' : '../../resources/images/icon_default_woman.png'}}" mode="aspectFill" ></image>
+            <view bindtap="goHisDetail" data-id="{{item._id}}">{{item.yiwen+item.hanwen}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

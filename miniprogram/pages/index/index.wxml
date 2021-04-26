@@ -1,0 +1,22 @@
+<view class="content">
+    <!-- 内容 -->
+    <view class="mask">
+      <view class="appname">ꆈꌠꋊꀨ</view>
+      <view class="login">
+          <form catchsubmit="formSubmit">
+            <view class="formSubmitOut">
+              <view class="formSubmit"> 
+                <input type="text" name="familyType" value="{{familyType}}" data-type="familyType" bindinput="changeValue" placeholder="请输入家族名称"/>
+                <input type="text" name="code"  value="{{code}}" data-type="code"  bindinput="changeValue" placeholder="请输入邀请码"/>
+              </view>
+              <view class="loginBtn">
+                <button type="default" plain="true" bindtap="toAddF">去创建家族</button>
+                <button wx:if="{{familyType|| code}}"    type="primary" size="small" formType="submit">加入</button>
+                <button  wx:else  type="primary" size="small" bindtap="view">预览</button>
+              </view>
+            </view>
+          </form>
+       </view>
+    </view>
+</view>
+

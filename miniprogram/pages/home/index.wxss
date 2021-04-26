@@ -1,0 +1,114 @@
+/* pages/index/index.wxss */
+.container{
+  width: 100%;
+}
+.ec-canvas{
+  width: 100%;
+  height: 600rpx;
+}
+ec-canvas {
+  width:  600rpx;
+  height: 100%;
+}
+.search{
+  height: 300rpx;
+  width: 100%;
+  position: relative;
+}
+.search>image{
+  width: 100%;
+  height: 100%;
+}
+.search>view{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-input{
+  display: flex;
+  width: 80%;
+  justify-content: start;
+  border-radius: 35rpx;
+  align-items: center;
+  height: 70rpx;
+  background-color: #939597b6;
+}
+.search-input>input{
+  box-sizing: border-box;
+  height: 100%;
+  width: 80%;
+  padding: 10rpx 20rpx;
+}
+.search-input>text{
+  box-sizing: border-box;
+  background-color: #F5DF4D;
+  color: #939597;
+  border-radius: 35rpx;
+  text-align: center;
+  height: 100%;
+  width: 30%;
+  padding: 10rpx;
+  padding: 10rpx 20rpx;
+}
+.placeholder{
+  color: rgba(224, 221, 221, 0.993);
+}
+.puyuan{
+  width: 666rpx;
+  padding: 0 20rpx;
+  margin: 0 auto;
+}
+.puyuan textarea{
+  width: 100%;
+  font-size: large;
+}
+.title{
+  text-align: center;
+  padding: 20rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.oneItem{
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+.twoItem{
+  display: flex;
+  padding: 0 20rpx;
+  width: 90rpx;
+  flex-direction: column;
+  justify-content: start;
+  height: 140rpx;
+}
+.yiwen{
+  box-sizing: border-box;
+  padding-bottom: 10rpx;
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-weight: 600;
+}
+.hanwen{
+  box-sizing: border-box;
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  padding-top: 10rpx;
+}
+.line{
+  height: 2rpx !important;
+  background-color: #000 !important;
+  width: 100%;
+}
+.epmty{
+  height: 200rpx;
+}
+.epmty2{
+  color: blue;
+}

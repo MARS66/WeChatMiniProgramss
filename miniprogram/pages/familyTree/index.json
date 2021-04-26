@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "tree-chart": "../../components/treechart/treechart"
+  }
+}

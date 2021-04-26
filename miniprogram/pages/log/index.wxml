@@ -1,0 +1,9 @@
+<view class="tip">
+  {{logs.length>0?'记录近期操作记录':'暂无操作记录'}}
+</view>
+<view class=" outer">
+  <view class="{{item.delete ? 'red':'green'}}" wx:for="{{logs}}" wx:key="index">
+    <text class="index">{{index+1}}.</text>
+    <text class="item">{{item.text}}</text>
+  </view>
+</view>

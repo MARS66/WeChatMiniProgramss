@@ -1,0 +1,26 @@
+.outer{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 20rpx;
+  padding-top: 10rpx;
+  overflow-y: auto;
+  font-size: small;
+}
+.outer > view{
+  padding: 6rpx 0;
+  display: flex;
+}
+.tip{
+  text-align: center;
+  padding-top:10rpx;
+}
+.index{
+  padding: 0 10rpx;
+}
+.red{
+  color:#F56C6C
+}
+.green{
+  color: #67C23A;
+}

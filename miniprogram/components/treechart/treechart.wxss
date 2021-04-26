@@ -1,0 +1,140 @@
+.tree-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-super-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-wife-container {
+  display: flex;
+  align-items: center;
+  padding-left: 22.5rpx;
+  padding-right: 22.5rpx;
+}
+
+.user-container {
+  width: 96rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info {
+  overflow: hidden;
+}
+
+.user-avatar {
+  margin-top: 5rpx;
+  height: 96rpx;
+  width: 96rpx;
+  display: block;
+  border-radius: 50%;
+  background-color: #939597;
+}
+
+.user-name {
+  width: 100rpx;
+  border-radius: 4rpx;
+  display: flex;
+  margin-top: 12rpx;
+  margin-bottom: 5rpx;
+}
+.isGone{
+  background-color: #d81e06;
+}
+.alive{
+  background-color: #F5DF4D;
+}
+.user-name-text {
+  font-size: 20rpx;
+  width: 100rpx;
+  margin-left: 2rpx;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.user-sex {
+  background-color: #fff;
+  border-radius:0 0 0 4rpx;
+  height: 16rpx;
+  width: 18rpx;
+}
+
+.user-self {
+  color: white;
+  background-color: #0e0d0d;
+}
+
+.vertical-line {
+  height: 25rpx;
+  width: 4rpx;
+  background-color: #F5DF4D;
+}
+
+.horizontal-line {
+  width: calc(50% + 4rpx);
+  height: 4rpx;
+  background-color: #F5DF4D;
+}
+
+.left-bottom-radius {
+  border-bottom-left-radius: 2rpx;
+}
+
+.right-bottom-radius {
+  border-bottom-right-radius: 2rpx;
+}
+
+.left-top-radius {
+  border-top-left-radius: 2rpx;
+}
+
+.right-top-radius {
+  border-top-right-radius: 2rpx;
+}
+
+.children-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.children-super {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first-wife-line {
+  width: calc(50% + 22.5rpx + 50rpx);
+  margin-left: calc(50% - 22.5rpx - 50rpx);
+}
+
+.first-line {
+  width: calc(50% + 2rpx);
+  margin-left: calc(50% - 2rpx);
+}
+
+.last-wife-line {
+  width: calc(50% - 22.5rpx - 46rpx);
+  margin-right: calc(50% + 22.5rpx + 46rpx);
+}
+
+.last-line {
+  width: calc(50% + 2rpx);
+  margin-right: calc(50% - 2rpx);
+}
+
+.placeholder-view {
+  width: 125rpx;
+  background-color: white;
+}
