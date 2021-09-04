@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color":"#959595",
+    "borderStyle":"white",
+    "selectedColor":"#f2512e",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "/static/images/home.png",
+      "selectedIconPath": "/static/images/home-fill.png"
+    },
+    {
+      "pagePath": "pages/index/index",
+      "text": "产品",
+      "iconPath": "/static/images/stop.png",
+      "selectedIconPath": "/static/images/stop-fill.png"
+    },
+    {
+      "pagePath": "pages/index/index",
+      "text": "资讯",
+      "iconPath": "/static/images/image-text.png",
+      "selectedIconPath": "/static/images/image-text-fill.png"
+    },
+    {
+      "pagePath": "pages/index/index",
+      "text": "我的",
+      "iconPath": "/static/images/bussiness-man.png",
+      "selectedIconPath": "/static/images/bussiness-man-fill.png"
+    }
+  ]
+  }
+}
