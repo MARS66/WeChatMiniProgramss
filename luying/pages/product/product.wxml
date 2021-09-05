@@ -1,0 +1,23 @@
+<!-- 自定义顶部 -->
+<navnavbar></navnavbar>
+
+<view class="product_page">
+  <view class="tabs">
+    <view wx:for="{{tabs}}" wx:key="index" class="{{currentIndex===index?'active':''}}" bindtap="changeTab" data-index="{{index}}">{{item}}</view>
+  </view>
+  <view class="product">
+    <view wx:for="{{news}}" wx:key="index" class="hot_box" data-id="{{item.id}}" bindtap="goDetail">
+      <view class="hot_title">上海广发银行双债添利债券</view>
+      <view class="hot_info">
+        <view>
+          <view class="increase">9.36%+9.36%</view>
+          <view>近一年涨跌幅</view>
+        </view>
+        <view>
+          <view><text>90</text>天</view>
+          <view>剩余 <text>180万</text> | 低风险</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

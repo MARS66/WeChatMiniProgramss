@@ -1,0 +1,68 @@
+Page{
+  background-color: #EDEEF0;
+  color: #242424;
+  height: 100%;
+}
+.product_page{
+  height: 100%;
+}
+.tabs{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  padding:0 45rpx;
+  background-color: #fff;
+}
+.product{
+  height: calc(100% - 80rpx);
+  overflow-y: auto;
+}
+.tabs view{
+  width: 120rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	letter-spacing: 2rpx;
+}
+.tabs .active{
+  background-color: #fd6036;
+  color: #fff;
+}
+.hot_box{
+  background-color: #fff;
+  margin-top: 12rpx;
+  padding: 45rpx;
+}
+.hot_title{
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	line-height: 48rpx;
+  color: #1b1b1b;
+  padding-bottom: 20rpx;
+}
+.hot_info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: MicrosoftYaHei;
+	font-size: 24rpx;
+	line-height: 48rpx;
+	color: #959595;
+}
+.increase{
+  font-family: AvenirLTStd-Heavy;
+	font-size: 42rpx;
+	letter-spacing: -2rpx;
+	color: #fd6036;
+}
+.hot_info text{
+  font-family: AvenirLTStd-Heavy;
+	font-size: 36rpx;
+	line-height: 48rpx;
+	letter-spacing: -2rpx;
+  color: #1b1b1b;
+  padding: 0 10rpx;
+}

@@ -1,19 +1,221 @@
 /**index.wxss**/
-.userinfo {
+Page{
+  background-color: #EDEEF0;
+  color: #242424;
+}
+ 
+.swiper_box{
+  padding-top: 45rpx;
+  background-image: linear-gradient(to bottom, 
+  #EDEEF0,
+		#fff 100%);
+}
+swiper{
+  margin: 0 45rpx;
+  height: 290rpx;
+	background-color: #fd6036;
+	box-shadow: 5rpx 9rpx 30rpx 0rpx 
+		rgba(253, 96, 54, 0.4);
+	border-radius: 20rpx;
+}
+.swiper-item{
+  width: 100%;
+  height: 100%;
+}
+.swiper-item image{
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+/* nav */
+.nav{
+  padding: 45rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.nav .nav-item{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: #aaa;
+}
+.nav .nav-item image{ 
+  width: 36rpx;
+	height: 43rpx;
+}
+.nav .nav-item .nav_lable{
+  font-family: MicrosoftYaHei;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #242424;
+  padding-top: 20rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.item_box{
+  padding: 45rpx;
+  margin-top: 12rpx;
+  background-color: #fff;
+}
+/* 最新 */
+.latest{
+  display: flex;
+}
+.latest .mark{
+  white-space: nowrap;
+  width: 100rpx;
+  height: 36rpx;
+  text-align: center;
+  line-height: 36rpx;
+	border-radius: 8rpx;
+  border: solid 1rpx #fd6036;
+  font-family: MicrosoftYaHei-Bold;
+	font-size: 20rpx;
+	font-weight: normal;
+  color: #fd6036;
+  margin-right: 15rpx;
+}
+.latest text{
+  font-family: MicrosoftYaHei;
+	font-size: 26rpx;
+  line-height: 40rpx;
+	letter-spacing: 0rpx;
+	color: #1b1b1b;
+}
+.recommend{
+  padding-top: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25rpx;
+}
+.recommend image{
+  border-radius: 10rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.item_title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: MicrosoftYaHei;
+	font-size: 32rpx;
+	font-weight: bold;
+  color: #1b1b1b;
+  padding-bottom: 45rpx;
+}
+.item_title image{
+  width: 9rpx;
+  height: 16rpx;
+  margin-left: 10rpx;
+}
+.item_title .more{
+  font-family: MicrosoftYaHei;
+	font-size: 24rpx;
+	color: #959595;
+}
+
+.new_box{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #EDEEF0;
+  margin-bottom: 30rpx;
+}
+.new_box .new_item{
+  margin-right: 46rpx;
+}
+.item_box .new_box:last-child{
+  border-bottom:unset;
+  margin: 0;
+  padding: 0;
+}
+.new_box .new_item .new_title{
+  font-family: MicrosoftYaHei;
+	font-size: 26rpx;
+	line-height: 36rpx;
+  color: #1b1b1b;
+  padding-bottom: 40rpx;
+}
+.new_box .new_item .views{
+  font-family: MicrosoftYaHei;
+	font-size: 26rpx;
+	color: #959595;
+}
+.new_box image{
+  width: 224rpx;
+	background-color: #959595;
+	border-radius: 6rpx;
+}
+
+/* 基金 */
+.fund_right view{
+  font-family: MicrosoftYaHei;
+  font-size: 26rpx;
+	line-height: 36rpx;
+  color: #1b1b1b;
+}
+.new_box text{
+  font-family: MicrosoftYaHei;
+  font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+  color: #959595;
+  margin-top: 26rpx;
+}
+.fund_left{
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  margin-right: 60rpx;
+}
+.increase{
+  font-family: AvenirLTStd-Heavy;
+	font-size: 42rpx;
+	letter-spacing: -2rpx;
+	color: #fd6036;
+}
+.fund_left image{
+  width: 120rpx;
+}
+.fund_right>view{
+  line-height: 56rpx;
+}
+/* 推荐 */
+.hot_box{
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #EDEEF0;
+  margin-bottom: 30rpx;
+}
+.item_box .hot_box:last-child{
+  border-bottom:unset;
+  margin: 0;
+  padding: 0;
+}
+.hot_title{
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	line-height: 48rpx;
+  color: #1b1b1b;
+  padding-bottom: 20rpx;
+}
+.hot_info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: MicrosoftYaHei;
+	font-size: 24rpx;
+	line-height: 48rpx;
+	color: #959595;
+}
+.hot_info text{
+  font-family: AvenirLTStd-Heavy;
+	font-size: 36rpx;
+	line-height: 48rpx;
+	letter-spacing: -2rpx;
+  color: #1b1b1b;
+  padding: 0 10rpx;
 }

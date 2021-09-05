@@ -1,23 +1,100 @@
-<!--index.wxml-->
+<navnavbar title='路盈基金'></navnavbar>
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+   <!-- 轮播 --> 
+   <view class="swiper_box">
+      <swiper indicator-dots="{{indicatorDots}}" 
+        indicator-active-color="#fff" 
+        indicator-color="rgba(255, 255, 255, 0.367)"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{swipers}}" wx:key="*this">
+          <swiper-item  class="swiper-item">
+              <image src="{{item}}" mode="scaleToFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+   </view>
+  <!-- nav -->
+
+  <view class="nav">
+    <view class="nav-item" wx:for="{{navs}}" wx:key="index" bindtap="go" data-href="{{item.href}}">
+      <image src="{{item.icon}}"></image>
+      <view class="nav_lable">{{item.label}}</view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<!-- 最新快讯 -->
+  <view class="item_box">
+    <view class="latest">
+      <view class="mark">最新快讯</view>
+      <text>华夏时报西藏信托18亿信托产品提示风险。</text>
+    </view>
+    <view class="recommend">
+      <image src="../../static/images/index.png" mode="widthFix"></image>
+      <image src="../../static/images/index.png" mode="widthFix"></image>
+    </view>
+  </view>
+
+<!-- 财经资讯 -->
+<view class="item_box">
+  <view class="item_title">
+    <text>财经资讯</text>
+    <view class="more" bindtap="go" data-href="">
+       更多 <image src="../../static/images/right.png"></image>
+    </view>
+  </view>
+  <view wx:for="{{news}}" wx:key="index" class="new_box">
+    <view class="new_item">
+      <view class="new_title">{{item.text}}</view>
+      <view class="views">{{item.reads}}阅读</view>
+    </view>
+    <image src="{{item.img}}" mode="widthFix"></image>
+  </view>
+</view>
+
+
+<!-- 基金精选 -->
+  <view class="item_box">
+    <view class="item_title">
+      <text>财经资讯</text>
+      <view class="more" bindtap="go" data-href="">
+        更多 <image src="../../static/images/right.png"></image>
+      </view>
+    </view>
+    <view wx:for="{{news}}" wx:key="index" class="new_box">
+      <view class="fund_left">
+        <image src="{{item.img}}" mode="widthFix"></image>
+        <view class="content">
+          <view class="increase">+9.36%</view>
+          <text>近一年涨跌幅</text>
+        </view>
+      </view>
+      <view class="fund_right">
+        <view >精选投资知名大牌银行</view>
+        <text >民生加银鑫享债券</text>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 推荐产品 -->
+  <view class="item_box">
+    <view class="item_title">
+      <text>财经资讯</text>
+      <view class="more" bindtap="go" data-href="">
+        更多 <image src="../../static/images/right.png"></image>
+      </view>
+    </view>
+    <view wx:for="{{news}}" wx:key="index" class="hot_box">
+       <view class="hot_title">上海广发银行双债添利债券</view>
+      <view class="hot_info">
+        <view>
+          <view class="increase">+9.36%</view>
+          <view>近一年涨跌幅</view>
+        </view>
+        <view>
+          <view><text>90</text>天</view>
+          <view>剩余 <text>180</text>万 | 低风险</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

@@ -1,0 +1,111 @@
+<!-- 自定义顶部 -->
+<navnavbar></navnavbar>
+<nav-back inner-text="上海广发银行双债添利债券"></nav-back>
+<view class="container">
+<!-- 概要 -->
+  <view class="item_box">
+    <view class="interest_box">
+      <view class="text">年化率益率</view>
+      <view class="interest">8.5%-9.5%</view>
+    </view>
+    <!-- 进度条 -->
+    <view class="progress-box">
+      <view class="progress-percent">56%</view>
+      <progress percent="80" color="#fd6036" backgroundColor="#e5e5e5"  stroke-width="3" />
+    </view>
+    <view class="summary">
+      <view class="summary-item">
+          <text>投资期限</text>
+          <view>180天</view>
+      </view>
+      <view class="line"></view>
+      <view class="summary-item">
+          <text>项目总额</text>
+          <view>300,000元</view>
+      </view>
+      <view class="line"></view>
+      <view class="summary-item">
+          <text>剩余可投</text>
+          <view>300,000元</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="item_box">
+    <view class="condition">
+      <view class="condition_item">
+        <view class="label">发布时间</view>
+        <text>2020-12-09</text>
+       </view>
+       <view class="condition_item">
+        <view class="label">还款方式</view>
+        <text>到期还本息</text>
+       </view>
+       <view class="condition_item">
+        <view class="label">起息时间</view>
+        <text>募集成功日起息</text>
+       </view>
+       <view class="condition_item">
+        <view class="label">买入规则</view>
+        <text>100元起投</text>
+       </view>
+
+       <view class="condition_item">
+        <view class="label">投资记录</view>
+        <view class="btn">
+          <view>18人</view>
+          <image class="right" src="/static/images/back.png"></image>
+        </view>
+       </view>
+       <view class="condition_item">
+        <view class="label">还款来源</view>
+        <view class="btn">
+          <image class="right" src="/static/images/back.png"></image>
+        </view>
+       </view>
+    </view>
+  </view>
+
+<!-- 产品信息 -->
+  <view class="product_info">
+    <view class="title">
+      <view class="text">产品信息</view>
+    </view>
+    <view class="content condition">
+      <view class="condition_item" wx:for="{{product_info}}" wx:key="index">
+        <view class="label">发布时间</view>
+        <text>2020-12-09</text>
+      </view>
+    </view>
+  </view>
+  <!-- 文本描述 -->
+  <view class="text_box">
+    <view class="title">
+      <image src="/static/images/drap.png"></image>
+      <view class="text">产品信息</view>
+    </view>
+    <view class="content">
+      <text>1、融资人大冶市振恒城市发展投资有限公司(AA)总资产44 1.92亿元，实控人为大冶市人民政府国有资产监督管理局，是大冶市最重要的基础设施建设投融资主体之一，目前债券存续规模27.2亿元，还款能力强
+
+    2、担保人湖北大冶湖高新技术产业投资有限公司(AA)总资产201.43亿元，实控人为大冶经济技术开发区管理委员会，是黄石大冶湖国家高新技术产业开发区主要的城市基础设施建设主体，目前债券存续规模40亿元，融资渠道广泛畅通；3.2020年，黄石市实现地区生产总值(GDP) 1641.32亿元，武汉城市圈副中心城市，长江中游城市群重要成员，大冶市实现地区生产总值(GDP)约647亿元，处湖北"冶金走廊"腹地及武汉城市经济圈内，是武汉城市圈冶金建材走廊的重要支点。
+      </text>
+    </view>
+   </view>
+   
+  <!-- 预览材料 -->
+  <view class="text_box">
+    <view class="title">
+      <image src="/static/images/drap.png"></image>
+      <view class="text">预览材料</view>
+    </view>
+    <view class="content">
+      <view class="flie_item">
+        <view class="name">
+          <image class="pdf" src="/static/images/pdf.png"></image>
+          <text>1.简版-国民信托-大冶振恒.pdf</text>
+        </view>
+        <image class="right" src="/static/images/back.png"></image>
+      </view>
+    </view>
+   </view>
+</view>

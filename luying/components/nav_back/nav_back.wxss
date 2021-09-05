@@ -1,0 +1,23 @@
+.nav-back{
+  height: 80rpx;
+  padding: 0 45rpx;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #DCDCDC;
+  background-color: #fff;
+}
+.nav-back image{
+  width: 18rpx;
+  height: 32rpx;
+  transform: rotate(180deg);
+  margin-right: 34rpx;
+}
+.nav-back text{
+  font-family: MicrosoftYaHei;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+	color: #1b1b1b;
+}
