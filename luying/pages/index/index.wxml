@@ -1,12 +1,82 @@
-<!--index.wxml-->
-<navigation-bar></navigation-bar>
+<navnavbar title='路盈基金'></navnavbar>
 <view class="container">
-  <swiper class="swiper"  indicator-dots="{{indicatorDots}}"
+   <!-- 轮播 --> 
+   <view class="swiper_box">
+      <swiper indicator-dots="{{indicatorDots}}" 
+        indicator-active-color="#fff" 
+        indicator-color="rgba(255, 255, 255, 0.367)"
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{background}}" wx:key="*this">
-          <swiper-item>
-           <image src="{{item}}" mode="aspectFill"></image>
+        <block wx:for="{{swipers}}" wx:key="*this">
+          <swiper-item  class="swiper-item">
+              <image src="{{item}}" mode="scaleToFill"></image>
           </swiper-item>
         </block>
-  </swiper>
+      </swiper>
+   </view>
+  <!-- nav -->
+
+  <view class="nav">
+    <view class="nav-item" wx:for="{{navs}}" wx:key="index" bindtap="go" data-href="{{item.href}}">
+      <image src="{{item.icon}}"></image>
+      <view class="nav_lable">{{item.label}}</view>
+    </view>
+  </view>
+<!-- 最新快讯 -->
+  <view class="item_box">
+    <view class="latest">
+      <view class="mark">最新快讯</view>
+      <text>华夏时报西藏信托18亿信托产品提示风险。</text>
+    </view>
+    <view class="recommend">
+      <image src="../../static/images/index.png" mode="widthFix"></image>
+      <image src="../../static/images/index.png" mode="widthFix"></image>
+    </view>
+  </view>
+
+<!-- 财经资讯 -->
+<view class="item_box">
+  <view class="item_title">
+    <text>财经资讯</text>
+    <view class="more" bindtap="go" data-href="">
+       更多 <image src="../../static/images/right.png"></image>
+    </view>
+  </view>
+  <news news="{{news}}"></news>
+</view>
+
+
+<!-- 基金精选 -->
+  <view class="item_box">
+    <view class="item_title">
+      <text>财经资讯</text>
+      <view class="more" bindtap="go" data-href="">
+        更多 <image src="../../static/images/right.png"></image>
+      </view>
+    </view>
+    <view wx:for="{{news}}" wx:key="index" class="new_box">
+      <view class="fund_left">
+        <image src="{{item.img}}" mode="widthFix"></image>
+        <view class="content">
+          <view class="increase">+9.36%</view>
+          <text>近一年涨跌幅</text>
+        </view>
+      </view>
+      <view class="fund_right">
+        <view >精选投资知名大牌银行</view>
+        <text >民生加银鑫享债券</text>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 推荐产品 -->
+  <view class="item_box">
+    <view class="item_title">
+      <text>推荐产品</text>
+      <view class="more" bindtap="go" data-href="">
+        更多 <image src="../../static/images/right.png"></image>
+      </view>
+    </view>
+     <product products="{{news}}"></product>
+  </view>
 </view>

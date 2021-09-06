@@ -1,0 +1,33 @@
+Page{
+  background-color: #EDEEF0;
+  color: #242424;
+  height: 100%;
+}
+.product_page{
+  height: 100%;
+}
+.tabs{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  padding:0 45rpx;
+  background-color: #fff;
+}
+.product{
+  height: calc(100% - 80rpx);
+  overflow-y: auto;
+}
+.tabs view{
+  width: 120rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	letter-spacing: 2rpx;
+}
+.tabs .active{
+  background-color: #fd6036;
+  color: #fff;
+}

@@ -1,0 +1,56 @@
+/* pages/mine/mine.wxss */
+.user_info_box{
+  height: 270rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 50rpx;
+  background-color: #f2512e;
+}
+.user_info{
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+.userinfo-nickname{
+  font-family: MicrosoftYaHei;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+	color: #ffffff;
+}
+.userinfo-avatar{
+  width: 126rpx;
+	height: 126rpx;
+	background-color: #ffffff;
+  border: solid 5rpx #fff;
+  border-radius: 50%;
+}
+.list-item{
+  box-sizing: border-box;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 45rpx;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.55);
+}
+.list-item .name{
+  display: flex;
+  align-items: center;
+  gap: 25rpx;
+}
+.list-item .name text{
+  font-family: MicrosoftYaHei;
+  font-size: 28rpx;
+  color: #1b1b1b;
+}
+.list-item .name image{
+  width: 36rpx;
+	height: 36rpx;
+}
+.settings{
+  margin-top: 12rpx;
+}

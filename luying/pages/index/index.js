@@ -4,15 +4,67 @@ const app = getApp()
 
 Page({
   data: {
-    background: ['/static/images/图层 9.png', '/static/images/图层 9.png', '/static/images/图层 9.png'],
-    indicatorDots: true,
-    vertical: false,
-    autoplay: false,
-    interval: 2000,
-    duration: 500
-    },
-  onLoad() {
-
+    indicatorDots:true,
+    autoplay:true,
+    interval:3000,
+    duration:300,
+    swipers:[
+      '../../static/images/图层 9.png',
+      '../../static/images/图层 9.png',
+      '../../static/images/图层 9.png'
+    ],
+    navs:[
+      {
+        icon:'../../static/images/jinpai.png',
+        label:'金牌推荐',
+        href:'2'
+      },
+      {
+        icon:'../../static/images/anquan.png',
+        label:'风控措施',
+        href:'2'
+      },
+      {
+        icon:'../../static/images/Iconly-Bold-Chat.png',
+        label:'实时咨询',
+        href:'2'
+      },
+      {
+        icon:'../../static/images/us.png',
+        label:'关于我们',
+        href:'2'
+      },
+    ],
+    news:[
+      {
+        text:'合法化覅和撒酒疯和i啊的繁华放大时间和',
+        img:'../../static/images/图层 25.png',
+        reads:'1561'
+      },
+      {
+        text:'合法化覅和撒酒疯和i啊的繁华放大时间和',
+        img:'../../static/images/图层 25.png',
+        reads:'1561'
+      },
+    ],
   },
-
+  onLoad() {
+  },
+  // 跳转路由
+  go({currentTarget:{dataset: {href}}}){
+    console.log(href);
+  },
+  getUserProfile(e) {
+    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+    wx.getUserProfile({
+      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        console.log(res)
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    })
+  },
 })

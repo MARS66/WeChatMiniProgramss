@@ -1,0 +1,22 @@
+<!--pages/myProduct/myProduct.wxml-->
+<navnavbar></navnavbar>
+<nav-back inner-text="我的产品"></nav-back>
+<navigator class="product" wx:for="{{products}}" url="/pages/detail/detail?id={{item.id}}" wx:key="index">
+  <view class="name">苏州彰慈银行存单利息2021年1号资产</view>
+  <view class="info">
+    <view class="info_item">
+      <view class="key">金额</view>
+      <view class="value"> 30<text>万</text></view>
+      <view class="text">购买时间：2021年9月2日</view>
+    </view>
+    <view class="info_item">
+      <view class="key">剩余金额</view>
+      <view class="value">30<text>万</text></view>
+      <view class="text">到期日：还剩160天</view>
+    </view>
+    <view class="info_item">
+      <view class="key">年化率</view>
+      <view class="increase">+9.36%</view>
+    </view>
+  </view>
+</navigator>

@@ -1,1 +1,9 @@
-
+/**app.wxss**/
+Page{
+  background-color: #EDEEF0;
+  color: #242424;
+}
+.right{
+  width: 16rpx;
+	height: 28rpx;
+}

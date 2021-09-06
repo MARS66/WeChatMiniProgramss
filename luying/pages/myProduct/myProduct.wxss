@@ -1,0 +1,59 @@
+/* pages/myProduct/myProduct.wxss */
+.product{
+  margin-top: 12rpx;
+  padding: 45rpx;
+  background-color: #fff;
+}
+.product .name{
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+  color: #1b1b1b;
+  padding-bottom: 45rpx;
+}
+.info{
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+.info_item{
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  text-align: start;
+}
+.info_item .key{
+  font-family: MicrosoftYaHei;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 48rpx;
+	letter-spacing: -1rpx;
+	color: #959595;
+}
+.info_item .value{
+  font-family: AvenirLTStd-Heavy;
+	font-size: 36rpx;
+	font-weight: 600;
+	letter-spacing: -2rpx;
+	color: #1b1b1b;
+}
+.info_item .value text{
+  font-family: MicrosoftYaHei-Bold;
+	font-size: 24rpx;
+	font-weight: 600;
+	letter-spacing: -1rpx;
+	color: #1b1b1b;
+}
+.info_item .text{
+  font-family: MicrosoftYaHei;
+	font-size: 18rpx;
+	letter-spacing: -1rpx;
+	color: #959595;
+}
+.info_item .increase{
+  font-family: AvenirLTStd-Heavy;
+	font-size: 36rpx;
+	font-weight: 600;
+	letter-spacing: -2rpx;
+	color: #fd6036;
+}

@@ -1,0 +1,6 @@
+/* pages/article/article.wxss */
+.article{
+  margin-top: 12rpx;
+  padding: 45rpx;
+  background-color: #fff;
+}

@@ -1,0 +1,6 @@
+<!-- 自定义顶部 -->
+<navnavbar></navnavbar>
+<nav-back inner-text="文章通用"></nav-back>
+<view class="article">
+  <rich-text></rich-text>
+</view>

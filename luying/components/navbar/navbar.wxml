@@ -1,0 +1,7 @@
+<!--components/navbar/navbar.wxml-->
+<view class="navbar" >
+    <view class="navbar_content" style="height:{{customNavBarHeight}}px; background-color: {{background}};" >
+      <view class="title"  style="height:{{customTextHight}}px;padding-bottom:{{customTextpadding}}px;color:{{color}}">{{title}}</view>
+    </view>
+    <view style="height:{{customNavBarHeight}}px;"></view>
+</view>

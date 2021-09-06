@@ -1,0 +1,47 @@
+.user_info_box{
+  margin-top: 12rpx;
+  background-color: #fff;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+}
+.user_info_box{
+  height: 270rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 45rpx;
+}
+.userinfo-avatar{
+  width: 126rpx;
+	height: 126rpx;
+	background-color: #5F6670;
+  border-radius: 50%;
+}
+.list{
+  margin-top: 12rpx;
+}
+.list-item{
+  box-sizing: border-box;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 45rpx;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.55);
+}
+.list-item .value{
+  display: flex;
+  align-items: center;
+  gap: 25rpx;
+  color: #959595;
+}
+.list-item {
+  font-family: MicrosoftYaHei;
+  font-size: 28rpx;
+  color: #1b1b1b;
+}
+.list-item .name image{
+  width: 36rpx;
+	height: 36rpx;
+}

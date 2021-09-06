@@ -1,0 +1,4 @@
+
+<navnavbar></navnavbar>
+<nav-back inner-text="我的足迹"></nav-back>
+<product products='{{conditions}}' margin='{{true}}' canDelete="{{true}}"></product>

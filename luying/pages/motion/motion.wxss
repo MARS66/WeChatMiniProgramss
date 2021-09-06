@@ -1,0 +1,4 @@
+/* pages/motion/motion.wxss */
+.top_img{
+  width: 100%;
+}

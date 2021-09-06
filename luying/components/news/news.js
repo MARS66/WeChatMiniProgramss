@@ -1,10 +1,17 @@
-// components/navigationBa/navigationBa.js
+// components/news/news.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    news:{
+      type:Array,
+      value:[]
+    },
+    margin:{
+      type:Boolean,
+      value:false,
+    }
   },
 
   /**
@@ -13,7 +20,6 @@ Component({
   data: {
 
   },
-
   /**
    * 组件的方法列表
    */
