@@ -38,12 +38,12 @@ Page({
       {
         icon:'/static/images/set.png',
         text: '设置',
-        url:''
+        url:'/pages/settings/settings'
       },
       {
         icon:'/static/images/about.png',
         text:'关于',
-        url:''
+        url:'/pages/about/about'
       },
     ]
   },

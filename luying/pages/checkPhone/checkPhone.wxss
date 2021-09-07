@@ -1,0 +1,45 @@
+/* pages/checkPhone/checkPhone.wxss */
+.form_body{
+  margin-top: 12rpx;
+}
+.button{
+  margin-top: 45rpx;
+  padding: 0;
+  width: 100vw !important;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  border-radius: unset;
+  background-color: #fd6036;
+  color: #fff;
+}
+.form_item{
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  padding: 0 45rpx;
+  gap: 30rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #f5f4f4;
+}
+.form_item input{
+  flex: 1;
+  font-family: MicrosoftYaHei;
+	font-size: 32rpx;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+	color: #1b1b1b;
+}
+.form_item image{
+  width: 34rpx;
+	height: 38rpx;
+}
+.getcode{
+  font-family: MicrosoftYaHei;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+	color: #fd6036;
+}

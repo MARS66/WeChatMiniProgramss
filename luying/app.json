@@ -1,6 +1,13 @@
 {
   "pages": [
     "pages/mine/mine",
+    "pages/protocol/protocol",
+    "pages/about/about",
+    "pages/updatePassword/updatePassword",
+    "pages/checkPhone/checkPhone",
+    "pages/settings/settings",
+    "pages/successful/successful",
+    "pages/reserve/reserve",
     "pages/customerService/customerService",
     "pages/index/index",
     "pages/collection/collection",

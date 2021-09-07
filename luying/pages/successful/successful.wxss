@@ -1,0 +1,54 @@
+/* pages/successful/successful.wxss */
+page{
+  background-color: #fff;
+}
+.content{
+  border-top: 12rpx solid #EDEEF0;
+  background-color: #fff;
+  padding:150rpx 45rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 36rpx;
+	letter-spacing: 0rpx;
+	color: #1b1b1b;
+}
+.success{
+  width: 137rpx;
+	height: 137rpx;
+}
+.title{
+  font-family: MicrosoftYaHei;
+	font-size: 36rpx;
+	font-weight: 600;
+	line-height: 80rpx;
+	letter-spacing: 0rpx;
+	color: #1b1b1b;
+}
+.price{
+  font-weight: 600;
+	color: #fd6036;
+}
+.btn-area{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 20rpx;
+}
+.btn-area navigator{
+  margin-top: 64rpx;
+  width: 220rpx;
+  height: 68rpx;
+  text-align: center;
+  line-height: 68rpx;
+  background-color: #fd6036;
+  border-radius: 10rpx;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	font-weight: 600;
+	color: #ffffff;
+}

@@ -1,0 +1,58 @@
+<!--pages/reserve/reserve.wxml-->
+<navnavbar></navnavbar>
+<nav-back inner-text="预约"></nav-back>
+
+<form catchsubmit="formSubmit">
+  <view class="reserve_info">
+    <view class="form_item">
+      <view class="label">预约金额</view>
+      <input class="weui-input" name="money" placeholder="请输入预约金额(万)" />
+    </view>
+    <view  class="form_item">
+      <view class="label">投资人姓名</view>
+      <input class="weui-input" name="userName" disabled value="{{'张小类'}}" />
+    </view>
+  </view>
+  
+  <view class="step_box">
+    <view class="title">
+        <image src="/static/images/drap.png"></image>
+        <view class="text">产品信息</view>
+    </view>
+    <view class="step">
+      <view class="step-item">
+        <view class="label">预约</view>
+        <view class="text">
+          <view>实名预约产品</view>
+          <view>额度确认、合同寄送给您</view>
+        </view>
+      </view>
+      
+      <view class="step-item">
+        <view class="label">打款</view>
+        <view class="text">
+          <view>进行打款、签署合同、生成订单</view>
+          <view class="warn">个人提供资料：身份证、银行卡、打款凭条</view>
+          <view class="warn">机构提供资料：法人身份证、营业执照、打款凭条、开户许可证</view>
+        </view> 
+      </view>
+           
+      <view class="step-item">
+        <view class="label">成立</view>
+        <view class="text">
+          <view>产品成立、寄回合同至壹财富</view>
+        </view> 
+      </view>
+
+      <view class="step-item">
+        <view class="label">存续</view>
+        <view class="text">
+          <view>确认书发放、后续通知产品派息与兑付</view>
+        </view> 
+      </view>
+    </view>
+  </view>
+<view class="btn-area">
+  <button  formType="submit" class="submit">提交</button>
+</view>
+</form>

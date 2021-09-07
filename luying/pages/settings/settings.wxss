@@ -1,0 +1,22 @@
+/* pages/settings/settings.wxss */
+navigator{
+  margin-top: 12rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120rpx;
+  line-height: 120rpx;
+  padding: 0 45rpx;
+}
+.button{
+  margin-top: 45rpx;
+  padding: 0;
+  width: 100vw !important;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  border-radius: unset;
+  background-color: #fd6036;
+  color: #fff;
+}

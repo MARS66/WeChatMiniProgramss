@@ -1,0 +1,9 @@
+<!--pages/settings/settings.wxml-->
+<navnavbar></navnavbar>
+<nav-back inner-text="设置"></nav-back>
+<navigator url="/pages/checkPhone/checkPhone"> 
+  <view class="label">修改密码</view>
+  <image class="right" src="/static/images/back.png"></image>
+</navigator>
+
+<button class="button" hover-class="navigator-hover">安全退出</button>

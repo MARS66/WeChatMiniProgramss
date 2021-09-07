@@ -1,0 +1,119 @@
+/* pages/reserve/reserve.wxss */
+.reserve_info{
+  margin: 12rpx 0;
+  background-color: #ffffff;
+}
+.form_item{
+  padding:0 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80rpx;
+  border-bottom: 1px solid #dddddd;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 80rpx;
+	letter-spacing: 0rpx;
+	color: #1b1b1b;
+}
+.form_item:last-child{
+  border: unset;
+}
+.form_item input{
+  text-align: end;
+}
+
+.step_box{
+  background-color: #fff;
+}
+.step_box .title{
+  height: 80rpx;
+  padding: 0 45rpx;
+  display: flex;
+  align-items: center;
+  gap: 25rpx;
+  border-bottom: 1px solid #DCDCDC;
+}
+.step_box .title image{
+  width: 24rpx;
+	height: 24rpx;
+}
+.step_box .title .text{
+  font-family: MicrosoftYaHei;
+  font-weight: bold;
+	font-size: 32rpx;
+	color: #1b1b1b;
+}
+.step{
+  padding: 60rpx 80rpx;
+}
+.step-item{
+  display: flex;
+}
+.step-item .label{
+  flex: unset;
+  padding-right: 38rpx;
+  margin-right: 38rpx;
+  border-right: 2rpx solid #fd6036;
+  display: flex;
+  align-items: center;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+  color: #1b1b1b;
+  position: relative;
+}
+.step-item .label::after{
+  content: '';
+  width: 18rpx;
+	height: 18rpx;
+  background-color: #fd6036;
+  border-radius: 50%;
+  position: absolute;
+  right: -10rpx;
+}
+.step-item  .text{
+  flex: 1;
+  padding: 36rpx 0;
+  font-family: MicrosoftYaHei;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 36rpx;
+	letter-spacing: 0rpx;
+	color: #959595;
+}
+.step-item  .warn{
+  font-family: MicrosoftYaHei;
+	font-size: 16rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 24rpx;
+	letter-spacing: 0rpx;
+	color: #fd6036;
+}
+.btn-area{
+  height: 120rpx;
+}
+.submit {
+  position: fixed;
+  bottom: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  height: 120rpx;
+  border-radius: unset;
+  line-height: 120rpx !important;
+  background-color: #fd6036;
+  color: #fff;
+  font-family: MicrosoftYaHei;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 36rpx;
+	letter-spacing: 0rpx;
+	color: #ffffff;
+}
