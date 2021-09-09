@@ -16,17 +16,17 @@
   <!-- nav -->
 
   <view class="nav">
-    <view class="nav-item" wx:for="{{navs}}" wx:key="index" bindtap="go" data-href="{{item.href}}">
+    <navigator class="nav-item" wx:for="{{navs}}" wx:key="index" url="{{item.href}}">
       <image src="{{item.icon}}"></image>
       <view class="nav_lable">{{item.label}}</view>
-    </view>
+    </navigator>
   </view>
 <!-- 最新快讯 -->
   <view class="item_box">
-    <view class="latest">
+    <navigator class="latest" url="/pages/news/news">
       <view class="mark">最新快讯</view>
       <text>华夏时报西藏信托18亿信托产品提示风险。</text>
-    </view>
+    </navigator>
     <view class="recommend">
       <image src="../../static/images/index.png" mode="widthFix"></image>
       <image src="../../static/images/index.png" mode="widthFix"></image>
@@ -37,9 +37,9 @@
 <view class="item_box">
   <view class="item_title">
     <text>财经资讯</text>
-    <view class="more" bindtap="go" data-href="">
+    <navigator  class="more" url="/pages/news/news" open-type="switchTab">
        更多 <image src="../../static/images/right.png"></image>
-    </view>
+    </navigator>
   </view>
   <news news="{{news}}"></news>
 </view>
@@ -48,12 +48,12 @@
 <!-- 基金精选 -->
   <view class="item_box">
     <view class="item_title">
-      <text>财经资讯</text>
-      <view class="more" bindtap="go" data-href="">
+      <text>基金精选</text>
+      <navigator class="more" url="/pages/product/product" open-type="switchTab">
         更多 <image src="../../static/images/right.png"></image>
-      </view>
+      </navigator>
     </view>
-    <view wx:for="{{news}}" wx:key="index" class="new_box">
+    <navigator wx:for="{{news}}" wx:key="index" class="new_box"  url="/pages/detail/detail?id={{item.id}}">
       <view class="fund_left">
         <image src="{{item.img}}" mode="widthFix"></image>
         <view class="content">
@@ -65,7 +65,7 @@
         <view >精选投资知名大牌银行</view>
         <text >民生加银鑫享债券</text>
       </view>
-    </view>
+    </navigator>
   </view>
 
 
@@ -73,9 +73,9 @@
   <view class="item_box">
     <view class="item_title">
       <text>推荐产品</text>
-      <view class="more" bindtap="go" data-href="">
+      <navigator class="more" url="/pages/product/product" open-type="switchTab">
         更多 <image src="../../static/images/right.png"></image>
-      </view>
+      </navigator>
     </view>
      <product products="{{news}}"></product>
   </view>

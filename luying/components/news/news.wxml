@@ -1,8 +1,8 @@
 <!--components/news/news.wxml-->
-<view wx:for="{{news}}" wx:key="index" class=" {{margin?'margin':'new_box'}}">
+<navigator wx:for="{{news}}" wx:key="index" class=" {{margin?'margin':'new_box'}}" url="/pages/article/article?id={{item.id}}">
     <view class="new_item">
       <view class="new_title">{{item.text}}</view>
       <view class="views">{{item.reads}}阅读</view>
     </view>
     <image class="image" src="{{item.img}}" mode="widthFix"></image>
-  </view>
+  </navigator>

@@ -9,19 +9,43 @@ Page({
   },
 
   /**
+   * 分享当前页面
+   */
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '自定义转发标题'
+        })
+      }, 2000)
+    })
+    return {
+      title: '自定义转发标题',
+      path: '/page/user?id=123',
+      promise 
+    }
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-
+  // 约定
+  book(){
+    wx.navigateTo({
+      url: '/pages/reserve/reserve',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
   },
+  shareProduct(){
 
+  },
   /**
    * 生命周期函数--监听页面显示
    */

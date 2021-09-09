@@ -11,7 +11,7 @@
   </view>
 </view>
 <view class="phone_box">
-  <view class="phone_num">135 6666 8888</view>
+  <text catchtap="callPone" class="phone_num" user-select='{{true}}'>{{phoneNumber}}</text>
   <view class="tip">您也可以拨打客服热线</view>
 </view>
 

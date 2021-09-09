@@ -128,10 +128,10 @@
 
     <view class="operation_box"> 
       <view class="operation">
-        <view class="btn">
+        <navigator class="btn" url="/pages/customerService/customerService">
           <image src="/static/images/service.png"></image>
           <text>客服</text>
-        </view>
+        </navigator>
         <view class="btn active">
           <view>
             <image wx:if="{{false}}" src="/static/images/favorites.png"></image>
@@ -139,11 +139,11 @@
           </view>
           <text>收藏</text>
         </view>
-        <view class="btn">
+        <button open-type="share" class="btn" catchtap="shareProduct">
           <image src="/static/images/share.png"></image>
           <text>分享</text>
-        </view>
-        <view class="button">立即预约</view>
+        </button>
+        <view class="button" catchtap="book">立即预约</view>
       </view>
     </view>
 </view>

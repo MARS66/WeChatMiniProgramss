@@ -6,23 +6,23 @@ Page({
    */
   data: {
     
-    
+    phoneNumber:'1365656656',
     settings:[
       {
         text: '使用协议',
-        url:'/pages/history/history'
+        url:'/pages/article/article'
       },
       {
         text:'关于我们',
-        url:'pages/customerService/customerService'
-      },
-      {
-        text:'客服电话',
-        value:'13656566565'
+        url:'pages/article/article'
       },
     ]
   },
-
+  callPhone(){
+    wx.makePhoneCall({
+      phoneNumber: this.data.phoneNumber,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

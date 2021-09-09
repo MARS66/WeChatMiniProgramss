@@ -17,22 +17,22 @@ Page({
       {
         icon:'../../static/images/jinpai.png',
         label:'金牌推荐',
-        href:'2'
+        href:'/pages/motion/motion'
       },
       {
         icon:'../../static/images/anquan.png',
         label:'风控措施',
-        href:'2'
+        href:'/pages/article/article'
       },
       {
         icon:'../../static/images/Iconly-Bold-Chat.png',
         label:'实时咨询',
-        href:'2'
+        href:'/pages/customerService/customerService'
       },
       {
         icon:'../../static/images/us.png',
         label:'关于我们',
-        href:'2'
+        href:'/pages/about/about'
       },
     ],
     news:[

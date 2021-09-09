@@ -31,7 +31,7 @@ Page({
       {
         icon:'/static/images/kf.png',
         text:'我的客服',
-        url:'pages/customerService/customerService'
+        url:'/pages/customerService/customerService'
       },
     ],
     settings:[
