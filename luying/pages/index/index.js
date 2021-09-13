@@ -1,5 +1,6 @@
 // index.js
 // 获取应用实例
+import { getIndex } from "../../apis/api";
 const app = getApp()
 
 Page({
@@ -48,7 +49,14 @@ Page({
       },
     ],
   },
-  onLoad() {
+  myPromise () {
+    return new Promise(resolve => {
+    setTimeout(() => resolve("hello async/await"), 1000);
+  });
+  },
+  async onLoad() {
+   const res = await getIndex();
+   console.log(666,res);
   },
   // 跳转路由
   go({currentTarget:{dataset: {href}}}){
