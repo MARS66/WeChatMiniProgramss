@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/article/article",
     "pages/mine/mine",
     "pages/detail/detail",
     "pages/protocol/protocol",
@@ -17,7 +18,6 @@
     "pages/myProduct/myProduct",
     "pages/userInfo/userInfo",
     "pages/news/news",
-    "pages/article/article",
     "pages/motion/motion",
     "pages/product/product"
   ],

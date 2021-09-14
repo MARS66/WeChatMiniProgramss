@@ -2,9 +2,7 @@
 import config from '../config.js'
 class Axions {
   constructor() {
-    this._header = {
-      'content-type': 'application/json'
-    }
+    this._header = null
   }
 
 /**
@@ -21,26 +19,29 @@ class Axions {
    */
   request({url, data, header, method}) {
     return new Promise((resolve, reject) => {
+      wx.showLoading({
+        title: '拼命加载中...',
+      })
       wx.request({
         url: config.baseUrl + url,
         data,
         header,
         method,
-        success: (res => {
-          if (res.statusCode === 200) {
-            //200: 服务端业务处理正常结束
-            resolve(res)
+        success: (({statusCode,data:{code,msg,data:resDta}}) => {
+          if (statusCode === 200 && code===1) {
+            resolve(resDta)
+            wx.hideLoading();
           } else {
-            //其它错误，提示用户错误信息
             if (this.setErrorHandler != null) {
-            //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
-              this.setErrorHandler(res)
+              wx.hideLoading();
+              this.setErrorHandler({msg:statusCode !== 200? "网络错误请稍后重试！":msg})
             }
             reject(res)
           }
         }),
         fail: (res => {
           if (this.setErrorHandler != null) {
+            wx.hideLoading();
             this.setErrorHandler({msg:'网络错误请稍后重试！'})
           }
           reject(res)

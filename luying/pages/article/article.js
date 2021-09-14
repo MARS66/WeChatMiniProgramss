@@ -1,18 +1,29 @@
 // pages/article/article.js
+import { getArticle } from "../../apis/api";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    title:'',
+    node:'',
+    titles:{
+      gywm:'关于我们',
+      syxy:'使用协议',
+      yszc:'隐私政策',
+      fkcs:'风控措施',
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  async onLoad ({api}) {
+  const vm =this;
+   this.setData({title:vm.data.titles[api]})
+   const data = await getArticle(api)
+   this.setData({node:data[api] })
   },
 
   /**

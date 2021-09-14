@@ -2,17 +2,17 @@
 
   <view wx:for="{{products}}" wx:key="index" class=" {{margin?'margin':'product_box'}}" data-id="{{item.id}}" bindtap="goDetail">
     <view class="product_title">
-      <text>上海广发银行双债添利债券</text> 
-      <image wx:if="{{canDelete}}" class="delete" data-id="{{item.id}}" catchtap="delete"   src="/static/images/deleted.png"></image>
+      <text>{{item.title}}</text> 
+      <image wx:if="{{canDelete}}" class="delete" data-id="{{item.id}}" catchtap="delete"   src="{{item.image}}"></image>
     </view>
     <view class="product_info">
       <view>
-        <view class="increase">+9.36%</view>
+        <view class="increase">{{item.nhl}}</view>
         <view>近一年涨跌幅</view>
       </view>
       <view>
-        <view><text class="text">90</text>天</view>
-        <view>剩余 <text class="text">180</text>万 | 低风险</view>
+        <view><text class="text">{{item.tzqx}}</text>天</view>
+        <view>剩余 <text class="text">{{item.xmze_text}}</text>万 | {{item.fx}}</view>
       </view>
     </view>
     <view wx:if="{{isBooked}}" class="booked_info">我的预约金额：<text class="unit">20万元</text></view>

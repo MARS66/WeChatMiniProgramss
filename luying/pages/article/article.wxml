@@ -1,6 +1,6 @@
 <!-- 自定义顶部 -->
 <navnavbar></navnavbar>
-<nav-back inner-text="文章通用"></nav-back>
+<nav-back inner-text="{{title}}"></nav-back>
 <view class="article">
-  <rich-text></rich-text>
+  <rich-text nodes="{{node}}"></rich-text>
 </view>

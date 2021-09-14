@@ -1,6 +1,9 @@
 /* pages/article/article.wxss */
+page{
+  background-color: #fff;
+}
 .article{
-  margin-top: 12rpx;
+  border-top: 12rpx solid #EDEEF0;
   padding: 45rpx;
   background-color: #fff;
 }

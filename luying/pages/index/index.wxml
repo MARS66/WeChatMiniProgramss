@@ -6,9 +6,9 @@
         indicator-active-color="#fff" 
         indicator-color="rgba(255, 255, 255, 0.367)"
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{swipers}}" wx:key="*this">
+        <block wx:for="{{indexData.lbt}}" wx:key="*this">
           <swiper-item  class="swiper-item">
-              <image src="{{item}}" mode="scaleToFill"></image>
+              <image src="{{item.image}}" mode="scaleToFill"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -16,7 +16,7 @@
   <!-- nav -->
 
   <view class="nav">
-    <navigator class="nav-item" wx:for="{{navs}}" wx:key="index" url="{{item.href}}">
+    <navigator class="nav-item" wx:for="{{navs}}" wx:key="index" url="{{item.href}}?api={{item.api}}">
       <image src="{{item.icon}}"></image>
       <view class="nav_lable">{{item.label}}</view>
     </navigator>
@@ -41,7 +41,7 @@
        更多 <image src="../../static/images/right.png"></image>
     </navigator>
   </view>
-  <news news="{{news}}"></news>
+  <news news="{{indexData.cmc}}"></news>
 </view>
 
 
@@ -53,17 +53,17 @@
         更多 <image src="../../static/images/right.png"></image>
       </navigator>
     </view>
-    <navigator wx:for="{{news}}" wx:key="index" class="new_box"  url="/pages/detail/detail?id={{item.id}}">
+    <navigator wx:for="{{indexData.jjjx}}" wx:key="index" class="new_box"  url="/pages/detail/detail?id={{item.id}}">
       <view class="fund_left">
-        <image src="{{item.img}}" mode="widthFix"></image>
+        <image src="{{item.image}}" mode="widthFix"></image>
         <view class="content">
-          <view class="increase">+9.36%</view>
+          <view class="increase">{{item.jynzdf}}</view>
           <text>近一年涨跌幅</text>
         </view>
       </view>
       <view class="fund_right">
-        <view >精选投资知名大牌银行</view>
-        <text >民生加银鑫享债券</text>
+        <view >{{item.cpmc}}</view>
+        <text >{{item.title}}</text>
       </view>
     </navigator>
   </view>
@@ -77,6 +77,6 @@
         更多 <image src="../../static/images/right.png"></image>
       </navigator>
     </view>
-     <product products="{{news}}"></product>
+     <product products="{{indexData.tjcp}}"></product>
   </view>
 </view>

@@ -1,4 +1,5 @@
 // pages/about/about.js
+import { getKF } from "../../apis/api";
 Page({
 
   /**
@@ -6,76 +7,35 @@ Page({
    */
   data: {
     
-    phoneNumber:'1365656656',
+    kfInfo:{
+      kfdh:'13656566565',
+      kfwx:'/static/images/scancode.png',
+    },
     settings:[
       {
         text: '使用协议',
-        url:'/pages/article/article'
+        url:'/pages/protocol/protocol'
       },
       {
         text:'关于我们',
-        url:'pages/article/article'
+        api:'gywm',
+        url:'/pages/article/article'
       },
     ]
   },
   callPhone(){
     wx.makePhoneCall({
-      phoneNumber: this.data.phoneNumber,
+      phoneNumber: this.data.kfInfo.kfdh,
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  async onLoad(options) {
+    const data = await getKF();
+    this.setData({
+     kfInfo:data||{},
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

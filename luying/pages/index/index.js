@@ -9,6 +9,7 @@ Page({
     autoplay:true,
     interval:3000,
     duration:300,
+    indexData:{},
     swipers:[
       '../../static/images/图层 9.png',
       '../../static/images/图层 9.png',
@@ -23,6 +24,7 @@ Page({
       {
         icon:'../../static/images/anquan.png',
         label:'风控措施',
+        api:'fkcs',
         href:'/pages/article/article'
       },
       {
@@ -33,30 +35,16 @@ Page({
       {
         icon:'../../static/images/us.png',
         label:'关于我们',
-        href:'/pages/about/about'
+        api:'gywm',
+        href:'/pages/article/article'
       },
     ],
-    news:[
-      {
-        text:'合法化覅和撒酒疯和i啊的繁华放大时间和',
-        img:'../../static/images/图层 25.png',
-        reads:'1561'
-      },
-      {
-        text:'合法化覅和撒酒疯和i啊的繁华放大时间和',
-        img:'../../static/images/图层 25.png',
-        reads:'1561'
-      },
-    ],
-  },
-  myPromise () {
-    return new Promise(resolve => {
-    setTimeout(() => resolve("hello async/await"), 1000);
-  });
   },
   async onLoad() {
-   const res = await getIndex();
-   console.log(666,res);
+   const data = await getIndex();
+   this.setData({
+    indexData:data||{},
+   })
   },
   // 跳转路由
   go({currentTarget:{dataset: {href}}}){

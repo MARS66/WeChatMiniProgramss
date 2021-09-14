@@ -7,9 +7,11 @@ Page({
   data: {
     protocols:[{
       text:'用户协议',
+      api:'syxy',
       url:'/pages/article/article'
     },{
       text:'隐私政策',
+      api:'yszc',
       url:'/pages/article/article'
     },
   ]
