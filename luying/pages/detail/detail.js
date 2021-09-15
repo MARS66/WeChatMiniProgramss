@@ -1,11 +1,13 @@
 // pages/detail/detail.js
+import {getProductDetail} from '../../apis/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    product_info:[{},{}]
+    product_info:[{},{}],
+    details:{}
   },
 
   /**
@@ -28,8 +30,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  async onLoad({id}) {
+    const details=await product_info(id);
+    this.setData({
+      details:details
+    })
   },
   // 约定
   book(){

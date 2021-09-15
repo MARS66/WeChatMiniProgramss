@@ -1,12 +1,12 @@
 <!-- 自定义顶部 -->
 <navnavbar></navnavbar>
-<nav-back inner-text="上海广发银行双债添利债券"></nav-back>
+<nav-back inner-text="{{details.title}}"></nav-back>
 <view class="container">
 <!-- 概要 -->
   <view class="item_box">
     <view class="interest_box">
       <view class="text">年化率益率</view>
-      <view class="interest">8.5%-9.5%</view>
+      <view class="interest">{{details.nhl}}</view>
     </view>
     <!-- 进度条 -->
     <view class="progress-box">
@@ -16,12 +16,12 @@
     <view class="summary">
       <view class="summary-item">
           <text>投资期限</text>
-          <view>180天</view>
+          <view>{{details.tzqx}}天</view>
       </view>
       <view class="line"></view>
       <view class="summary-item">
           <text>项目总额</text>
-          <view>300,000元</view>
+          <view>{{details.xmze}}元</view>
       </view>
       <view class="line"></view>
       <view class="summary-item">

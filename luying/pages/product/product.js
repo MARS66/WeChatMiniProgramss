@@ -1,11 +1,12 @@
 // pages/product/index.js
+import {getProduct} from '../../apis/api';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    products:[{},{}],       
+    products:[],       
     tabs:['最新','最热'],
     currentIndex:0,
   },
@@ -13,14 +14,25 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+ async getdata(order=0) {
+  const data= await getProduct({
+    order,
+    num:10,
+    page:1,
+  });
+  this.setData({
+    products:data.list,
+  })
+  },
+  onLoad(){
+    this.getdata();
   },
   // 更换tab
   changeTab({currentTarget:{dataset: {index}}}){
     this.setData({
       currentIndex:index,
     })
+    this.getdata(index);
   },
  
   /**

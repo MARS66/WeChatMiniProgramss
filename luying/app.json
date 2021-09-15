@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/detail/detail",
     "pages/index/index",
     "pages/article/article",
     "pages/mine/mine",
-    "pages/detail/detail",
     "pages/protocol/protocol",
     "pages/about/about",
     "pages/updatePassword/updatePassword",

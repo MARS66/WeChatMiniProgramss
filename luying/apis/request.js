@@ -1,10 +1,32 @@
 
 import config from '../config.js'
 class Axions {
-  constructor() {
-    this._header = null
-  }
 
+  login(){
+    let that = this
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        wx.request({
+          url: app.globalData.page_url+'/api/user/profile',
+          data: {
+            avatar:res.userInfo.avatarUrl,
+            nickname:res.userInfo.nickName,
+            gender:res.userInfo.gender-1,
+            },
+            header: {
+            'content-type': 'application/json', // 默认值
+              token:wx.getStorageSync('token')
+            },
+            success (res) {
+              wx.reLaunch({
+                url: that.data.reload,
+              })
+            }
+        })
+      }
+    })
+  }
 /**
  * 设置统一的异常处理
  */

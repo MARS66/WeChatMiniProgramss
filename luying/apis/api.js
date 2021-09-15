@@ -21,10 +21,35 @@ export const getArticle=(url)=>{
     method: 'GET',
   })
 }
+// 获取产品列表
 export const getProduct=(data)=>{
   return axions.request({ 
-    url: '/index',
+    url: '/api/jjgl/index',
     method: 'POST',
     data: data,
+  })
+}
+// 获取产品列表
+export const getProductDetail=(id)=>{
+  return axions.request({ 
+    url: '/api/jjgl/details',
+    method: 'POST',
+    data: {
+      id,
+    },
+  })
+}
+// 微信登录
+export const wxlogin=(code)=>{
+  return axions.request({ 
+    url: '/api/user/third',
+    method: 'POST',
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    data: {
+      platform:'微信',
+      code,
+    },
   })
 }
