@@ -35,25 +35,25 @@
     <view class="condition">
       <view class="condition_item">
         <view class="label">发布时间</view>
-        <text>2020-12-09</text>
+        <text>{{details.fbsj}}</text>
        </view>
        <view class="condition_item">
         <view class="label">还款方式</view>
-        <text>到期还本息</text>
+        <text>{{details.hkfs}}</text>
        </view>
        <view class="condition_item">
         <view class="label">起息时间</view>
-        <text>募集成功日起息</text>
+        <text>{{details.qxsj}}</text>
        </view>
        <view class="condition_item">
         <view class="label">买入规则</view>
-        <text>100元起投</text>
+        <text>{{details.mrgz}}</text>
        </view>
 
        <view class="condition_item">
         <view class="label">投资记录</view>
         <view class="btn">
-          <view>18人</view>
+          <view>{{details.tzjl}}人</view>
           <image class="right" src="/static/images/back.png"></image>
         </view>
        </view>
