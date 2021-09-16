@@ -3,7 +3,7 @@
 <nav-back inner-text="个人资料"></nav-back>
 <!-- 头像 -->
 <navigator class="user_info_box" url="" hover-class="navigator-hover">
-  <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+  <image  class="userinfo-avatar" src="{{baseUrl+userInfo.avatar}}" mode="cover"></image>
   <image class="right" src="/static/images/back.png"></image>
 </navigator>
 
@@ -11,28 +11,28 @@
   <navigator class="list-item" url="{{item.url}}" hover-class="navigator-hover">
     <view class="name">真实姓名</view>
     <view class="value">
-      <text>真实姓名</text>
+      <text>{{userInfo.xm}}</text>
       <image class="right" src="/static/images/back.png"></image>
     </view>
   </navigator>
   <navigator class="list-item" url="{{item.url}}" hover-class="navigator-hover">
     <view class="name">性别</view>
     <view class="value">
-      <text></text>
+      <text>{{userInfo.gender===1 ? '男':'女'}}</text>
       <image class="right" src="/static/images/back.png"></image>
     </view>
   </navigator>
   <navigator class="list-item" url="{{item.url}}" hover-class="navigator-hover">
     <view class="name">联系地址</view>
     <view class="value">
-      <text></text>
+      <text>{{userInfo.dz}}</text>
       <image class="right" src="/static/images/back.png"></image>
     </view>
   </navigator>
   <navigator class="list-item" url="{{item.url}}" hover-class="navigator-hover">
     <view class="name">工作单位</view>
     <view class="value">
-      <text></text>
+      <text>{{userInfo.gzdw}}</text>
       <image class="right" src="/static/images/back.png"></image>
     </view>
   </navigator>
@@ -41,21 +41,21 @@
   <navigator class="list-item" url="{{item.url}}" hover-class="navigator-hover">
     <view class="name">身份证</view>
     <view class="value">
-      <text>身份证</text>
+      <text>{{userInfo.sfzh}}</text>
       <image class="right" src="/static/images/back.png"></image>
     </view>
   </navigator>
   <navigator class="list-item" url="{{item.url}}" hover-class="navigator-hover">
     <view class="name">Email</view>
     <view class="value">
-      <text>Email</text>
+      <text>{{userInfo.email}}</text>
       <image class="right" src="/static/images/back.png"></image>
     </view>
   </navigator>
   <navigator class="list-item" url="{{item.url}}" hover-class="navigator-hover">
     <view class="name">QQ</view>
     <view class="value">
-      <text>QQ</text>
+      <text>{{userInfo.qq}}</text>
       <image class="right" src="/static/images/back.png"></image>
     </view>
   </navigator>

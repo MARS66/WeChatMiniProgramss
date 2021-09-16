@@ -1,4 +1,7 @@
 <!--pages/booked/booked.wxml-->
 <navnavbar></navnavbar>
 <nav-back inner-text="我的预约"></nav-back>
-<product products='{{products}}' margin='{{true}}' isBooked='{{true}}' ></product>
+<view wx:if="{{products.length>0}}">
+  <product products='{{products}}' margin='{{true}}' isBooked='{{true}}' hiddenTJ='{{true}}'></product>
+</view>
+<view class="product empty" wx:else>暂无预约记录！</view>

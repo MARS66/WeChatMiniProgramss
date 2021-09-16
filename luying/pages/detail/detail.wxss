@@ -147,6 +147,10 @@
   background-color: #fd613625;
   border-radius: 10rpx;
   padding: 18rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+.flie_item:last-child{
+  margin: 0;
 }
 .flie_item .name{
   display: flex;
@@ -165,17 +169,8 @@
   padding: 45rpx;
   background-color: #f4582d;
 }
-.risk_tip .tisk_title{
-  text-align: center;
+.risk_tip rich-text{
   font-family: MicrosoftYaHei;
-	font-size: 36rpx;
-  color: #ffffff;
-  margin-bottom: 30rpx;
-}
-.risk_tip text{
-  font-family: MicrosoftYaHei;
-	font-size: 24rpx;
-	line-height: 36rpx;
   color: #ffffff;
   text-align: justify;
 }
@@ -231,4 +226,9 @@
   font-size: 36rpx;
 	font-weight: normal;
 	color: #ffffff;
+}
+rich-text{
+  font-family: MicrosoftYaHei;
+	color: #1b1b1b;
+  text-align: justify;
 }

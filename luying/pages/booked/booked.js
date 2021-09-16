@@ -1,20 +1,42 @@
 // pages/booked/booked.js
+import {getMyBooked} from '../../apis/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    products:[{},{}]
+    products:[],
+    num:10,
+    page:1,
+    total:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
+    this.getdata()
   },
 
+  async getdata(page=1) {
+    const data= await getMyBooked({
+      num:this.data.num*page,
+      page:1,
+    });
+    this.setData({
+      products:data.list.map(({jjgl,yyje})=>({...jjgl,yyje})),
+      page,
+      total:data.total
+    })
+  },
+  
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if ((this.data.page)*this.data.num<this.data.total)  this.getdata(this.data.page+1);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -47,13 +69,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 

@@ -1,18 +1,24 @@
 // pages/userInfo/userInfo.js
+import {getUserInfo} from '../../apis/api';
+import config from '../../config'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    baseUrl:config.baseUrl,
+    userInfo:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  async onLoad(options) {
+    const  res= await getUserInfo()
+    this.setData({
+      userInfo:res
+    })
   },
 
   /**

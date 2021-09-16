@@ -19,7 +19,11 @@ Component({
     canDelete:{
       type:Boolean,
       value:false,
-    }
+    },
+    hiddenTJ:{
+      type:Boolean,
+      value:false,
+    },
   },
 
   /**
@@ -36,7 +40,7 @@ Component({
     // 去查看详情
     goDetail({currentTarget:{dataset: {id}}}){
       wx.navigateTo({
-        url: `../detail/detail?id=${id}`,
+        url: `../detail/detail?id=${id}&hiddenTJ=${this.properties.hiddenTJ}`,
       })
     },
     

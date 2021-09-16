@@ -57,3 +57,9 @@
 	letter-spacing: -2rpx;
 	color: #fd6036;
 }
+.empty{
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	letter-spacing: -1rpx;
+	color: #959595;
+}

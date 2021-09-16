@@ -14,7 +14,10 @@ Page({
   onLoad: function (options) {
 
   },
-
+  loginOut(){
+    wx.clearStorageSync();
+    wx.exitMiniProgram();
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

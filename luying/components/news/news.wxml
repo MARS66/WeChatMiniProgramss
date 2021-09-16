@@ -1,5 +1,5 @@
 <!--components/news/news.wxml-->
-<navigator wx:for="{{news}}" wx:key="index" class=" {{margin?'margin':'new_box'}}" url="/pages/article/article?id={{item.id}}">
+<navigator wx:for="{{news}}" wx:key="index" class=" {{margin?'margin':'new_box'}}" url="/pages/article/article?id={{item.id}}&api=zxxq">
     <view class="new_item">
       <view class="new_title">{{item.title}}</view>
       <view class="views">{{item.ckcs}}阅读</view>

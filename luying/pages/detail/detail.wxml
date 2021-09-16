@@ -1,6 +1,6 @@
 <!-- 自定义顶部 -->
 <navnavbar></navnavbar>
-<nav-back inner-text="{{details.title}}"></nav-back>
+<nav-back inner-text="{{details.cpmc}}"></nav-back>
 <view class="container">
 <!-- 概要 -->
   <view class="item_box">
@@ -10,8 +10,8 @@
     </view>
     <!-- 进度条 -->
     <view class="progress-box">
-      <view class="progress-percent">56%</view>
-      <progress percent="80" color="#fd6036" backgroundColor="#e5e5e5"  stroke-width="3" />
+      <view class="progress-percent">{{details.jd}}%</view>
+      <progress percent="{{details.jd}}" color="#fd6036" backgroundColor="#e5e5e5"  stroke-width="3" />
     </view>
     <view class="summary">
       <view class="summary-item">
@@ -26,7 +26,7 @@
       <view class="line"></view>
       <view class="summary-item">
           <text>剩余可投</text>
-          <view>300,000元</view>
+          <view>{{details.sykt}}元</view>
       </view>
     </view>
   </view>
@@ -59,9 +59,9 @@
        </view>
        <view class="condition_item">
         <view class="label">还款来源</view>
-        <view class="btn">
+        <navigator url="/pages/article/article?node={{details.hkly}}&api=hkly" class="btn">
           <image class="right" src="/static/images/back.png"></image>
-        </view>
+        </navigator>
        </view>
     </view>
   </view>
@@ -72,23 +72,42 @@
       <view class="text">产品信息</view>
     </view>
     <view class="content condition">
-      <view class="condition_item" wx:for="{{product_info}}" wx:key="index">
-        <view class="label">发布时间</view>
-        <text>2020-12-09</text>
-      </view>
+      <view class="condition_item"><view class="label">产品名称</view><text>{{details.cpmc}}</text></view>
+      <view class="condition_item"><view class="label">评级等级</view><text>{{details.pjdj}}</text></view>
+      <view class="condition_item"><view class="label">评级说明</view><text>{{details.pjsm}}</text></view>
+      <view class="condition_item"><view class="label">产品状态</view><text>{{details.cpzt}}</text></view>
+      <view class="condition_item"><view class="label">大小配比</view><text>{{details.dxpb}}</text></view>
+      <view class="condition_item"><view class="label">收益类型</view><text>{{details.sylx}}</text></view>
+      <view class="condition_item"><view class="label">发行机构</view><text>{{details.fxjg}}</text></view>
+      <view class="condition_item"><view class="label">付息方式</view><text>{{details.fxfs}}</text></view>
+      <view class="condition_item"><view class="label">投资区域</view><text>{{details.tzqx}}</text></view>
+      <view class="condition_item"><view class="label">投资领域</view><text>{{details.tzly}}</text></view>
+      <view class="condition_item"><view class="label">规模</view><text>{{details.gm}}</text></view>
+      <view class="condition_item"><view class="label">产品期限</view><text>{{details.cpqx}}</text></view>
+      <view class="condition_item"><view class="label">认购起点</view><text>{{details.rgqd}}</text></view>
+      <view class="condition_item"><view class="label">本期起售日</view><text>{{details.bqqsr}}</text></view>
+      <view class="condition_item"><view class="label">抵/质押率</view><text>{{details.dzyl}}</text></view>
     </view>
   </view>
-  <!-- 文本描述 -->
+  
+  <!-- 项目亮点 -->
   <view class="text_box">
     <view class="title">
       <image src="/static/images/drap.png"></image>
-      <view class="text">产品信息</view>
+      <view class="text">项目亮点</view>
     </view>
     <view class="content">
-      <text>1、融资人大冶市振恒城市发展投资有限公司(AA)总资产44 1.92亿元，实控人为大冶市人民政府国有资产监督管理局，是大冶市最重要的基础设施建设投融资主体之一，目前债券存续规模27.2亿元，还款能力强
-
-    2、担保人湖北大冶湖高新技术产业投资有限公司(AA)总资产201.43亿元，实控人为大冶经济技术开发区管理委员会，是黄石大冶湖国家高新技术产业开发区主要的城市基础设施建设主体，目前债券存续规模40亿元，融资渠道广泛畅通；3.2020年，黄石市实现地区生产总值(GDP) 1641.32亿元，武汉城市圈副中心城市，长江中游城市群重要成员，大冶市实现地区生产总值(GDP)约647亿元，处湖北"冶金走廊"腹地及武汉城市经济圈内，是武汉城市圈冶金建材走廊的重要支点。
-      </text>
+      <rich-text nodes="{{details.xmld}}"></rich-text>
+    </view>
+   </view>
+  <!-- 补充说明 -->
+  <view class="text_box">
+    <view class="title">
+      <image src="/static/images/drap.png"></image>
+      <view class="text">补充说明</view>
+    </view>
+    <view class="content">
+      <rich-text nodes="{{details.bcsm}}"></rich-text>
     </view>
    </view>
    
@@ -99,43 +118,75 @@
       <view class="text">预览材料</view>
     </view>
     <view class="content">
-      <view class="flie_item">
+      <view class="flie_item" wx:for="{{details.ylcl_files}}" wx:key="index" data-src="{{item.dz}}" catchtap="downloadFile">
         <view class="name">
           <image class="pdf" src="/static/images/pdf.png"></image>
-          <text>1.简版-国民信托-大冶振恒.pdf</text>
+          <text>{{item.name}}</text>
         </view>
         <image class="right" src="/static/images/back.png"></image>
       </view>
     </view>
    </view>
 
+  <!-- 融资主体 -->
+  <view class="text_box">
+    <view class="title">
+      <image src="/static/images/drap.png"></image>
+      <view class="text">融资主体</view>
+    </view>
+    <view class="content">
+      <rich-text nodes="{{details.rzzt}}"></rich-text>
+    </view>
+   </view>
+    <!-- 还款来源 -->
+  <view class="text_box">
+    <view class="title">
+      <image src="/static/images/drap.png"></image>
+      <view class="text">还款来源</view>
+    </view>
+    <view class="content">
+      <rich-text nodes="{{details.hkly}}"></rich-text>
+    </view>
+   </view>
+   
+  <!-- 风控措施 -->
+  <view class="text_box">
+    <view class="title">
+      <image src="/static/images/drap.png"></image>
+      <view class="text">风控措施</view>
+    </view>
+    <view class="content">
+      <rich-text nodes="{{details.fkcs}}"></rich-text>
+    </view>
+   </view>
    <!-- 风险提示 -->
    <view class="risk_tip">
-    <view class="tisk_title">风险提示</view>
-    <text>投资有风险，当投资人进行投资时，可能获得投资收益，但同时也面临着投资风险，比如资金损失风险、运营风险、流动性风险等。投资人在投资本项目之前，请仔细阅读相关风险揭示书和投资协 议、公司章程或者合伙协议等文件，充分认识投资的风险收益特征和产品特性，认真考虑可能存在的各项风险因素，并充分考虑自身 的风险承受能力，理性判断并谨慎做出投资决策。</text>
+    <rich-text nodes="{{details.fxts}}"></rich-text>
+    <!-- <view class="tisk_title">风险提示</view>
+    <text>投资有风险，当投资人进行投资时，可能获得投资收益，但同时也面临着投资风险，比如资金损失风险、运营风险、流动性风险等。投资人在投资本项目之前，请仔细阅读相关风险揭示书和投资协 议、公司章程或者合伙协议等文件，充分认识投资的风险收益特征和产品特性，认真考虑可能存在的各项风险因素，并充分考虑自身 的风险承受能力，理性判断并谨慎做出投资决策。</text> -->
    </view>
 
    <!--可能感兴趣的产品  -->
-   <view class="text_box">
+   <view class="text_box" wx:if="{{hiddenTJ!=='true'}}">
       <view class="title">
         <image src="/static/images/drap.png"></image>
         <view class="text">可能感兴趣的产品</view>
       </view>
       <view class="content">
-        <product products="{{product_info}}"></product>
+        <product products="{{details.tj}}"></product>
       </view>
     </view>
 
-    <view class="operation_box"> 
+    <view class="operation_box"  wx:if="{{hiddenTJ!=='true'}}"> 
       <view class="operation">
         <navigator class="btn" url="/pages/customerService/customerService">
           <image src="/static/images/service.png"></image>
           <text>客服</text>
         </navigator>
-        <view class="btn active">
+        <view class="btn  {{details.sc===1?'active':''}}" catchtap="collectPoduct">
           <view>
-            <image wx:if="{{false}}" src="/static/images/favorites.png"></image>
-            <image  wx:if="{{true}}" src="/static/images/favorites-fill.png"></image>
+            <image  wx:if="{{details.sc===1}}" src="/static/images/favorites-fill.png"></image>
+            <image wx:else  src="/static/images/favorites.png"></image>
           </view>
           <text>收藏</text>
         </view>
@@ -143,7 +194,7 @@
           <image src="/static/images/share.png"></image>
           <text>分享</text>
         </button>
-        <view class="button" catchtap="book">立即预约</view>
+        <navigator class="button" url="/pages/reserve/reserve?id={{details.id}}">立即预约</navigator>
       </view>
     </view>
 </view>

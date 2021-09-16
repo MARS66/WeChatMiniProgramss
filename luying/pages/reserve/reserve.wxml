@@ -6,11 +6,11 @@
   <view class="reserve_info">
     <view class="form_item">
       <view class="label">预约金额</view>
-      <input class="weui-input" name="money" placeholder="请输入预约金额(万)" />
+      <input class="weui-input" name="je" placeholder="请输入预约金额(万)" />
     </view>
     <view  class="form_item">
       <view class="label">投资人姓名</view>
-      <input class="weui-input" name="userName" disabled value="{{'张小类'}}" />
+      <input class="weui-input" name="xm" placeholder="请输入投资人姓名" />
     </view>
   </view>
   

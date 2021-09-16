@@ -1,1 +1,12 @@
 /* pages/booked/booked.wxss */
+.product{
+  margin-top: 12rpx;
+  padding: 45rpx;
+  background-color: #fff;
+}
+.empty{
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	letter-spacing: -1rpx;
+	color: #959595;
+}

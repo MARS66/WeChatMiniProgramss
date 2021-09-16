@@ -78,11 +78,16 @@ swiper{
   margin-right: 15rpx;
 }
 .latest text{
+  display: block;
+  flex: 1;
   font-family: MicrosoftYaHei;
 	font-size: 26rpx;
   line-height: 40rpx;
 	letter-spacing: 0rpx;
-	color: #1b1b1b;
+  color: #1b1b1b;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .recommend{
   padding-top: 45rpx;
@@ -92,6 +97,8 @@ swiper{
   gap: 25rpx;
 }
 .recommend image{
+  background-color: #EDEEF0;
+  height: auto;
   border-radius: 10rpx;
 }
 
@@ -145,6 +152,7 @@ swiper{
 }
 .new_box image{
   width: 224rpx;
+  height: auto;
 	background-color: #959595;
 	border-radius: 6rpx;
 }
@@ -180,6 +188,7 @@ swiper{
 }
 .fund_left image{
   width: 120rpx;
+  height: auto;
 }
 .fund_right>view{
   line-height: 56rpx;

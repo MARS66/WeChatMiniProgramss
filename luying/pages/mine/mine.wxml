@@ -3,9 +3,9 @@
 <view class="user_info_box">
   <view class="user_info">
     <navigator url="/pages/userInfo/userInfo"  >
-     <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+     <image  class="userinfo-avatar" src="{{baseUrl+userInfo.avatar}}" mode="cover"></image>
     </navigator>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class="userinfo-nickname">{{userInfo.xm||userInfo.nickname}}</text>
   </view>
 
 </view>

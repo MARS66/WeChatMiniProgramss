@@ -15,6 +15,7 @@
   padding: 30rpx 45rpx;
 }
  .new_item{
+   flex: 1;
   margin-right: 46rpx;
 }
 .new_box:last-child{
@@ -36,6 +37,7 @@
 }
  .image{
   width: 224rpx;
+  height: auto;
 	background-color: #959595;
 	border-radius: 6rpx;
 }

@@ -1,22 +1,33 @@
 // pages/reserve/reserve.js
+import {bookProduct} from '../../apis/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id:''
   },
-  formSubmit(){
-    wx.navigateTo({
-      url: '/pages/successful/successful',
-    })
+  async formSubmit({detail:{value}}){
+    if (!value.je|| !value.xm) {
+      wx.showToast({
+        title: '请先填写预约信息！',
+        icon:'none'
+      })
+      return;
+    }
+    const res=await bookProduct({...value,id:this.data.id||'1'})
+    if (res) {
+      wx.navigateTo({
+        url: '/pages/successful/successful',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function ({id}) {
+    this.setData({id})
   },
 
   /**

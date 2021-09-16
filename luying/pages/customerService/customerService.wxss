@@ -16,6 +16,7 @@
 }
 .scancode_box image{
   width: 100%;
+  height: auto;
 }
  .tip{
   padding: 0 10rpx;

@@ -1,20 +1,42 @@
 // pages/collection/collection.js
+import {historyOrFav0rites} from '../../apis/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    conditions:[{},{}]
+    products:[],
+    num:10,
+    page:1,
+    total:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getdata()
   },
-
+  async getdata(page=1) {
+    const data= await historyOrFav0rites({
+      type:1,
+      num:this.data.num*page,
+      page:1,
+    });
+    this.setData({
+      products:data.list.map(item=>item.jjgl),
+      page,
+      total:data.total
+    })
+  },
+  
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if ((this.data.page)*this.data.num<this.data.total)  this.getdata(this.data.page+1);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -50,12 +72,6 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 
   /**
    * 用户点击右上角分享

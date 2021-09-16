@@ -7,3 +7,29 @@ page{
   padding: 45rpx;
   background-color: #fff;
 }
+.title{
+  padding-bottom: 20rpx;
+  border-bottom:1px solid #EDEEF0;
+  margin-bottom:50rpx;
+  text-align: center;
+}
+.title view{
+  font-family: MicrosoftYaHei;
+	font-size: 36rpx;
+	font-weight: 600;
+	line-height: 50rpx;
+  color: #1b1b1b;
+  margin-bottom: 10repx;
+}
+.title text{
+  font-family: MicrosoftYaHei;
+	font-size: 18rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0rpx;
+	color: #1b1b1b;
+}
+rich-text{
+  text-align: justify;
+}

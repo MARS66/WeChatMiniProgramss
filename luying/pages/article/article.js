@@ -1,5 +1,5 @@
 // pages/article/article.js
-import { getArticle } from "../../apis/api";
+import { getArticle,getNewsDetail } from "../../apis/api";
 Page({
 
   /**
@@ -8,22 +8,40 @@ Page({
   data: {
     title:'',
     node:'',
+    articleTitle:'',
+    time:'',
     titles:{
       gywm:'关于我们',
       syxy:'使用协议',
       yszc:'隐私政策',
       fkcs:'风控措施',
+      hkly:'还款来源',
+      zxxq:'资讯详情',
     }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad ({api}) {
+  async onLoad ({api,node,id='1'}) {
   const vm =this;
    this.setData({title:vm.data.titles[api]})
-   const data = await getArticle(api)
-   this.setData({node:data[api] })
+   if (id) {
+    const data =await getNewsDetail(id)
+    console.log(data);
+    this.setData({
+      node:data.content,
+      articleTitle:data.title,
+      time:data.createtime_text,
+    })
+     return;
+   }
+   if (node) {
+    this.setData({node,});
+    return;
+   }
+    const data = await getArticle(api)
+    this.setData({node:data[api] })
   },
 
   /**

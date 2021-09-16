@@ -23,13 +23,13 @@
   </view>
 <!-- 最新快讯 -->
   <view class="item_box">
-    <navigator class="latest" url="/pages/news/news">
+    <navigator class="latest" url="/pages/article/article?id={{indexData.zxzx[0].id}}&api=zxxq">
       <view class="mark">最新快讯</view>
-      <text>华夏时报西藏信托18亿信托产品提示风险。</text>
+      <text>{{indexData.zxzx[0].title}}</text>
     </navigator>
     <view class="recommend">
-      <image src="../../static/images/index.png" mode="widthFix"></image>
-      <image src="../../static/images/index.png" mode="widthFix"></image>
+      <image src="{{indexData.zxzx[1].image}}" mode="widthFix" data-id="{{indexData.zxzx[1].id}}" catchtap="goArticle"></image>
+      <image src="{{indexData.zxzx[2].image}}" mode="widthFix"  data-id="{{indexData.zxzx[2].id}}" catchtap="goArticle"></image>
     </view>
   </view>
 

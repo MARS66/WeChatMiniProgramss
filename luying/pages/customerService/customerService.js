@@ -1,11 +1,13 @@
 // pages/customerService/customerService.js
 import { getKF } from "../../apis/api";
+import config from "../../config";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    baseUrl:config.baseUrl,
     kfInfo:{
       kfdh:'13656566565',
       kfwx:'/static/images/scancode.png',
