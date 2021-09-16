@@ -40,7 +40,7 @@ Page({
       },
     ],
   },
-  async onLoad() {
+  async onShow() {
    const data = await getIndex();
    this.setData({
     indexData:data||{},

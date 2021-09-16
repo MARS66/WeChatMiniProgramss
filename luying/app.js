@@ -38,12 +38,6 @@ App({
     const res=await wxlogin(code)
     // 第三方登录请求获取token本地存储
     wx.setStorageSync('token', res?.userinfo?.token)
-    // wx.getUserInfo({
-    //   desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-    //   success: (res) => {
-    //     updateUserInfo(res.userInfo);
-    //   },
-    // })
   },
   globalData: {
     customTextHight:null,
