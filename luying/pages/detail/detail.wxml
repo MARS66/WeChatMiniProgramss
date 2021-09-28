@@ -1,7 +1,7 @@
 <!-- 自定义顶部 -->
 <navnavbar></navnavbar>
 <nav-back inner-text="{{details.cpmc}}"></nav-back>
-<view class="container">
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px - 82rpx)">
 <!-- 概要 -->
   <view class="item_box">
     <view class="interest_box">
@@ -10,10 +10,21 @@
     </view>
     <!-- 进度条 -->
     <view class="progress-box">
-      <view class="progress-percent">{{details.jd}}%</view>
-      <progress percent="{{details.jd}}" color="#fd6036" backgroundColor="#e5e5e5"  stroke-width="3" />
+      <view class="progress-percent">{{details.jd||0}} %</view>
+      <progress percent="{{details.jd||0}}" color="#fd6036" backgroundColor="#e5e5e5"  stroke-width="3" />
     </view>
-    <view class="summary">
+    <view class="summary"   wx:if="{{isMine}}">
+      <view class="summary-item">
+          <text>投入本金</text>
+          <view>{{details.yyje}}万</view>
+      </view>
+      <view class="line"></view>
+      <view class="summary-item">
+          <text>预期收益</text>
+          <view><text style="color:#FD6036">{{details.yqsy}}</text>元</view>
+      </view>
+    </view>
+    <view class="summary"   wx:else>
       <view class="summary-item">
           <text>投资期限</text>
           <view>{{details.tzqx}}天</view>
@@ -57,12 +68,12 @@
           <image class="right" src="/static/images/back.png"></image>
         </view>
        </view>
-       <view class="condition_item">
+       <navigator class="condition_item" url="/pages/article/article?node={{details.hkly}}&api=hkly">
         <view class="label">还款来源</view>
-        <navigator url="/pages/article/article?node={{details.hkly}}&api=hkly" class="btn">
+        <view class="btn">
           <image class="right" src="/static/images/back.png"></image>
-        </navigator>
-       </view>
+        </view>
+       </navigator>
     </view>
   </view>
 

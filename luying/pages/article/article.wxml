@@ -1,10 +1,12 @@
 <!-- 自定义顶部 -->
 <navnavbar></navnavbar>
 <nav-back inner-text="{{title}}"></nav-back>
-<view class="article" wx:if="{{title==='资讯详情'}}">
-  <view class="title">
-    <view>{{articleTitle}}</view>
-    <text>{{time}}</text>
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px - 82rpx)">
+  <view class="article">
+    <view class="title"  wx:if="{{title==='资讯详情'}}">
+      <view>{{articleTitle}}</view>
+      <text>{{time}}</text>
+    </view>
+    <rich-text nodes="{{node}}"></rich-text>
   </view>
-  <rich-text nodes="{{node}}"></rich-text>
 </view>

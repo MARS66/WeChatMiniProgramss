@@ -1,29 +1,29 @@
 <navnavbar title='路盈基金'></navnavbar>
-<view class="container">
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px)">
    <!-- 轮播 --> 
    <view class="swiper_box">
       <swiper indicator-dots="{{indicatorDots}}" 
         indicator-active-color="#fff" 
         indicator-color="rgba(255, 255, 255, 0.367)"
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{indexData.lbt}}" wx:key="*this">
+        <navigator wx:for="{{indexData.lbt}}" hover-class="none" wx:key="*this" url="/pages/detail/detail?id={{item.id}}">
           <swiper-item  class="swiper-item">
               <image src="{{item.image}}" mode="scaleToFill"></image>
           </swiper-item>
-        </block>
+        </navigator>
       </swiper>
    </view>
   <!-- nav -->
 
   <view class="nav">
-    <navigator class="nav-item" wx:for="{{navs}}" wx:key="index" url="{{item.href}}?api={{item.api}}">
+    <navigator class="nav-item" wx:for="{{navs}}" hover-class="none" wx:key="index" url="{{item.href}}?api={{item.api}}">
       <image src="{{item.icon}}"></image>
       <view class="nav_lable">{{item.label}}</view>
     </navigator>
   </view>
 <!-- 最新快讯 -->
   <view class="item_box">
-    <navigator class="latest" url="/pages/article/article?id={{indexData.zxzx[0].id}}&api=zxxq">
+    <navigator class="latest" hover-class="none" url="/pages/article/article?id={{indexData.zxzx[0].id}}&api=zxxq">
       <view class="mark">最新快讯</view>
       <text>{{indexData.zxzx[0].title}}</text>
     </navigator>
@@ -37,7 +37,7 @@
 <view class="item_box">
   <view class="item_title">
     <text>财经资讯</text>
-    <navigator  class="more" url="/pages/news/news" open-type="switchTab">
+    <navigator  class="more" url="/pages/news/news" hover-class="none" open-type="switchTab">
        更多 <image src="../../static/images/right.png"></image>
     </navigator>
   </view>
@@ -49,7 +49,7 @@
   <view class="item_box">
     <view class="item_title">
       <text>基金精选</text>
-      <navigator class="more" url="/pages/product/product" open-type="switchTab">
+      <navigator class="more" url="/pages/product/product" hover-class="none" open-type="switchTab">
         更多 <image src="../../static/images/right.png"></image>
       </navigator>
     </view>
@@ -73,7 +73,7 @@
   <view class="item_box">
     <view class="item_title">
       <text>推荐产品</text>
-      <navigator class="more" url="/pages/product/product" open-type="switchTab">
+      <navigator class="more" hover-class="none" url="/pages/product/product" open-type="switchTab">
         更多 <image src="../../static/images/right.png"></image>
       </navigator>
     </view>

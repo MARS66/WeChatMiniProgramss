@@ -13,11 +13,13 @@ class Axions {
   /**
    * 网络请求
    */
-  request({url, data, header, method}) {
+  request({url, data, header,loading=false, method,tip='拼命加载中...'}) {
     return new Promise((resolve, reject) => {
-      wx.showLoading({
-        title: '拼命加载中...',
-      })
+      if (loading) {
+        wx.showLoading({
+          title: tip,
+        })
+      }
       wx.request({
         url: config.baseUrl + url,
         data,

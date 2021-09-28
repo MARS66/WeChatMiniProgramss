@@ -1,12 +1,14 @@
 // pages/customerService/customerService.js
 import { getKF } from "../../apis/api";
 import config from "../../config";
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    customNavBarHeight:app.globalData.customNavBarHeight,
     baseUrl:config.baseUrl,
     kfInfo:{
       kfdh:'13656566565',

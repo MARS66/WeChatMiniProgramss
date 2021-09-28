@@ -1,14 +1,17 @@
 // pages/myProduct/myProduct.js
+const app = getApp();
 import {getMyProduct} from '../../apis/api'
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    customNavBarHeight:app.globalData.customNavBarHeight,
     products:[],
     num:10,
     page:1,
-    total:0
+    total:0,
+    showEmpty:false,
   },
 
   /**
@@ -26,6 +29,7 @@ Page({
     this.setData({
       products:data.list,
       page,
+      showEmpty:true,
       total:data.total
     })
   },

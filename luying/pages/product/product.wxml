@@ -1,7 +1,7 @@
 <!-- 自定义顶部 -->
 <navnavbar></navnavbar>
 <!-- tab -->
-<view class="product_page">
+<view class="product_page"  style="height: calc(100% - {{customNavBarHeight}}px)">
   <view class="tabs">
     <view wx:for="{{tabs}}" wx:key="index" class="{{currentIndex===index?'active':''}}" bindtap="changeTab" data-index="{{index}}">{{item}}</view>
   </view>

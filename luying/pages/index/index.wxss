@@ -3,9 +3,8 @@ Page{
   background-color: #EDEEF0;
   color: #242424;
 }
- 
 .swiper_box{
-  padding-top: 45rpx;
+  padding: 45rpx 0;
   background-image: linear-gradient(to bottom, 
   #EDEEF0,
 		#fff 100%);
@@ -31,6 +30,7 @@ swiper{
 /* nav */
 .nav{
   padding: 45rpx;
+  padding-top: 20rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,25 +1,28 @@
 <!--pages/myProduct/myProduct.wxml-->
 <navnavbar></navnavbar>
 <nav-back inner-text="我的产品"></nav-back>
-<view wx:if="{{products.length>0}}">
-  <navigator class="product" wx:for="{{products}}" url="/pages/detail/detail?id={{item.id}}&hiddenTJ={{true}}" wx:key="index">
-    <view class="name">{{item.jjgl.title}}</view>
-    <view class="info">
-      <view class="info_item">
-        <view class="key">金额</view>
-        <view class="value">{{item.yyje}}<text>万</text></view>
-        <view class="text">购买时间：{{item.createtime_text}}</view>
-      </view>
-      <view class="info_item">
-        <view class="key">剩余金额</view>
-        <view class="value">{{item.yqsy || 0}}<text>万</text></view>
-        <view class="text">到期日：还剩{{item.jjgl.tzqx}}天</view>
-      </view>
-      <view class="info_item">
-        <view class="key">年化率</view>
-        <view class="increase">{{item.jjgl.nhl}}</view>
-      </view>
+
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px - 82rpx)">
+    <view wx:if="{{products.length>0}}">
+      <navigator class="product" wx:for="{{products}}" url="/pages/detail/detail?id={{item.id}}&hiddenTJ={{true}}&api=/api/jjgl/my_cpxq" wx:key="index">
+        <view class="name">{{item.jjgl.title}}</view>
+        <view class="info">
+          <view class="info_item">
+            <view class="key">金额</view>
+            <view class="value">{{item.yyje}}<text>万</text></view>
+            <view class="text">购买时间：{{item.createtime_text}}</view>
+          </view>
+          <view class="info_item">
+            <view class="key">剩余金额</view>
+            <view class="value">{{item.jjgl.sykt || 0}}<text>万</text></view>
+            <view class="text">到期日：还剩{{item.jjgl.tzqx}}天</view>
+          </view>
+          <view class="info_item">
+            <view class="key">年化率</view>
+            <view class="increase">{{item.jjgl.nhl}}</view>
+          </view>
+        </view>
+      </navigator>
     </view>
-  </navigator>
+    <view class="product empty" wx:if="{{!products.length && showEmpty}}">您暂无产品！</view>
 </view>
-<view class="product empty" wx:else>您暂无产品！</view>

@@ -1,11 +1,14 @@
 // pages/collection/collection.js
-import {historyOrFav0rites} from '../../apis/api'
+import {historyOrFav0rites} from '../../apis/api';
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    showEmpty:false,
+    customNavBarHeight:app.globalData.customNavBarHeight,
     products:[],
     num:10,
     page:1,
@@ -27,6 +30,7 @@ Page({
     this.setData({
       products:data.list.map(item=>item.jjgl),
       page,
+      showEmpty:true,
       total:data.total
     })
   },

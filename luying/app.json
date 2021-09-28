@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/detail/detail",
     "pages/article/article",
+    "pages/product/product",
+    "pages/updateUserInfo/updateUserInfo",
     "pages/userInfo/userInfo",
     "pages/mine/mine",
     "pages/history/history",
@@ -10,7 +13,6 @@
     "pages/myProduct/myProduct",
     "pages/news/news",
     "pages/reserve/reserve",
-    "pages/detail/detail",
     "pages/protocol/protocol",
     "pages/about/about",
     "pages/updatePassword/updatePassword",
@@ -18,20 +20,19 @@
     "pages/settings/settings",
     "pages/successful/successful",
     "pages/customerService/customerService",
-    "pages/motion/motion",
-    "pages/product/product"
+    "pages/motion/motion"
   ],
   "usingComponents": {
-    "nav-back":"components/nav_back/nav_back",
-    "navnavbar":"components/navbar/navbar",
-    "news":"components/news/news",
-    "product":"components/product/product"
+    "nav-back": "components/nav_back/nav_back",
+    "navnavbar": "components/navbar/navbar",
+    "news": "components/news/news",
+    "product": "components/product/product"
   },
-  "window": { 
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "路盈基金",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
   "style": "v2",
@@ -60,7 +61,7 @@
         "selectedIconPath": "/static/images/image-text-fill.png"
       },
       {
-        "pagePath":"pages/mine/mine",
+        "pagePath": "pages/mine/mine",
         "text": "我的",
         "iconPath": "/static/images/bussiness-man.png",
         "selectedIconPath": "/static/images/bussiness-man-fill.png"

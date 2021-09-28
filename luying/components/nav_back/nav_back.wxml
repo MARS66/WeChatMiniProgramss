@@ -1,5 +1,5 @@
 
-<view class="nav-back">
-    <image class="image" src="../../static/images/back.png" alt="" bindtap="back"></image>
+<view class="nav-back" catchtap="back">
+    <image class="image" src="../../static/images/back.png" alt=""></image>
     <text class="text">{{innerText}}</text>
 </view>

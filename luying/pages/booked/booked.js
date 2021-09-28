@@ -1,11 +1,14 @@
 // pages/booked/booked.js
-import {getMyBooked} from '../../apis/api'
+import {getMyBooked} from '../../apis/api';
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    showEmpty:false,
+    customNavBarHeight:app.globalData.customNavBarHeight,
     products:[],
     num:10,
     page:1,
@@ -27,6 +30,7 @@ Page({
     this.setData({
       products:data.list.map(({jjgl,yyje})=>({...jjgl,yyje})),
       page,
+      showEmpty:true,
       total:data.total
     })
   },

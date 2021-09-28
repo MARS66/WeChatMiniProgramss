@@ -1,11 +1,13 @@
 // pages/article/article.js
 import { getArticle,getNewsDetail } from "../../apis/api";
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    customNavBarHeight:app.globalData.customNavBarHeight,
     title:'',
     node:'',
     articleTitle:'',
@@ -23,12 +25,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad ({api,node,id='1'}) {
+  async onLoad ({api,node,id}) {
   const vm =this;
    this.setData({title:vm.data.titles[api]})
    if (id) {
     const data =await getNewsDetail(id)
-    console.log(data);
     this.setData({
       node:data.content,
       articleTitle:data.title,
@@ -37,7 +38,7 @@ Page({
      return;
    }
    if (node) {
-    this.setData({node,});
+    this.setData({node});
     return;
    }
     const data = await getArticle(api)

@@ -12,7 +12,7 @@
       </view>
       <view>
         <view><text class="text">{{item.tzqx}}</text>天</view>
-        <view>剩余 <text class="text">{{item.xmze||0}}</text>万 | {{item.fx}}</view>
+        <view>剩余 <text class="text">{{item.sykt||0}}</text>万 | {{item.fx}}</view>
       </view>
     </view>
     <view wx:if="{{isBooked}}" class="booked_info">我的预约金额：<text class="unit">{{item.yyje||0}}万元</text></view>

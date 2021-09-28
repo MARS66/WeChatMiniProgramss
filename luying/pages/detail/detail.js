@@ -1,12 +1,15 @@
 // pages/detail/detail.js
-import {getProductDetail,collectPoduct} from '../../apis/api'
+import {getProductDetail,collectPoduct} from '../../apis/api';
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    customNavBarHeight:app.globalData.customNavBarHeight,
     details:{},
+    isMine:false,
     hiddenTJ:false,//是否显示推荐
     support:['doc','docx','xls','xlsx','ppt','pptx','pdf']
   },
@@ -15,15 +18,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
- onLoad({id,hiddenTJ}) {
-   console.log(hiddenTJ);
+ onLoad({id,hiddenTJ,api}) {
    this.setData({
     hiddenTJ,
+    isMine:api,
    })
-  this.getDetail(id);
+  this.getDetail(id,api);
 },
-  async getDetail(id){
-    const details=await getProductDetail(id);
+  async getDetail(id,api){
+    const details=await getProductDetail(id,api);
+    Object.assign(details,(details?.jjgl??{}))
     this.setData({
       details:details,
     })

@@ -1,12 +1,14 @@
 // pages/userInfo/userInfo.js
 import {getUserInfo} from '../../apis/api';
-import config from '../../config'
+import config from '../../config';
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    customNavBarHeight:app.globalData.customNavBarHeight,
     baseUrl:config.baseUrl,
     userInfo:'',
   },

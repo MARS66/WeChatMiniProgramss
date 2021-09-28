@@ -1,66 +1,39 @@
-// pages/motion/motion.js
+// pages/product/index.js
+const app = getApp();
+import {getProduct} from '../../apis/api';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    products:[{},{}]
+    products:[],       
+    currentIndex:0,
+    num:10,
+    page:1,
+    total:0,
+    customNavBarHeight:app.globalData.customNavBarHeight
+  },
+  onLoad(){
+    this.getdata();
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+ async getdata(page=1,loading=true) {
+  const data= await getProduct({
+    order:2,
+    num:this.data.num*page,
+    page:1,
+  },loading);
+  this.setData({
+    products:data.list,
+    page,
+    total:data.total
+  })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if ((this.data.page)*this.data.num<this.data.total)  this.getdata(this.data.page+1);
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

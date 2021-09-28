@@ -1,12 +1,8 @@
 // app.js
-import { wxlogin,updateUserInfo} from "./apis/api";
+import { wxlogin } from "./apis/api";
 App({
   onLaunch() {
     const vm=this;
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
    // 登录
    wx.login({
     success: res => {

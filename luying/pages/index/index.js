@@ -5,6 +5,7 @@ const app = getApp()
 
 Page({
   data: {
+    customNavBarHeight:app.globalData.customNavBarHeight,
     indicatorDots:true,
     autoplay:true,
     interval:3000,
@@ -40,12 +41,19 @@ Page({
       },
     ],
   },
-  async onShow() {
-   const data = await getIndex();
+  onLoad(){
+    this.getdata(true);
+  },
+  onShow(){
+    this.getdata();
+  },
+  async getdata(loading=false) {
+   const data = await getIndex(loading);
    this.setData({
     indexData:data||{},
    })
   },
+
   goArticle({currentTarget:{dataset: {id}}}){
     if (id) {
       wx.navigateTo({

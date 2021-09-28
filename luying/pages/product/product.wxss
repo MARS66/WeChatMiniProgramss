@@ -3,9 +3,6 @@ Page{
   color: #242424;
   height: 100%;
 }
-.product_page{
-  height: 100%;
-}
 .tabs{
   height: 80rpx;
   display: flex;

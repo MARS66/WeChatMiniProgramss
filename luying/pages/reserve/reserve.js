@@ -1,11 +1,13 @@
 // pages/reserve/reserve.js
-import {bookProduct} from '../../apis/api'
+import {bookProduct} from '../../apis/api';
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    customNavBarHeight:app.globalData.customNavBarHeight,
     id:''
   },
   async formSubmit({detail:{value}}){

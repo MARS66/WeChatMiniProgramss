@@ -1,12 +1,14 @@
 // pages/mine/mine.js
 import {getUserInfo} from '../../apis/api'
 import config from '../../config'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    customNavBarHeight:app.globalData.customNavBarHeight,
     baseUrl:config.baseUrl,
     userInfo:'',
     list:[
@@ -49,63 +51,22 @@ Page({
       },
     ]
   },
-
-  /**
+ /**
    * 生命周期函数--监听页面加载
    */
   async onLoad (options) {
-    const  res= await getUserInfo()
+    const  res= await getUserInfo(true)
     this.setData({
       userInfo:res
     })
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 生命周期函数--监听页面加载
    */
-  onReady: function () {
-
+  async onShow (options) {
+    const  res= await getUserInfo(false)
+    this.setData({
+      userInfo:res
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

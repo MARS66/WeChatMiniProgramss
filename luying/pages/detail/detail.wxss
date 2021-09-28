@@ -1,5 +1,5 @@
 .item_box{
-  padding: 45rpx;
+  padding: 45rpx 0;
   margin-top: 12rpx;
   background-color: #fff;
 }
@@ -61,13 +61,14 @@
 .condition{
   display: flex;
   flex-direction: column;
-  gap: 40rpx;
 }
 .condition_item{
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 28rpx;
+  height: 80rpx;
+  padding: 0 45rpx;
 }
 .condition_item text{
 	color: #959595;
