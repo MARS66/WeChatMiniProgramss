@@ -1,0 +1,45 @@
+<!--pages/mine/mine.wxml-->
+<navnavbar title='路盈基金' background="#f2512e" color="#fff"></navnavbar>
+<view class="login" wx:if="{{unlogin}}">
+  <view class="login_centent">
+      <view class="title">提示</view>
+      <view class="text">允许获取我的微信头像昵称？</view>
+      <view class="btns">
+        <button bindtap="cancel">取消</button>
+        <button  open-type="getUserInfo" bindtap="getwxifo">确认</button>
+      </view>
+  </view>
+</view>
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px - 41px)">
+    <view class="user_info_box">
+      <view class="user_info">
+        <navigator url="/pages/userInfo/userInfo"  >
+        <image  class="userinfo-avatar" src="{{baseUrl+userInfo.avatar}}" mode="cover"></image>
+        </navigator>
+        <navigator url="/pages/userInfo/userInfo"  >
+          <text class="userinfo-nickname">{{userInfo.nickname||userInfo.xm||'编辑资料'}}</text>
+        </navigator>
+      </view>
+
+    </view>
+
+    <view class="list">
+        <navigator wx:for="{{list}}" wx:key="index"  class="list-item" url="{{item.url}}" hover-class="navigator-hover">
+            <view class="name">
+              <image src="{{item.icon}}"></image>
+              <text>{{item.text}}</text>
+            </view>
+              <image class="right" src="/static/images/back.png"></image>
+        </navigator>
+      </view>
+      <view class="list settings">
+        <navigator wx:for="{{settings}}" wx:key="index"  class="list-item" url="{{item.url}}" hover-class="navigator-hover">
+            <view class="name">
+              <image src="{{item.icon}}"></image>
+              <text>{{item.text}}</text>
+            </view>
+              <image class="right" src="/static/images/back.png"></image>
+        </navigator>
+      </view>
+</view>
+

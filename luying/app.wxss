@@ -1,0 +1,13 @@
+/**app.wxss**/
+Page{
+  background-color: #EDEEF0;
+  color: #242424;
+ height: 100%;
+}
+.container{
+ overflow-y: auto;
+}
+.right{
+  width: 16rpx;
+	height: 28rpx;
+}

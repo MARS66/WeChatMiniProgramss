@@ -1,0 +1,92 @@
+/* pages/mine/mine.wxss */
+.login{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.login_centent{
+  background-color: #ffffff;
+  border-radius: 8rpx;
+  border: 1px solid #dcddcd;
+  padding: 20rpx 40rpx;
+  text-align: center;
+}
+.login_centent .text{
+  padding: 30rpx 0;
+}
+.login_centent .btns{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login_centent .btns button{
+  width: auto;
+  background: none;
+  padding: 0;
+  margin:  20rpx 30rpx;
+  font-weight: normal;
+}
+.login_centent .btns button:last-child{
+ color: #FD6036;
+}
+.user_info_box{
+  height: 270rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 50rpx;
+  background-color: #f2512e;
+}
+.user_info{
+  display: flex;
+  align-items: center;
+}
+.userinfo-nickname{
+  font-family: MicrosoftYaHei;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+  color: #ffffff;
+  margin-left: 20rpx;
+}
+.userinfo-avatar{
+  width: 126rpx;
+	height: 126rpx;
+	background-color: #ffffff;
+  border: solid 5rpx #fff;
+  border-radius: 50%;
+}
+.list-item{
+  box-sizing: border-box;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 45rpx;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.55);
+}
+.list-item .name{
+  display: flex;
+  align-items: center;
+}
+.list-item .name text{
+  font-family: MicrosoftYaHei;
+  font-size: 28rpx;
+  color: #1b1b1b;
+}
+.list-item .name image{
+  width: 36rpx;
+	height: 36rpx;
+  margin-right: 25rpx;
+}
+.settings{
+  margin-top: 12rpx;
+}

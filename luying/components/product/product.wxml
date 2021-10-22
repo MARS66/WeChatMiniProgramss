@@ -1,0 +1,20 @@
+<!--components/product/product.wxml-->
+
+  <view wx:for="{{products}}" wx:key="index" class=" {{margin?'margin':'product_box'}}" data-id="{{item.id}}" bindtap="goDetail">
+    <view class="product_title">
+      <text>{{item.title}}</text> 
+      <image wx:if="{{canDelete}}" class="delete" data-id="{{item.id}}" catchtap="delete"   src="{{item.image}}"></image>
+    </view>
+    <view class="product_info">
+      <view>
+        <view class="increase">{{item.nhl}}</view>
+        <view>固定收益率</view>
+      </view>
+      <view>
+        <!-- <view><text class="text">{{item.tzqx}}</text></view> -->
+        <view>{{item.tzqx}}</view>
+        <view>剩余 <text class="text">{{item.sykt_text||0}}</text>{{item.sykt_con}} | {{item.fx}}</view>
+      </view>
+    </view>
+    <view wx:if="{{isBooked}}" class="booked_info">我的预约金额：<text class="unit">{{item.yyje||0}}万元</text></view>
+  </view>

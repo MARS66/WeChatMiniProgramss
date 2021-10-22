@@ -1,0 +1,82 @@
+<navnavbar title='路盈基金'></navnavbar>
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px)">
+   <!-- 轮播 --> 
+   <view class="swiper_box">
+      <swiper indicator-dots="{{indicatorDots}}" 
+        indicator-active-color="#fff" 
+        indicator-color="rgba(255, 255, 255, 0.367)"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <navigator wx:for="{{indexData.lbt}}" hover-class="none" wx:key="*this" url="/pages/detail/detail?id={{item.id}}">
+          <swiper-item  class="swiper-item">
+              <image src="{{item.image}}" mode="scaleToFill"></image>
+          </swiper-item>
+        </navigator>
+      </swiper>
+   </view>
+  <!-- nav -->
+
+  <view class="nav">
+    <navigator class="nav-item" wx:for="{{navs}}" hover-class="none" wx:key="index" url="{{item.href}}?api={{item.api}}">
+      <image src="{{item.icon}}"></image>
+      <view class="nav_lable">{{item.label}}</view>
+    </navigator>
+  </view>
+<!-- 最新快讯 -->
+  <view class="item_box">
+    <navigator class="latest" hover-class="none" url="/pages/article/article?id={{indexData.zxzx[0].id}}&api=zxxq">
+      <view class="mark">最新快讯</view>
+      <text>{{indexData.zxzx[0].title}}</text>
+    </navigator>
+    <view class="recommend">
+      <image src="{{indexData.zxzx[1].image}}" mode="widthFix" data-id="{{indexData.zxzx[1].id}}" catchtap="goArticle"></image>
+      <image src="{{indexData.zxzx[2].image}}" mode="widthFix"  data-id="{{indexData.zxzx[2].id}}" catchtap="goArticle"></image>
+    </view>
+  </view>
+
+<!-- 财经资讯 -->
+<view class="item_box">
+  <view class="item_title">
+    <text>财经资讯</text>
+    <navigator  class="more" url="/pages/news/news" hover-class="none" open-type="switchTab">
+       更多 <image src="../../static/images/right.png"></image>
+    </navigator>
+  </view>
+  <news news="{{indexData.cmc}}"></news>
+</view>
+
+
+<!-- 基金精选 -->
+  <view class="item_box">
+    <view class="item_title">
+      <text>基金精选</text>
+      <navigator class="more" url="/pages/product/product" hover-class="none" open-type="switchTab">
+        更多 <image src="../../static/images/right.png"></image>
+      </navigator>
+    </view>
+    <navigator wx:for="{{indexData.jjjx}}" wx:key="index" class="new_box"  url="/pages/detail/detail?id={{item.id}}">
+      <view class="fund_left">
+        <image src="{{item.image}}" mode="widthFix"></image>
+        <view class="content">
+          <view class="increase">{{item.jynzdf}}</view>
+          <text>固定收益率</text>
+        </view>
+      </view>
+      <view class="fund_right">
+        <view >{{item.cpmc}}</view>
+        <text >{{item.title}}</text>
+      </view>
+    </navigator>
+  </view>
+
+
+  <!-- 推荐产品 -->
+  <view class="item_box">
+    <view class="item_title">
+      <text>推荐产品</text>
+      <navigator class="more" hover-class="none" url="/pages/product/product" open-type="switchTab">
+        更多 <image src="../../static/images/right.png"></image>
+      </navigator>
+    </view>
+     <product products="{{indexData.tjcp}}"></product>
+  </view>
+</view>

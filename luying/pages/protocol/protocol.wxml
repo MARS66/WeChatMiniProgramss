@@ -1,0 +1,12 @@
+<!--pages/about/about.wxml-->
+<navnavbar></navnavbar>
+<nav-back inner-text="使用协议"></nav-back>
+
+<view class="list settings">
+    <navigator wx:for="{{protocols}}" wx:key="index"  class="list-item" url="{{item.url}}?api={{item.api}}" hover-class="navigator-hover">
+        <view class="name">{{item.text}} </view>
+        <image wx:if="{{!item.value}}" class="right" src="/static/images/back.png"></image>
+        <view  wx:if="{{item.value}}" class="value">{{item.value}}</view>
+    </navigator>
+</view>
+

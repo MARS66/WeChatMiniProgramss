@@ -1,0 +1,17 @@
+<!--pages/checkPhone/checkPhone.wxml-->
+<navnavbar></navnavbar>
+<nav-back inner-text="修改密码"></nav-back>
+<form catchsubmit="formSubmit">
+<view class="form_body">
+  <view class="form_item">
+    <image src="/static/images/phone.png" alt=""></image>
+    <input type="text" value="136565665655"/>
+  </view>
+  <view class="form_item">
+    <image src="/static/images/safe.png" alt=""></image>
+    <input type="text" placeholder="请输入短信验证码"/>
+    <view class="getcode">获取验证码</view>
+  </view>
+</view>
+  <button class="button"  formType="submit" over-class="navigator-hover">下一步</button>
+</form>

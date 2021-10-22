@@ -1,0 +1,35 @@
+/* pages/about/about.wxss */
+
+.list-item{
+  box-sizing: border-box;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 45rpx;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.55);
+}
+.list-item .name{
+  display: flex;
+  align-items: center;
+}
+.list-item .name text{
+  font-family: MicrosoftYaHei;
+  font-size: 28rpx;
+  color: #1b1b1b;
+}
+.list-item .name image{
+  width: 36rpx;
+	height: 36rpx;
+}
+.settings{
+  margin-top: 12rpx;
+}
+.value{
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	font-weight: 600;
+	letter-spacing: 0rpx;
+	color: #fd6036;
+}

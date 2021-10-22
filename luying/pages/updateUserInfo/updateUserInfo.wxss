@@ -1,0 +1,67 @@
+.user_info_box{
+  margin-top: 12rpx;
+  padding: 45rpx;
+  background-color: #fff;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.user_info_box .change{
+  font-family: MicrosoftYaHei;
+  font-size: 28rpx;
+  color: #f2512e;
+  margin-left: 10rpx;
+}
+.userinfo-avatar{
+  width: 150rpx;
+	height: 150rpx;
+	background-color: #959595;
+  border-radius: 50%;
+}
+.list{
+  display: block;
+  margin-top: 12rpx;
+  background-color: #fff;
+}
+.list-item{
+  box-sizing: border-box;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 0 45rpx;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.55);
+}
+radio-group label{
+  margin-right: 30rpx;
+}
+radio-group radio{
+  margin-right: 10rpx;
+}
+.list-item input{
+  flex: 1;
+  color: #959595;
+}
+.list-item {
+  font-family: MicrosoftYaHei;
+  font-size: 28rpx;
+  color: #1b1b1b;
+}
+.list-item .name{
+  text-align: right;
+  width:140rpx ;
+  margin-right: 20rpx;
+}
+.button_box{
+  padding: 45rpx;
+}
+.button_box button{
+  background-color: #f2512e;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0;
+  width: 100% !important;
+  margin: 0 !important;
+  color: #fff;
+}

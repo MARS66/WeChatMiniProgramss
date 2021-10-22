@@ -1,0 +1,55 @@
+<!--pages/userInfo/userInfo.wxml-->
+<navnavbar></navnavbar>
+<nav-back inner-text="编辑个人资料"></nav-back>
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px - 82rpx)">
+    <!-- 头像 -->
+    <view class="user_info_box" url="">
+      <image  class="userinfo-avatar" src="{{baseUrl+userInfo.avatar}}" mode="cover"></image>
+      <view class="change" catchtap="chooseImg">更换头像</view>
+    </view>
+
+    <form class="list" catchsubmit="formSubmit">
+
+      <view class="list-item">
+        <view class="name">昵称：</view>
+        <input type="text" name="nickname" value="{{userInfo.nickname}}" placeholder="请输入昵称"/>
+      </view>
+      <view class="list-item">
+        <view class="name">真实姓名：</view>
+        <input type="text"name="xm" value="{{userInfo.xm}}" placeholder="请填写真实姓名"/>
+      </view>
+      
+      <view class="list-item">
+        <view class="name">性别：</view>
+        <radio-group name="gender">
+          <label><radio color='#f2512e' checked="{{userInfo.gender!==0}}" value="{{1}}"/>男</label>
+          <label><radio color="#f2512e" checked="{{userInfo.gender===0}}" value="{{0}}"/>女</label>
+        </radio-group>
+      </view>
+      <view class="list-item">
+        <view class="name">联系地址：</view>
+        <input type="text"name="dz" value="{{userInfo.dz}}" placeholder="请填写联系地址"/>
+      </view>
+      <view class="list-item">
+        <view class="name">工作单位：</view>
+        <input type="text"name="gzdw" value="{{userInfo.gzdw}}" placeholder="请填写工作单位"/>
+      </view>
+      
+      
+      <view class="list-item">
+        <view class="name">身份证：</view>
+        <input type="text"name="sfzh" value="{{userInfo.sfzh}}" placeholder="请填写身份证号"/>
+      </view>
+      <view class="list-item">
+        <view class="name">Email：</view>
+        <input type="text"name="email" value="{{userInfo.email}}" placeholder="请填写Email地址"/>
+      </view>
+      <view class="list-item">
+        <view class="name">QQ：</view>
+        <input type="text"name="qq" value="{{userInfo.qq}}" placeholder="请填写qq号"/>
+      </view>
+      <view class="button_box">
+      <button formType="submit">保存</button>
+      </view>
+    </form>
+</view>

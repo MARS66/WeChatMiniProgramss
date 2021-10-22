@@ -1,0 +1,8 @@
+<!--pages/motion/motion.wxml-->
+<!-- 自定义顶部 -->
+<navnavbar></navnavbar>
+<nav-back inner-text="金牌推荐"></nav-back>
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px - 82rpx)">
+    <image class="top_img" mode="widthFix" src="/static/images/motion.png" alt=""></image>
+    <product products="{{products}}" margin="{{true}}"></product>
+</view>

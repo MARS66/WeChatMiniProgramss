@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/detail/detail",
+    "pages/article/article",
+    "pages/product/product",
+    "pages/updateUserInfo/updateUserInfo",
+    "pages/userInfo/userInfo",
+    "pages/history/history",
+    "pages/collection/collection",
+    "pages/booked/booked",
+    "pages/myProduct/myProduct",
+    "pages/news/news",
+    "pages/reserve/reserve",
+    "pages/protocol/protocol",
+    "pages/about/about",
+    "pages/updatePassword/updatePassword",
+    "pages/checkPhone/checkPhone",
+    "pages/settings/settings",
+    "pages/successful/successful",
+    "pages/customerService/customerService",
+    "pages/motion/motion"
+  ],
+  "usingComponents": {
+    "nav-back": "components/nav_back/nav_back",
+    "navnavbar": "components/navbar/navbar",
+    "news": "components/news/news",
+    "product": "components/product/product"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "路盈基金",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#959595",
+    "borderStyle": "white",
+    "selectedColor": "#f2512e",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/images/home.png",
+        "selectedIconPath": "/static/images/home-fill.png"
+      },
+      {
+        "pagePath": "pages/product/product",
+        "text": "产品",
+        "iconPath": "/static/images/stop.png",
+        "selectedIconPath": "/static/images/stop-fill.png"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "资讯",
+        "iconPath": "/static/images/image-text.png",
+        "selectedIconPath": "/static/images/image-text-fill.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/static/images/bussiness-man.png",
+        "selectedIconPath": "/static/images/bussiness-man-fill.png"
+      }
+    ]
+  }
+}

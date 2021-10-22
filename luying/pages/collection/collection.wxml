@@ -1,0 +1,10 @@
+
+<navnavbar></navnavbar>
+<nav-back inner-text="我的收藏"></nav-back>
+
+<view class="container"  style="height: calc(100% - {{customNavBarHeight}}px - 82rpx)">
+  <view wx:if="{{products.length>0}}">
+    <product products='{{products}}' margin='{{true}}'></product>
+  </view>
+  <view class="product empty" wx:if="{{!products.length && showEmpty}}">暂无收藏记录！</view>
+</view>

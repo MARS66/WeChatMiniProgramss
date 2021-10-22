@@ -1,0 +1,13 @@
+
+.button{
+  text-align: center;
+  margin-top: 45rpx;
+  padding: 0;
+  width: 100vw !important;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: unset;
+  background-color: #fd6036;
+  color: #fff;
+}

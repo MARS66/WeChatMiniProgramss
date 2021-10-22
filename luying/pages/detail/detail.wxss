@@ -1,0 +1,246 @@
+.item_box{
+  padding: 45rpx 0;
+  margin-top: 12rpx;
+  background-color: #fff;
+}
+.interest_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:  60rpx 0;
+}
+.interest_box .text{
+  margin-right: 40rpx;
+  font-family: MicrosoftYaHei;
+	font-size: 24rpx;
+	letter-spacing: -1rpx;
+	color: #959595;
+}
+.interest_box .interest{
+  font-family: AvenirLTStd-Heavy;
+	font-size: 80rpx;
+	letter-spacing: -4rpx;
+	color: #fd6036;
+}
+.progress-percent{
+  text-align: center;
+  font-family: AvenirLTStd-Heavy;
+	font-size: 18rpx;
+	line-height: 48rpx;
+	letter-spacing: -1rpx;
+	color: #959595;
+}
+.summary{
+  margin-top: 45rpx;
+  display: flex;
+}
+.summary-item{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.summary-item text{
+  margin-bottom: 20rpx;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	color: #959595;
+}
+.summary-item view{
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	color: #1b1b1b;
+}
+.summary .line{
+  width: 1px;
+  background-color: #E5E5E5;
+}
+
+/* condition */
+.condition{
+  display: flex;
+  flex-direction: column;
+}
+.product_info .condition{
+  padding: 45rpx 0;
+}
+.condition_item{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  padding: 20rpx 45rpx;
+}
+.condition_item .label{
+  white-space: nowrap;
+  margin-right: 60rpx;
+}
+.condition_item text{
+	color: #959595;
+}
+.condition_item .btn{
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+  color: #fd6036;
+  display: flex;
+  align-items: center;
+}
+/* 产品信息 */
+.product_info{
+  margin-top: 12rpx;
+  background-color: #fff;
+}
+.product_info .title{
+  height: 80rpx;
+  padding: 0 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #DCDCDC;
+}
+.product_info .title .text{
+  font-family: MicrosoftYaHei;
+  font-weight: bold;
+	font-size: 32rpx;
+	color: #fd6036;
+}
+.product_info .content{
+  padding: 45rpx;
+}
+
+/*文字 */
+.text_box{
+  margin-top: 12rpx;
+  background-color: #fff;
+}
+.text_box .title{
+  height: 80rpx;
+  padding: 0 45rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #DCDCDC;
+}
+.text_box .title image{
+  margin-right: 25rpx;
+  width: 24rpx;
+	height: 24rpx;
+}
+.text_box .title .text{
+  font-family: MicrosoftYaHei;
+  font-weight: bold;
+	font-size: 32rpx;
+	color: #1b1b1b;
+}
+.text_box .content{
+  padding: 45rpx;
+}
+.text_box .content text{
+  white-space: pre-wrap;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+	color: #1b1b1b;
+}
+/* 文件 */
+.flie_item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fd613625;
+  border-radius: 10rpx;
+  padding: 18rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+.flie_item:last-child{
+  margin: 0;
+}
+.flie_item .name{
+  margin-right: 30rpx;
+  display: flex;
+  /* align-items: center; */
+  font-size: 28rpx;
+	color: #1b1b1b;
+}
+.flie_item .name .pdf{
+  width: 31rpx;
+  height: 35rpx;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}
+
+/* 风险提示 */
+.risk_tip{
+  padding: 45rpx;
+  background-color: #f4582d;
+}
+.risk_tip rich-text{
+  font-family: MicrosoftYaHei;
+  color: #ffffff;
+  text-align: justify;
+}
+/* 操作 */
+.operation_box::after{
+  content: '';
+  display: block;
+  height: 120rpx;
+}
+.operation{
+  height: 120rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  background-color: #fff;
+  box-shadow:  0 -4px 30px #959595;
+}
+.operation .btn{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.operation .btn text{
+  font-family: MicrosoftYaHei;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 36rpx;
+	letter-spacing: 0rpx;
+	color: #959595;
+  margin-left: 12rpx;
+}
+.operation .active text{
+ color: #FD6036;
+}
+.operation .btn image{
+  width: 52rpx;
+	height: 52rpx;
+}
+.operation .button{
+  width: 288rpx;
+  background-color: #FD6036;
+  line-height: 120rpx;
+  text-align: center;
+  border-radius: unset;
+  vertical-align: middle;
+  font-family: MicrosoftYaHei;
+  font-size: 36rpx;
+	font-weight: normal;
+	color: #ffffff;
+}
+rich-text{
+  font-family: MicrosoftYaHei;
+	color: #1b1b1b;
+  text-align: justify;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
