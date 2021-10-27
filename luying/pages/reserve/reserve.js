@@ -21,7 +21,7 @@ Page({
     const res=await bookProduct({...value,id:this.data.id||'1'})
     if (res) {
       wx.navigateTo({
-        url: '/pages/successful/successful',
+        url: `/pages/successful/successful?je=${value.je}`,
       })
     }
   },
