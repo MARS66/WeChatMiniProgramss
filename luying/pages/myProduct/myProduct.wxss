@@ -6,7 +6,8 @@
 }
 .product .name{
   font-family: MicrosoftYaHei;
-	font-size: 28rpx;
+	font-size: 34rpx;
+	line-height: 48rpx;
   color: #1b1b1b;
   padding-bottom: 45rpx;
 }

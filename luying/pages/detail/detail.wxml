@@ -61,13 +61,13 @@
         <text>{{details.mrgz}}</text>
        </view>
 
-       <view class="condition_item">
+       <!-- <view class="condition_item">
         <view class="label">投资记录</view>
         <view class="btn">
           <view>{{details.tzjl}}人</view>
-          <!-- <image class="right" src="/static/images/back.png"></image> -->
+          <image class="right" src="/static/images/back.png"></image>
         </view>
-       </view>
+       </view> -->
        <navigator class="condition_item" url="/pages/article/article?node={{details.hkly}}&api=hkly">
         <view class="label">还款来源</view>
         <view class="btn">

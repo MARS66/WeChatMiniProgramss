@@ -15,7 +15,7 @@
           <view class="info_item">
             <view class="key">剩余金额</view>
             <view class="value">{{item.jjgl.sykt || 0}}<text>万</text></view>
-            <view class="text">到期日：还剩{{item.jjgl.tzqx}}天</view>
+            <view class="text">到期日：{{item.jjgl.tzqx}}</view>
           </view>
           <view class="info_item">
             <view class="key">年化率</view>

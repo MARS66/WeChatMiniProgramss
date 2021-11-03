@@ -77,9 +77,11 @@
 .condition_item .label{
   white-space: nowrap;
   margin-right: 60rpx;
+  width: 140rpx;
 }
 .condition_item text{
-	color: #959595;
+  color: #959595;
+  flex: 1;
 }
 .condition_item .btn{
   font-family: MicrosoftYaHei;
@@ -176,8 +178,9 @@
 
 /* 风险提示 */
 .risk_tip{
-  padding: 45rpx;
+  padding: 20rpx 45rpx;
   background-color: #f4582d;
+  border-bottom: 45rpx solid #ffffff;
 }
 .risk_tip rich-text{
   font-family: MicrosoftYaHei;
