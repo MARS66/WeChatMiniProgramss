@@ -36,15 +36,15 @@
           <label><radio value="false" color="#67C23A" checked="{{userInfo.isGone ==='false'}}"/>否</label>
         </radio-group>
     </view>
-    <view class="inputOuter" wx:if="{{userInfo.isGone==='false'}}">
+    <view class="inputOuter" wx:if="{{userInfo.isGone==='false'&&isManager}}">
       <view class="label">联系电话：</view>
       <input name="phone" value="{{userInfo.phone}}" cursor-spacing="140" type="number"  maxlength="11" placeholder="请填写电话"/>
     </view>
-    <view class="inputOuter" wx:if="{{userInfo.isGone==='false'}}">
+    <view class="inputOuter" wx:if="{{userInfo.isGone==='false'&&isManager}}">
       <view class="label">微信号：</view>
        <input name="wechat" cursor-spacing="140"  value="{{userInfo.wechat}}" placeholder="请填写微信号"/>
     </view>
-    <view class="provinceOuter">
+    <view class="provinceOuter" wx:if="{{isManager}}">
       <view class="label">户籍地址：</view>
       <view class="input">
         <input placeholder-class="placeholder" name="province" cursor-spacing="140"  value="{{userInfo.province}}" placeholder="请填写"/>

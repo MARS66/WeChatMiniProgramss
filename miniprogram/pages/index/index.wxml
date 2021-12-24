@@ -2,18 +2,11 @@
     <!-- 内容 -->
     <image class="backgroud"  src="{{gif}}" bindload="handleLoad" mode="aspectFill"></image>
     <view class="mask" wx:if="{{show}}">
-      <view class="appname">ꆈꌠꋊꀨ</view>
-      <view class="login">
-          <form catchsubmit="formSubmit">
-            <view class="formSubmitOut">
-              <view class="formSubmit"> 
-                <input type="text"  placeholder-class="input" maxlength='6' name="familyType" placeholder="家族"/>
-                <input type="number"  placeholder-class="input" maxlength='8'  name="code"   placeholder="邀请码"/>
-              </view>
-              <button	hover-class='submit_hover'  formType="submit">创建/登录</button>
-            </view>
-          </form>
-       </view>
+      <form catchsubmit="formSubmit" class="formSubmitOut">
+          <input type="text"  placeholder-class="input" maxlength='6' name="familyType" placeholder="家族"/>
+          <input type="number"  placeholder-class="input" maxlength='8'  name="code"   placeholder="邀请码"/>
+          <button	hover-class='submit_hover'  formType="submit">创建/登录</button>
+      </form>
     </view>
     <view class="copyRight">Copyright © 2020 yukaiwei. All Rights Reserved.</view>
 </view>
