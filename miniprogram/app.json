@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/root/root",
     "pages/index/index",
     "pages/home/index",
     "pages/help/help",
     "pages/search/index",
-    "pages/root/root",
     "pages/mine/index",
     "pages/familyInfo/index",
     "pages/invite/invite",

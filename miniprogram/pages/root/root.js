@@ -28,8 +28,14 @@ Page({
    })
   },
   submit(){
-    const {familtId,roots}=this.data;
-    console.log(roots);
+    const {familyId,roots}=this.data;
+    if (!familyId) {
+      wx.showToast({
+        title: '请稍后重试！',
+        icon:'none'
+      });
+      return
+    }
     const unWrite=roots.find(item=> !item.yiwen || !item.hanwen);
     if (unWrite) {
       wx.showToast({
@@ -41,7 +47,7 @@ Page({
     wx.showLoading({
       title: '正在保存...',
     })
-   db.collection('family').where({_id: familtId}).update({ data: {familyRoot:roots}})
+   db.collection('family').where({_id: familyId}).update({ data: {familyRoot:roots}})
    .then(()=>{
     wx.hideLoading({
       success: (res) => {
