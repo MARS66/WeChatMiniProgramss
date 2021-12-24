@@ -1,0 +1,19 @@
+<!--pages/auth/auth.wxml-->
+<view catchsubmit="formSubmit" class="search">
+    <input type="text" bindblur="setKeywords" placeholder="输入用户微信昵称"/>
+    <icon class="icon-small" catchtap="search" color='white' type="search" size="26"></icon>
+  <view class="tips">{{result.length ? '共'+count+'位微信用户浏览过本家普！':'查询结果为空！'}}</view>
+</view>
+
+<view class="result"  wx:if="{{result.length>0}}">
+  <view class="person" wx:for="{{result}}" wx:key='index'>
+    <image src="{{item.avatarUrl}}" mode="aspectFill"></image>
+    <view class="border">
+      <view class="name">{{item.nickName}}</view>
+      <view>
+        <text class="text {{item.isManager ? 'checked':'check'}}">{{item.isManager ? '已授权':'授权'}}</text>
+        <switch checked="{{item.isManager}}" data-id="{{item._id}}" data-index="{{index}}" bindchange="switchChange"/>
+      </view>
+    </view>
+  </view>
+</view>

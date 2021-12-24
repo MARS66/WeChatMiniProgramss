@@ -6,6 +6,6 @@
 </movable-area>
 <view wx:if="{{showEmpty}}" class="empty">
     <image bindtap="toAddPerson" src="../../static/icon/minzu.png"></image>
-    <view bindtap="toAddPerson">添加立谱第一人</view>
-    <text>添加家谱树的根节点，也就是整个家谱共同的祖先！</text>
+    <view bindtap="toAddPerson">添加立谱人</view>
+    <text>谱树的根节点，本家谱共同祖先！</text>
 </view>

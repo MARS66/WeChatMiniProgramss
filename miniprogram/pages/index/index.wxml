@@ -1,22 +1,20 @@
 <view class="content">
     <!-- 内容 -->
-    <view class="mask">
+    <image class="backgroud"  src="{{gif}}" bindload="handleLoad" mode="aspectFill"></image>
+    <view class="mask" wx:if="{{show}}">
       <view class="appname">ꆈꌠꋊꀨ</view>
       <view class="login">
           <form catchsubmit="formSubmit">
             <view class="formSubmitOut">
               <view class="formSubmit"> 
-                <input type="text" name="familyType" value="{{familyType}}" data-type="familyType" bindinput="changeValue" placeholder="请输入家族名称"/>
-                <input type="text" name="code"  value="{{code}}" data-type="code"  bindinput="changeValue" placeholder="请输入邀请码"/>
+                <input type="text"  placeholder-class="input" maxlength='6' name="familyType" placeholder="家族"/>
+                <input type="number"  placeholder-class="input" maxlength='8'  name="code"   placeholder="邀请码"/>
               </view>
-              <view class="loginBtn">
-                <button type="default" plain="true" bindtap="toAddF">去创建家族</button>
-                <button wx:if="{{familyType|| code}}"    type="primary" size="small" formType="submit">加入</button>
-                <button  wx:else  type="primary" size="small" bindtap="view">预览</button>
-              </view>
+              <button	hover-class='submit_hover'  formType="submit">创建/登录</button>
             </view>
           </form>
        </view>
     </view>
+    <view class="copyRight">Copyright © 2020 yukaiwei. All Rights Reserved.</view>
 </view>
 

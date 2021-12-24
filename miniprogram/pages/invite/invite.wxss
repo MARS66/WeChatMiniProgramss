@@ -1,0 +1,45 @@
+.container{
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+image{
+  position: absolute;
+  top: -2px;
+  width: 0;
+  width: 110%;
+  height:110%;
+  z-index: -1;
+  filter: blur(6px);
+}
+canvas{
+  height: 80vh;
+  width: 80vw;
+  background-color: #fff;
+}
+.btn-group{
+  width: 80vw;
+  margin-top: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+button{
+  width:unset !important;
+  font-weight: normal !important;
+  font-size: 28rpx !important;
+  padding: 10rpx 30rpx !important;
+  border:1px solid #F5DF4D;
+  margin: 0 !important;
+}
+.customize{
+  color: #F5DF4D;
+}
+.save{
+  background-color: #F5DF4D;
+}

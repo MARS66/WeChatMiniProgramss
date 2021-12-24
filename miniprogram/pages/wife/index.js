@@ -4,15 +4,34 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isManager:false,
     upDataId:'',
     defaultB: '../../static/img/u=1338285567,250100970&fm=26&gp=0.jpg',
     defaultA: '../../static/img/girl.jpg',
-    jobs:['学生','务农', '教师','医生','警察','毕摩','苏尼','公务员','事业单位','私企职员','国企职员','自由职业','其他职业',],
+    diplomas:['在读','小学','初中','高中','中专','大专','本科','硕士','博士'],
+    jobs:['毕摩','苏尼','公务员','事业单位','私企职员','国企职员','自主创业','务农人员','其他'],
     userInfo:{
       isBoy: 'true',
       isMerry: 'true',
       isGone:'false',
-      bcImg:'',
+    },
+    rules:{
+      lastName:'姓氏不能为空！',
+      avatar:"请上传头像！",
+      yiwen:'彝族名不能为空！',
+      hanwen:'音译名不能为空！',
+      diploma:'学历不能为空！',
+      job:'职业不能为空！',
+      isBoy:'性别不能为空！',
+      isMerry:'是否已婚不能为空！',
+      isGone:'是否过世不能为空！',
+      phone:'请填写正确联系电话！',
+      wechat:'微信号不能为空！',
+      province:'户籍地址不完整！',
+      city:'户籍地址不完整！',
+      county:'户籍地址不完整！',
+      birth:'出生年份不能为空',
+      death:'过世年份不能为空',
     },
   },
 
@@ -20,42 +39,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function ({id}) {
-    const {logo=''} = wx.getStorageSync('user')
-    this.setData({['userInfo.bcImg']: logo, });
+    const {isManager} = wx.getStorageSync('user')
     const {data} = await db.collection('user').where({_id:id,}).get();
    const wife = data[0].wife ? Object.assign(this.data.userInfo,data[0].wife):this.data.userInfo;
-    this.setData({ userInfo:wife, upDataId:id})
+    this.setData({ userInfo:wife,isManager, upDataId:id})
   },
+  // 表单检查
   checkForm(obj){
-    let iscompleted = true;
-    Object.keys(obj).forEach((key)=>{
-      if (key!=='address' && !obj[key]) {
-        iscompleted= false;
-        return false;
-      }
-    })
-    return iscompleted;
+    let unPassKey = Object.keys(obj).find((key)=>!['address','brief'].includes(key) && !obj[key])
+    if (unPassKey) return unPassKey;
+    const reg = /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-7|9])|(?:5[0-3|5-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[1|8|9|5]))\d{8}$/;
+    if (obj.phone && !reg.test(obj.phone)) unPassKey='phone';
+    return unPassKey;
   },
+  // 提交表单信息
   formSubmit(e) {
     const {familyId}=wx.getStorageSync('user');
     if (!familyId) {
-      wx.showModal({
-        title: `提示`,
-        content: '系统出现错误请稍后重试',
-      })
+      wx.showModal({title: `提示`,content: '请重新打开小程序！', });
       return;
     }
-    const{avatar,job,death,birth,isGone}=this.data.userInfo;
-    if (!this.checkForm(Object.assign(e.detail.value,{avatar,job,birth}))||(isGone==='true'&&!death) ) {
-      wx.showModal({
-        title: `提示`,
-        content: '有信息未填写，请先填写完整！',
+
+    const{rules}=this.data;
+    const{avatar,job,isGone}=this.data.userInfo;
+    const unPassKey = this.checkForm(Object.assign(e.detail.value,{avatar,job,isGone}))
+    if ( unPassKey) {
+      wx.showToast({
+        title: rules[unPassKey || 'death'],
+        icon:'none'
       })
       return
     }
-    wx.showLoading({
-      title: '正在上传',
-    })
+    wx.showLoading({title: '正在上传'})
     const info = Object.assign(this.data.userInfo,e.detail.value,{familyId,}) 
     db.collection('user').where({_id: this.data.upDataId,}).update({ data:{ wife:info}}).then(()=>{
       wx.hideLoading();
@@ -89,10 +104,11 @@ Page({
     wx.chooseImage({//选择图片
       count : 1, //规定选择图片的数量，默认9
       success : (chooseres)=>{ 
+        const urlArr=chooseres.tempFilePaths[0].split('.');
         wx.showLoading({ title : '图片上传中', mask : true,});
        if(this.data.userInfo[type]) that.deleteFile(this.data.userInfo[type]);
           wx.cloud.uploadFile({
-            cloudPath: type+"/" + new Date().getTime() +"-"+ Math.floor(Math.random() * 1000),//云储存的路径及文件名
+            cloudPath:`${type}/${new Date().getTime()}.${urlArr[urlArr.length-1]}`,//云储存的路径及文件名
             filePath : chooseres.tempFilePaths[0], //要上传的图片/文件路径 这里使用的是选择图片返回的临时地址
             success : ({fileID}) => { //上传图片到云储存成功
               that.setData({[`userInfo.${type}`]:fileID });

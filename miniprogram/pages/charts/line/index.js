@@ -14,14 +14,6 @@ function initChart(canvas, width, height, dpr) {
 }
 
 Page({
-  onShareAppMessage: function (res) {
-    return {
-      title: 'ECharts 可以在微信小程序中使用啦！',
-      path: '/pages/index/index',
-      success: function () { },
-      fail: function () { }
-    }
-  },
   data: {
     ec: {
       onInit: initChart
@@ -67,15 +59,15 @@ Page({
       var option = {
         animationDuration: 3000,
         title: {
-          text: '人口分析',
-          top:'10',
+          text: '人口统计',
+          top:'0',
           left: 'center'
         },
-        color: ["#F5DF4D", "#67E0E3", "#F56C6C"],
+        color: [ "#fac858","#91cc75", "#ee6666"],
         legend: {
           data: ['总人口', '出生', '死亡'],
-          top: 30,
-          left: 'center',
+          top: 25,
+          left: 'right',
           z: 100
         },
         grid: {
@@ -87,7 +79,7 @@ Page({
         },
         xAxis: {
           type: 'category',
-          name: '时间段/年',
+          name: '时间',
           boundaryGap: false,
           nameTextStyle:{
             fontStyle:"italic"
@@ -96,19 +88,19 @@ Page({
             interval:0,
             rotate:40
          },
-         nameLocation:'center',
-         nameGap:'50',
-          data: result.xAxis,
+         nameLocation:'end',
+         nameGap:'10',
+         data: result.xAxis,
           // show: false
         },
         yAxis: {
           x: 'center',
           name: '人数/人',
-          nameLocation:'center',
+          nameLocation:'end',
           nameTextStyle:{
             fontStyle:"italic"
           },
-          nameGap:'40',
+          nameGap:'20',
           type: 'value',
           splitLine: {
             lineStyle: {

@@ -16,14 +16,6 @@ function initChart(canvas, width, height, dpr) {
 }
 
 Page({
-  onShareAppMessage: function (res) {
-    return {
-      title: 'ECharts 可以在微信小程序中使用啦！',
-      path: '/pages/index/index',
-      success: function () { },
-      fail: function () { }
-    }
-  },
   data: {
     ec: {
       onInit: initChart
@@ -56,7 +48,7 @@ Page({
       show: result.length>1,
       orient: 'horizontal',
       left: 'center',
-      top:'40'
+      top:'60'
     },
     calculable: true,
     series: [{
@@ -68,21 +60,13 @@ Page({
         normal: {
           label: {
             show: true,
-            position: 'inner',
-            formatter: function(params) {
-              return (params.percent - 0).toFixed(0) + '%'
-            }
+            position: 'outer',
+            formatter:  "{b}: {d}%"
           },
           labelLine: {
             show: false
           }
         },
-        emphasis: {
-          label: {
-            show: true,
-            formatter: "{b}\n{d}%"
-          }
-        }
       },
       data: result,
     }]

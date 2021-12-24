@@ -1,5 +1,6 @@
 // 云函数入口文件
-const cloud = require('wx-server-sdk')
+const cloud = require('wx-server-sdk');
+const dayjs = require('dayjs');
 
 cloud.init(
   {
@@ -11,7 +12,7 @@ cloud.init(
 exports.main = async (event, context) => {
   const db = cloud.database();
   const _ = db.command
- const {total} = await db.collection('family').count()
+ const {total} = await db.collection('logs').count()
  const MAX_LIMIT = 1000
   // 计算需分几次取
   const batchTimes = Math.ceil(total / MAX_LIMIT)
@@ -19,19 +20,17 @@ exports.main = async (event, context) => {
   const tasks = []
   for (let i = 0; i < batchTimes; i++) {
     //get()操作返回的是Promise对象，每获取一个Promise就压栈进入tasks数组
-    const promise = db.collection('family').skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
+    const promise = db.collection('logs').skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
     tasks.push(promise)
   }
-  const families= (await Promise.all(tasks)).reduce((acc, cur) => {
+  const logs= (await Promise.all(tasks)).reduce((acc, cur) => {
     return acc.data.concat(cur.data);
   })
- const clears = families.data.filter(item=>item.logs&&item.logs.length>100);
- clears.forEach(element => {
-  const logs=element.logs.splice(99,element.logs.length-100);
-  db.collection('family').doc(element._id).update({
-    data: {
-      logs,
-    }
-  })
- });
+  if (logs.length===0) return;
+ for (let index = 0; index < logs.length; index++) {
+   const {time,_id} = logs[index];
+   if (dayjs(time).isBefore(dayjs().subtract(30, 'date'))) {
+    db.collection('logs').where({_id}).remove();
+   }
+ }
 }

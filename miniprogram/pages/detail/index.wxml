@@ -1,7 +1,7 @@
-<view class="caontent" bindlongpress="showModal" wx:if="{{!!userInfo}}">
+<view class="caontent" wx:if="{{!!userInfo}}">
   <view class="photo" wx:if="{{isWife}}">
     <view class="back" >
-      <image src="{{userInfo.wife.bcImg?userInfo.wife.bcImg:imgUrl}}" mode="aspectFill"></image>
+      <image src="cloud://yigu-v5bi0.7969-yigu-v5bi0-1302998236/static/detail.jpg" mode="aspectFill"></image>
     </view>
     <view class="avatar">
       <image src="{{userInfo.wife.avatar? userInfo.wife.avatar :'../../static/icon/icon_default_woman.png'}}"  mode="aspectFill" bindtap="viewImage"></image>
@@ -9,7 +9,7 @@
   </view>
   <view class="photo" wx:if="{{!isWife}}">
     <view class="back">
-      <image src="{{userInfo.bcImg?userInfo.bcImg:'cloud://yigu-v5bi0.7969-yigu-v5bi0-1302998236/static/bacImg.jpg'}}" mode="aspectFill"></image>
+      <image src="cloud://yigu-v5bi0.7969-yigu-v5bi0-1302998236/static/detail.jpg" mode="aspectFill"></image>
     </view>
     <view class="avatar">
       <image src="{{userInfo.avatar? userInfo.avatar : userInfo.isBoy ? '../../static/icon/icon_default_man.png' : '../../static/icon/icon_default_woman.png'}}"  mode="aspectFill" bindtap="viewImage"></image>
@@ -30,6 +30,7 @@
           <view wx:if="{{userInfo.wife.isGone==='true'}}" class="isGone">已过世</view>
           <view wx:else  class="isGone">已婚</view>
         </view>
+        <view wx:if="{{isManager}}"   class="updata_info" bindtap="updata">修改资料</view>
       </view>
       <view class="cantact" >
         <view wx:if="{{userInfo.isGone==='false'}}">
@@ -71,64 +72,68 @@
       </view>
     </view>
   </view>
-  <view class="photoOuter" wx:if="{{!!userInfo.wife&&!isWife}}">
+
+  <!-- 妻子 -->
+  <view class="photoOuter" wx:if="{{userInfo.isMerry==='true' && userInfo.isBoy==='true' && !isWife}}">
     <view class="title">妻子</view>
     <view class="list">
-      <view class="smallhoto">
+      <view class="smallhoto" wx:if="{{!!userInfo.wife}}">
         <image  bindtap="goHisDetail" data-id="{{userInfo._id}}" data-iswife="{{true}}"  src="{{userInfo.wife.avatar?userInfo.wife.avatar: '../../static/icon/icon_default_woman.png'}}" mode="aspectFill"></image>
-        <view>{{userInfo.wife.yiwen+userInfo.wife.hanwen}}</view>
+        <view  class="{{userInfo.wife.isGone === 'true' ? 'isGone':''}}">{{userInfo.wife.yiwen+userInfo.wife.hanwen}}</view>
+      </view>
+      <view class="smallhoto" wx:if="{{isManager && !userInfo.wife}}">
+       <view class="add"  hover-class="add-hover"  bindtap="addWife"> +</view>
       </view>
     </view>
   </view>
+  <!-- 丈夫 -->
   <view class="photoOuter" wx:if="{{isWife}}">
     <view class="title">丈夫</view>
     <view class="list">
       <view class="smallhoto">
         <image  bindtap="goHisDetail" data-id="{{userInfo._id}}" src="{{userInfo.avatar?userInfo.avatar: '../../static/icon/icon_default_man.png'}}" mode="aspectFill"></image>
-        <view>{{userInfo.yiwen+userInfo.hanwen}}</view>
+        <view  class="{{userInfo.isGone === 'true' ? 'isGone':''}}">{{userInfo.yiwen+userInfo.hanwen}}</view>
       </view>
     </view>
   </view>
-  <view class="photoOuter" wx:if="{{!!userInfo.parents.yiwen}}">
+  <!--父母  -->
+  <view class="photoOuter" wx:if="{{!!userInfo.parents.yiwen && !isWife}}">
     <view class="title">父母</view>
     <view class="list">
       <view class="smallhoto">
         <image bindtap="goHisDetail" data-id="{{userInfo.parents._id}}" src="{{userInfo.parents.avatar?userInfo.parents.avatar:'../../static/icon/icon_default_man.png'}}" mode="aspectFill" ></image>
-        <view bindtap="goHisDetail" data-id="{{userInfo.parents._id}}" >{{userInfo.parents.yiwen+userInfo.parents.hanwen}}</view>
+        <view bindtap="goHisDetail" class="{{userInfo.parents.isGone === 'true' ? 'isGone':''}}" data-id="{{userInfo.parents._id}}" >{{userInfo.parents.yiwen+userInfo.parents.hanwen}}</view>
       </view>
       <view class="smallhoto" wx:if="{{userInfo.parents.wife}}">
         <image src="{{userInfo.parents.wife.avatar?userInfo.parents.wife.avatar:'../../static/icon/icon_default_woman.png'}}" mode="aspectFill" ></image>
-        <view >{{userInfo.parents.wife.yiwen+userInfo.parents.wife.hanwen}}</view>
+        <view class="{{userInfo.parents.wife.isGone === 'true' ? 'isGone':''}}">{{userInfo.parents.wife.yiwen+userInfo.parents.wife.hanwen}}</view>
       </view>
     </view>
   </view>
-  <view class="photoOuter" wx:if="{{userInfo.children.length>0}}">
+  <!-- 子女 -->
+  <view class="photoOuter" wx:if="{{userInfo.isMerry==='true'}}">
     <view class="title">子女</view>
     <view class="list">
+      <view class="smallhoto" hover-class="add-hover"  bindtap="addChild" wx:if="{{isManager}}">
+       <view class="add"> +</view>
+      <view class="add_text">添加子女</view>
+      </view>
       <view class="smallhoto" wx:for="{{userInfo.children}}" wx:for-item="item"  wx:key="item">
         <image bindtap="goHisDetail" data-id="{{item._id}}" src="{{item.avatar? item.avatar: item.isBoy ? '../../static/icon/icon_default_man.png' : '../../resources/images/icon_default_woman.png'}}" mode="aspectFill" ></image>
-        <view bindtap="goHisDetail" data-id="{{item._id}}">{{item.yiwen+item.hanwen}}</view>
+        <view bindtap="goHisDetail" data-id="{{item._id}}" class="{{item.isGone === 'true' ? 'isGone':''}}">{{item.yiwen+item.hanwen}}</view>
       </view>
     </view>
   </view>
-  <view class="photoOuter" wx:if="{{userInfo.peer.length>1}}">
+  <!--兄弟姐妹  -->
+  <view class="photoOuter end" wx:if="{{userInfo.peer.length>1 && !isWife}}">
     <view class="title">兄弟姐妹</view>
     <view class="list">
       <view class="smallhoto" wx:for="{{userInfo.peer}}" wx:for-item="item"  wx:key="item">
         <image bindtap="goHisDetail" data-id="{{item._id}}" src="{{item.avatar? item.avatar: item.isBoy ? '../../static/icon/icon_default_man.png' : '../../resources/images/icon_default_woman.png'}}" mode="aspectFill" ></image>
-        <view bindtap="goHisDetail" data-id="{{item._id}}" >{{item.yiwen+item.hanwen}}</view>
+        <view bindtap="goHisDetail" class="{{item.isGone === 'true' ? 'isGone':''}}" data-id="{{item._id}}" >{{item.yiwen+item.hanwen}}</view>
       </view>
     </view>
   </view>
+  <!-- 删除 -->
+  <view wx:if="{{ isManager && !isWife}}" class="delete"  bindtap="delete">删除此支系</view>
 </view>
-<!--屏幕背景变暗的背景  -->
-  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
-  <!--弹出框  -->
-  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
-    <view wx:if="{{userInfo.isMerry==='true'&&userInfo.isBoy==='true'}}" class="default" bindtap="addWife">{{userInfo.wife?'编辑':'添加'}}妻子</view>
-    <view wx:if="{{userInfo.isMerry==='true'&& userInfo.isBoy==='true'}}" class="default"  bindtap="addChild">添加子女</view>
-    <view class="default"  bindtap="bindRole">绑定角色</view>
-    <view class="default" bindtap="updata">编辑</view>
-    <view class="warning"  bindtap="delete">删除</view>
-    <view bindtap="hideModal">取消</view>
-  </view>

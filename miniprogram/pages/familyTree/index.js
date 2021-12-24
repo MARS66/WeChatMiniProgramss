@@ -23,9 +23,7 @@ Page({
    */
   onLoad: function(options) {
     const {familyType}= wx.getStorageSync('user')
-    wx.setNavigationBarTitle({
-      title:  `${familyType}家族`,
-    })
+    wx.setNavigationBarTitle({title: familyType});
     this.setData({
       isiPhoneX: app.globalData.isiPhoneX,
     });

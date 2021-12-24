@@ -1,26 +1,30 @@
-.outer{
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  padding: 20rpx;
-  padding-top: 10rpx;
-  overflow-y: auto;
-  font-size: small;
+.logs{
+  padding: 30rpx;
 }
-.outer > view{
-  padding: 6rpx 0;
+.item{
   display: flex;
-}
-.tip{
-  text-align: center;
-  padding-top:10rpx;
+  align-items: center;
+  padding-bottom: 20rpx;
+  font-size: 30rpx;
+  line-height: 40rpx;
 }
 .index{
-  padding: 0 10rpx;
+  width: 70rpx;
 }
-.red{
-  color:#F56C6C
+.item image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 6rpx;
 }
-.green{
-  color: #67C23A;
+.nickName{
+  padding: 0 20rpx;
+}
+.delete{
+  color: red;
+}
+.update{
+  color: #F5DF4D;
+}
+.add{
+  color: #04BE02;
 }

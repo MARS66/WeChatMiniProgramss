@@ -1,0 +1,32 @@
+<!--pages/root/root.wxml-->
+<view class="root">
+  <view class="form">
+    <view class="item" wx:for="{{roots}}" wx:key="index">
+      <input type="text" 
+       placeholder="ꊾꂓ"
+       data-key="yiwen"  
+       value="{{item.yiwen}}"
+       data-index="{{index}}"  
+       bindblur="setValue"
+       maxlength="2"/>
+      <view class="line"></view>
+      <input type="text"
+       data-key="hanwen"  
+       data-index="{{index}}"  
+       placeholder="人名"  
+       bindblur="setValue"  
+       value="{{item.hanwen}}"
+       maxlength="2"/>
+    </view>
+    <view class="btns">
+      <view class="add" catchtap="add">添加</view>
+      <view class="line"></view>
+      <view class="delete" catchtap="delete">删除</view>
+    </view>
+  </view>
+  
+  <view class="submit">
+  <view class="tips">提示：添加后作为首页显示内容</view>
+  <view class="button" hover-class="button-hover" catchtap="submit">提 交</view>
+  </view>
+</view>

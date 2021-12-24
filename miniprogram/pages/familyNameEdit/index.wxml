@@ -1,0 +1,3 @@
+<!--pages/familyNameEdit/index.wxml-->
+<input type="text" name='familyType' value="{{familyType}}" placeholder="请输入家族名" maxlength="6"/>
+

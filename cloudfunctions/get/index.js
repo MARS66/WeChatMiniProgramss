@@ -2,7 +2,7 @@
 // 部署：在 cloud-functions/login 文件夹右击选择 “上传并部署”
 
 const cloud = require('wx-server-sdk');
-const dayjs = require('dayjs')
+const dayjs = require('dayjs');
 // 初始化 cloud
 cloud.init({
   // API 调用都保持和云函数当前所在环境一致
@@ -10,10 +10,8 @@ cloud.init({
 })
 function sortArr(arr){
   let newarr=[...arr];
-  console.log(newarr);
   for (let i = 0; i < newarr.length; i++) {
     for (let j = 0; j < newarr.length-1; j++) {
-      console.log(newarr[j].birth);
         if ( dayjs(newarr[j].birth).isAfter(dayjs(newarr[j+1].birth))) {
             let pre = newarr[j];
             newarr[j] = newarr[j+1];
@@ -53,19 +51,32 @@ function coverArray (array = [], pidStr = 'pId', idStr = 'id', chindrenStr = 'ch
 exports.main = async (event, context) => {
  const {func, params,coll} = event;
   const db = cloud.database();
-  const _ = db.command
+  const _ = db.command;
   const wxContext = cloud.getWXContext();
   const funcObj={
     // openid
     async getOpenid(){
       return wxContext.OPENID;
     },
-    // checkAuth
-    async checkAuth({familyId}){
+    
+    // 获取微信用户
+    async getWeChatUser({familyId}){
       const {OPENID} = wxContext
-      const {data} = await db.collection('user').where({bindId:OPENID,familyId}).get();
-      const result = data.length>0;
-      return result;
+      return await db.collection('wechat_user').where({_openid:OPENID, familyId}).get();
+    },
+    // 记录微信用户
+    async addWeChatUser(user){
+      const {OPENID} = wxContext
+      return await db.collection('wechat_user').add({data:{ ...user,_openid:OPENID}})
+    },
+    
+    // 加入/创建家族
+    async joinOrCreated({familyType,code}){
+      const {OPENID} = wxContext
+      const {data} = await db.collection('family').where({familyType,code}).get();
+      if (data.length) return data[0]._id;
+      const res=  await db.collection('family').add({data:{familyType,code,creater:OPENID}})
+      return res._id;
     },
     // 获取所有家庭成员
     async getAlluser(obj){
@@ -81,6 +92,27 @@ exports.main = async (event, context) => {
       for (let i = 0; i < batchTimes; i++) {
         //get()操作返回的是Promise对象，每获取一个Promise就压栈进入tasks数组
         const promise = db.collection('user').where(obj).skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
+        tasks.push(promise)
+      }
+      return (await Promise.all(tasks)).reduce((acc, cur) => {
+        return sortArr(acc.data.concat(cur.data));
+      })
+    },
+    
+    // 获取该家族所有微信用户
+    async getAllWechatUser(obj){
+      const {total} = await db.collection('wechat_user').where(obj).count();
+      if (total==0) {
+        return false;
+      }
+      const MAX_LIMIT = 1000;
+      // 承载所有读操作的 promise 的数组
+      const tasks = [];
+      // 计算需分几次取
+      const batchTimes = Math.ceil(total / MAX_LIMIT);
+      for (let i = 0; i < batchTimes; i++) {
+        //get()操作返回的是Promise对象，每获取一个Promise就压栈进入tasks数组
+        const promise = db.collection('wechat_user').where(obj).skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
         tasks.push(promise)
       }
       return (await Promise.all(tasks)).reduce((acc, cur) => {
@@ -136,47 +168,42 @@ exports.main = async (event, context) => {
         return str.match(reg)
       });
     },
+    // 微信用户查询
+    async queryUser({keyword,familyId}){
+      const {OPENID} = wxContext
+     const {data} = await this.getAllWechatUser({familyId});
+     const count=data.length;
+     if (!data)  return{
+      result:[],
+      count,
+      };  
+     return {result:data.filter(item=>{
+       const str = item.nickName;
+       const reg = new RegExp(keyword);
+       return str.match(reg)&&item._openid!==OPENID;
+     }),
+     count,
+    };
+   },
+  //  递归删除人员
+   async deleteP(_id,familyId) {
+     await db.collection('user').where({_id}).remove();
+    const  {data} = await db.collection('user').where({pId:_id,familyId}).get();
+    const ids = data.map((item)=>item._id);
+    if (ids.length>0) {
+      ids.forEach(item=>{
+       this.deleteP(item,familyId);
+      })
+    }
+  },
      // 删除人员
      async deletePerson({_id,familyId}){
-      const {OPENID} = wxContext
-      const {data:user} = await db.collection('user').where({bindId:OPENID}).get();
-      // const {data} = await db.collection('user').where({familyId}).limit(1000).get();
-      const {data} = await this.getAlluser({familyId});
-      if (!data) {
-        return false;  
-      }
-      const deletedP= data.filter(item=>item._id===_id)[0];
-      const date =new Date();
-      const str=date.toLocaleString()+'----'+ user[0].yiwen+user[0].hanwen+'---删除了'+deletedP.yiwen+deletedP.hanwen+'支系';
-      function deleteP(_id) {
-        const ids=  data.filter((item)=>item.pId===_id).map((item)=>item.id);
-        try {
-          db.collection('user').where({pId:_id}).remove();
-        } catch (error) {
-          console.log(error);
-        } 
-        if (ids.length>0) {
-          ids.forEach(item=>{
-            deleteP(item);
-          })
-        }
-        try {
-          db.collection('user').where({_id}).remove();  
-        } catch (error) {
-          console.log(error);
-        } 
-      }
       let result = true;
       try {
-      deleteP(_id);
+        this.deleteP(_id,familyId);
       } catch (error) {
         result = false;
       }
-      db.collection('family').doc(familyId).update({
-        data: {
-          logs: _.unshift(str)
-        }
-      })
       return result;
     },
     // 获取个人详情
@@ -188,38 +215,17 @@ exports.main = async (event, context) => {
       person.peer= sortArr([...data.filter(item=>item.pId===person.pId)]);
       return  person
     },
-    // 获取我的
-    async getMyCard({_id,familyId}){ 
-      // const {data} = await db.collection('user').where({familyId}).limit(1000).get();
-    const {data} = await this.getAlluser({familyId});
-    if (!data) {
-      return [];  
-    }
-      const {data:familyRoot} = await db.collection('family').where({_id:familyId}).get();
-      const fs=[];
-      function getF(pId){
-        const f= data.find(item=> item._id===pId);
-        if (f) {
-          const {yiwen,hanwen}=f;
-          fs.unshift({yiwen,hanwen});
-          getF(f.pId);
-        }
-      };
-      getF(_id);
-      return {puyuan:familyRoot[0].familyRoot.concat([...fs].splice(1)),sort:fs.length};
-    },
+    
     // 获取条形图数据
     async getbar({familyId}){ 
       // const {data} = await db.collection('user').where({familyId}).limit(1000).get();
     const {data} = await this.getAlluser({familyId});
-    if (!data) {
-      return [];  
-    }
-      const reslut = [];
-      const bar=['学生','教师','医生','警察','毕摩','苏尼','务农','公务员','事业单位','私企职员','国企职员','自由职业','自主创业'];
-     bar.forEach(item=>{reslut.push(data.filter(j=>j.job===item).length)}
-     );
-     reslut.push(10)
+    const reslut = [];
+      if (!data)  return reslut;  
+      const bar=['学生','毕摩','苏尼','公务员','事业编','民企','国企','自主创业','务农人员','其他'];
+      bar.forEach(item=>{
+        reslut.push(data.filter(j=>j.job===item).length)
+      });
      return reslut;
    },
   // 获取男女比例
@@ -254,7 +260,7 @@ exports.main = async (event, context) => {
       return [];  
     }
     const result=[];  
-    const diplomas=['在读','小学','初中','高中','中专','大专','本科','研究生','博士生'];
+    const diplomas=['在读','小学','初中','高中','中专','大专','本科','硕士','博士'];
     diplomas.forEach((item)=>{
       result.push({
         name:item,

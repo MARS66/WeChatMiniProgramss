@@ -1,59 +1,58 @@
 {
   "pages": [
-    "pages/familyTree/index",
-    "pages/index/index",
-    "pages/mine/index",
     "pages/home/index",
-    "pages/charts/line/index",
-    "pages/dataAnalysis/index",
+    "pages/index/index",
+    "pages/help/help",
     "pages/search/index",
+    "pages/root/root",
+    "pages/mine/index",
     "pages/familyInfo/index",
-    "pages/addFamily/index",
-    "pages/charts/bar/index",
-    "pages/charts/map/index",
-    "pages/charts/radar/index",
+    "pages/invite/invite",
+    "pages/log/index",
+    "pages/auth/auth",
+    "pages/wife/index",
+    "pages/addPerson/index",
+    "pages/dataAnalysis/index",
+    "pages/editor/editor",
+    "pages/detail/index",
+    "pages/familyTree/index",
     "pages/charts/gender/index",
     "pages/charts/education/index",
-    "pages/charts/sunburst/index",
-    "pages/yiren/index",
-    "pages/help/index",
-    "pages/problem/index",
-    "pages/log/index",
-    "pages/wife/index",
-    "pages/detail/index",
-    "pages/addPerson/index"
+    "pages/charts/bar/index",
+    "pages/charts/line/index",
+    "pages/charts/map/index"
   ],
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/home/index",
         "text": "简介",
-        "iconPath": "/static/icon/shouye.png",
-        "selectedIconPath": "/static/icon/shouye1.png"
+        "iconPath": "/static/icon/richu1.png",
+        "selectedIconPath": "/static/icon/taiyang.png"
       },
       {
         "pagePath": "pages/familyTree/index",
-        "text": "家谱树",
-        "iconPath": "/static/icon/guanxi.png",
-        "selectedIconPath": "/static/icon/guanxi0.png"
+        "text": "关系",
+        "iconPath": "/static/icon/dna1.png",
+        "selectedIconPath": "/static/icon/guanxi.png"
       },
       {
         "pagePath": "pages/dataAnalysis/index",
         "text": "数据",
-        "iconPath": "/static/icon/data0.png",
-        "selectedIconPath": "/static/icon/data.png"
+        "iconPath": "/static/icon/data.png",
+        "selectedIconPath": "/static/icon/data1.png"
       },
       {
         "pagePath": "pages/mine/index",
         "text": "我的",
-        "iconPath": "/static/icon/renyuan2.png",
-        "selectedIconPath": "/static/icon/redying.png"
+        "iconPath": "/static/icon/minzu.png",
+        "selectedIconPath": "/static/icon/wode.png"
       }
     ],
     "borderStyle": "white",
     "color": "#000",
-    "backgroundColor": "#F5DF4D",
-    "selectedColor": "#d81e06"
+    "backgroundColor": "#fff",
+    "selectedColor": "#F5DF4D"
   },
   "window": {
     "backgroundColor": "#000",

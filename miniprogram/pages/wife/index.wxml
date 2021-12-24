@@ -2,84 +2,73 @@
 <view class="caontent">
   <view class="photo">
     <view class="back">
-      <image src="{{userInfo.bcImg?userInfo.bcImg:'cloud://yigu-v5bi0.7969-yigu-v5bi0-1302998236/static/bacImg.jpg'}}" mode="aspectFill" data-type="bcImg" bindtap="upImage"></image>
+      <image src="cloud://yigu-v5bi0.7969-yigu-v5bi0-1302998236/static/add_wife.jpg" mode="aspectFill" ></image>
     </view>
     <view class="avatar">
       <image src="{{userInfo.avatar?userInfo.avatar:'../../static/icon/upImg.png'}}" data-type="avatar"  mode="aspectFill" bindtap="upImage"></image>
     </view>
   </view>
   <view class="form">
-  <form catchsubmit="formSubmit" catchreset="formReset">
+  <form catchsubmit="formSubmit">
     <view class="inputOuter">
-      <view class="label">姓氏</view>
-      <input name="lastName" cursor-spacing="140"  value="{{userInfo.lastName}}"maxlength="6" placeholder="妻子家族姓氏"/>
+      <view class="label">姓氏：</view>
+      <input name="lastName" cursor-spacing="140"  value="{{userInfo.lastName}}"maxlength="6" placeholder="妻子姓氏"/>
     </view>
     <view class="inputOuter">
-      <view class="label">彝族名</view>
-      <input name="yiwen" cursor-spacing="140"  maxlength="2" value="{{userInfo.yiwen}}" placeholder="彝族名字(限两个字)"/>
+      <view class="label">彝族名：</view>
+      <input name="yiwen" cursor-spacing="140"  maxlength="2" value="{{userInfo.yiwen}}" placeholder="彝文(限两个字)"/>
     </view>
     <view class="inputOuter">
-      <view class="label">音译名</view>
-      <input name="hanwen" cursor-spacing="140"  value="{{userInfo.hanwen}}"maxlength="2" placeholder="汉语音译名字(限两个字)"/>
+      <view class="label">音译名：</view>
+      <input name="hanwen" cursor-spacing="140"  value="{{userInfo.hanwen}}"maxlength="2" placeholder="汉文(限两个字)"/>
     </view>
     <view class="pickerOuter">
-      <view class="label">职业</view>
+      <view class="label">职业：</view>
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{jobs}}">
         <view wx:if="{{!userInfo.job}}"  class="myplaceholder">请选择</view>
         <view wx:else>{{userInfo.job}}</view>
       </picker>
     </view>
     <view class="radioOuter">
-      <view class="label">是否去世</view>
+      <view class="label">是否去世：</view>
       <radio-group name="isGone" data-type="isGone" bindchange="bindChange">
-          <label><radio value="true" color="#F5DF4D" checked="{{userInfo.isGone==='true'}}"/>是</label>
-          <label><radio value="false" color="#F5DF4D" checked="{{userInfo.isGone ==='false'}}"/>否</label>
+          <label><radio value="true" color="#67C23A" checked="{{userInfo.isGone==='true'}}"/>是</label>
+          <label><radio value="false" color="#67C23A" checked="{{userInfo.isGone ==='false'}}"/>否</label>
         </radio-group>
     </view>
     <view class="inputOuter" wx:if="{{userInfo.isGone==='false'}}">
-      <view class="label">联系电话</view>
-      <input name="phone" value="{{userInfo.phone}}" cursor-spacing="140" type="number"  maxlength="11" placeholder="请输入本人电话"/>
+      <view class="label">联系电话：</view>
+      <input name="phone" value="{{userInfo.phone}}" cursor-spacing="140" type="number"  maxlength="11" placeholder="请填写电话"/>
     </view>
     <view class="inputOuter" wx:if="{{userInfo.isGone==='false'}}">
-      <view class="label">微信号码</view>
-       <input name="wechat" cursor-spacing="140"  value="{{userInfo.wechat}}" placeholder="请输入本人微信号"/>
+      <view class="label">微信号：</view>
+       <input name="wechat" cursor-spacing="140"  value="{{userInfo.wechat}}" placeholder="请填写微信号"/>
     </view>
     <view class="provinceOuter">
-      <view class="label">户籍</view>
+      <view class="label">户籍地址：</view>
       <view class="input">
-        <input placeholder-class="placeholder" name="province" cursor-spacing="140"  value="{{userInfo.province}}" placeholder="省份"/>
+        <input placeholder-class="placeholder" name="province" cursor-spacing="140"  value="{{userInfo.province}}" placeholder="请填写"/>
         <text>省</text>
-        <input placeholder-class="placeholder"name="city" cursor-spacing="140"  value="{{userInfo.city}}" placeholder="市(自治州)" />
-        <text>市(州)</text>
-        <input placeholder-class="placeholder"name="county" cursor-spacing="140"  value="{{userInfo.county}}" placeholder="县" />
+        <input placeholder-class="placeholder"name="city" cursor-spacing="140"  value="{{userInfo.city}}" placeholder="请填写" />
+        <text>市/州</text>
+        <input placeholder-class="placeholder"name="county" cursor-spacing="140"  value="{{userInfo.county}}" placeholder="请填写" />
         <text>县</text>
       </view>
     </view>
     <view class="inputOuter">
-      <view class="label">详细住址</view>
-      <input name="address"  cursor-spacing="140"  value="{{userInfo.address}}" placeholder="(非必填)家庭详细住址" />
+      <view class="label">出生年份：</view>
+       <input name="birth" type="number" maxlength="4" cursor-spacing="140"  value="{{userInfo.birth}}" placeholder="出生年份 如：1936"/>
     </view>
-    <view class="pickerOuter">
-      <view class="label">出生时间</view>
-      <picker mode="date" value="{{userInfo.birth}}" data-type="birth" bindchange="bindChange">
-        <view wx:if="{{!!userInfo.birth}}">{{userInfo.birth}}</view>
-        <view wx:else  class="myplaceholder">请选择</view>
-      </picker>
-    </view>
-    <view class="pickerOuter" wx:if="{{userInfo.isGone==='true'}}">
-      <view class="label">过世时间</view>
-      <picker mode="date" value="{{userInfo.death}}" data-type="death" bindchange="bindChange">
-        <view wx:if="{{!userInfo.death}}" class="myplaceholder">请选择</view>
-        <view wx:else>{{userInfo.death}}</view>
-      </picker>
+    <view class="inputOuter" wx:if="{{userInfo.isGone==='true'}}">
+      <view class="label">过世年份：</view>
+       <input name="death" type="number" maxlength="4"   cursor-spacing="140"  value="{{userInfo.death}}" placeholder="出生年份 如：1999"/>
     </view>
     <view class="textareaOut">
-      <view class="label">个人简介</view>
-      <textarea name="brief" show-confirm-bar="{{false}}" cursor-spacing="140" value="{{userInfo.brief}}" maxlength='-1' placeholder="请书写个人简介" />
+      <view class="label">个人简介：</view>
+      <textarea name="brief" show-confirm-bar="{{false}}" cursor-spacing="140" value="{{userInfo.brief}}" maxlength='-1' placeholder="个人简介(非必填)" />
     </view>
     <view class="button-sp-area">
       <button type="primary" size="default" form-type="submit">提 交</button>
-      <button type="default" size="default" form-type="reset">重 置</button>
     </view>
   </form>
 </view>

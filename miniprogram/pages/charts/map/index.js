@@ -88,6 +88,7 @@ Page({
         return myChart2;
       });
     },
+    
   getChart1Option: function (chartData) {
     var option = {
       title: {

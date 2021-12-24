@@ -3,7 +3,7 @@ import china from '../charts/map/mapData.js';
 
 const app = getApp();
 let myChart1 = null;
-const _this = this;
+let _this = null;
 Page({
 
   /**
@@ -18,30 +18,23 @@ Page({
     familyType:'',
     notpuyuan: false,
     info:'',
+    needUser: false,
   },
-  transtionToDoubleArray: function(arr, colCount = 5) {
-    const num = Math.ceil(arr.length / colCount);
-    const temp = [];
-    for (let i = 0; i < num; i += 1) {
-      temp[i] = arr.slice(i * colCount, i * colCount + colCount);
-    }
-    const minu = colCount - temp[temp.length - 1].length;
-    if (minu>0) {
-      for (let i = 0; i < minu; i += 1) {
-        temp[temp.length - 1].push({yiwen: '', hanwen: ''});
-      }
-    }
-    return temp;
-  },
+  //  富文本软件编辑完成
+  onEditorReady() {
+    _this=this;
+    wx.createSelectorQuery().select('#editor').context(function (res) {
+      _this.context=res.context;
+      res.context.setContents({
+        html:_this.data.info
+      })
+    }).exec()
+  }, 
+  // 去添加家族简介
   toAddFamlyInfo(){
       wx.navigateTo({
-        url: '../familyInfo/index',
+        url: '../editor/editor',
       })
-  },
-  gotoSearch(){
-    wx.navigateTo({
-      url: '../search/index',
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -193,67 +186,73 @@ Page({
     };
     return option
   },
-  onLoad: function () {
-  const {familyType}= wx.getStorageSync('user')
-  wx.setNavigationBarTitle({
-    title: `${familyType}家族`,
-  }) ;
-   this.setData({
-    imgUrl: `${app.globalData.imgUrl}home.jpg`
-  })
+
+  onLoad({id,scene}) {
+    const {familyId}= wx.getStorageSync('user');
+    this.setData({
+      familyId: id || scene||familyId
+    })
   },
-  async init () {
-    const {familyType}= wx.getStorageSync('user');
-    const db = wx.cloud.database();
-     const {data} = await db.collection('family').where({familyType}).get();
-     if (data[0].familyRoot&&data[0].familyRoot.length>0) {
-       this.setData({
-        puyuan:  this.transtionToDoubleArray(data[0].familyRoot),
-        info: data[0].info,
-        familyType:data[0].familyType,
+
+  //获取用户信息
+  getUserInfo(){
+    const that=this;
+    const {familyId}=this.data;
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: ({userInfo}) => {
+        wx.cloud.callFunction({name: 'get',data: {func: 'addWeChatUser', params:{...userInfo,familyId}}}).then(()=>
+        {
+          that.handleCancel();
+          that.getFamilyData();
+        })
+      },
+      fail(){
+        wx.exitMiniProgram();
+      }
+    })
+  },
+  // 关闭授权框
+  handleCancel(){
+    this.setData({needUser:false});
+  },
+  // 获取页面数据
+  async getFamilyData(){
+      const {familyId:id}=this.data;
+      const db = wx.cloud.database();
+      const {data} = await db.collection('family').where({_id: id}).get();
+     const {result:{data:user}} =await  wx.cloud.callFunction({name: 'get',data: {func: 'getWeChatUser',params:{familyId: id || familyId}}})
+      this.setData({
+        puyuan:  data[0]?.familyRoot??[],
+        info: data[0]?.info||'',
+        familyType:data[0]?.familyType,
+        imgUrl: `${app.globalData.imgUrl}home.gif`,
+        familyId:data[0]?._id,
+        needUser: user&&user.length<1,
       })
-     } 
+     if ( this?.context?.setContents)  this.context.setContents({ html:data[0]?.info||'' });
+      this.setStorageSync(Object.assign({nickName:user[0]?.nickName, openid:user[0]?._openid,avatarUrl:user[0]?.avatarUrl,auth:user[0]?.isManager}, data[0]))
   },
+
+  // 设置缓存
+  setStorageSync({code,familyType,logo, creater,_id,openid,avatarUrl,nickName,isManager}){
+    wx.setStorageSync('user',{
+      code,
+      familyType,
+      logo, 
+      avatarUrl,
+      familyId:_id,
+      nickName,
+      isManager: openid === creater || isManager
+    });
+    wx.setNavigationBarTitle({title: familyType});
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  this.chinaData();
-   this.init()
+    this.chinaData();
+    this.getFamilyData();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -24,7 +24,7 @@
   overflow: hidden;
   position: absolute;
   bottom: -80rpx;
-  left: 20rpx;
+  left: 80rpx;
 }
 .avatar image{
   width: 100%;
@@ -33,15 +33,21 @@
 .form{
   box-sizing: border-box;
   width: 100%;
-  padding: 20rpx ;
+  padding: 0 20rpx ;
   padding-top: 90rpx;
   font-size: larger;
 }
 .label{
-  width: 200rpx;
+  text-align: right;
+  width: 180rpx;
+  padding-right: 40rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #000;
 }
+
 .inputOuter{
-  padding: 6rpx 0;
+  padding: 10rpx 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -52,32 +58,40 @@
 .inputOuter>input{
   width: 450rpx;
   padding: 10rpx 6rpx;
- border-bottom: 1rpx solid  #939597;
+  font-size: 30rpx;
+  color: #303133;
+ border-bottom: 1rpx solid  #E5E5E5;
 }
+
 picker{
   width: 450rpx;
   padding: 10rpx 6rpx;
-  border-bottom: 1rpx solid  #939597;
+  font-size: 30rpx;
+  color: #303133;
+ border-bottom: 1rpx solid  #E5E5E5;
 }
 .provinceOuter{
   display: flex;
-  padding: 6rpx 0;
   align-items: flex-start;
+  padding-top: 10rpx;
 }
 .input{
-  width: 450rpx;
+  flex: 1;
   display: flex;
   justify-content: start;
   justify-items: center;
   flex-wrap: wrap;
+  font-size: 30rpx;
+  color: #303133;
 }
 .input>input{
-  text-align: center;
+  flex-grow: 1;
+  text-align: start;
   height: 45rpx;
   line-height: 45rpx;
   padding-bottom: 10rpx;
   margin-bottom: 10rpx;
-  border-bottom: 1rpx solid  #939597;
+  border-bottom: 1rpx solid  #E5E5E5;
 }
 .input :nth-child(1){
   width: 100rpx;
@@ -91,17 +105,15 @@ picker{
 .input>text{
   height: 45rpx;
   line-height: 45rpx;
-  padding-bottom: 10rpx;
-  border-bottom: 1rpx solid  #939597;
-}
-.placeholder{
-  width: 100%;
-  text-align: center !important;
+  padding: 0 10rpx 10rpx ;
+  border-bottom: 1rpx solid  #E5E5E5;
 }
 radio-group{
-  width: 450rpx;
-  padding: 10rpx 6rpx;
-  margin-bottom: 10rpx;
+  padding: 12rpx 6rpx;
+  font-size: 30rpx;
+}
+radio-group label{
+  margin-right: 40rpx;
 }
 .radioOuter{
   padding: 6rpx 0;
@@ -115,9 +127,6 @@ radio-group{
   justify-content: flex-start;
   align-items: center;
 }
-label{
-  padding-right: 20rpx;
-}
 button{
   width: 100% !important;
   margin-top: 30rpx;
@@ -126,26 +135,26 @@ button{
 }
 button[type='primary'] {
   background-color: #F5DF4D !important;
-  color: #939597;
+  color: #fff;
 }
 button[type='default'] {
-  background-color: #d81e06 !important;
-  color: #939597 !important;
+  background-color: #ff2121 !important;
+  color: #fff !important;
 }
 .button-sp-area{
-  padding: 200rpx 0;
+  padding: 60rpx 0;
 }
 .textareaOut{
   margin-top: 20rpx;
-  padding: 6rpx 0;
+  padding: 10rpx 0;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
 .textareaOut >textarea{
-  border: 1rpx solid #939597;
-  padding: 15rpx ;
+  flex: 1;
+  font-size: 30rpx;
+  border: 1rpx solid #E5E5E5;
   border-radius: 8rpx;
-  width: 450rpx;
-  padding: 10rpx 6rpx;
+  padding: 10rpx;
 }

@@ -3,8 +3,8 @@
   <image src="{{imgUrl}}" mode="aspectFill"></image>
   <view>
     <view class="search-input">
-      <input placeholder="输入关键词查询" placeholder-class="placeholder" bindblur="setKeywords" type="text"></input>
-      <text bindtap="search">搜索</text>
+      <input placeholder="关键字查找家人" placeholder-class="placeholder" bindblur="setKeywords" type="text"></input>
+      <icon class="icon-small" bindtap="search" color="#f6f6f6" type="search" size="30"></icon>
     </view>
   </view>
 </view>
@@ -14,7 +14,10 @@
       <view class="list">
         <view class="smallhoto" wx:for="{{result}}" wx:for-item="item"  wx:key="yiwen">
           <image bindtap="goHisDetail" data-id="{{item._id}}" src="{{item.avatar? item.avatar: item.isBoy ? '../../static/icon/icon_default_man.png' : '../../resources/images/icon_default_woman.png'}}" mode="aspectFill" ></image>
-          <view bindtap="goHisDetail" data-id="{{item._id}}">{{item.yiwen+item.hanwen}}</view>
+          <view bindtap="goHisDetail" class="{{item.isGone === 'true' ? 'isGone':''}}" data-id="{{item._id}}">
+            <text>{{item.yiwen}}</text>
+            <text>{{item.hanwen}}</text>
+          </view>
         </view>
       </view>
     </view>
@@ -26,7 +29,10 @@
         <view class="list">
           <view class="smallhoto" wx:for="{{person}}" wx:for-item="item"  wx:key="id">
             <image bindtap="goHisDetail" data-id="{{item._id}}" src="{{item.avatar? item.avatar: item.isBoy ? '../../static/icon/icon_default_man.png' : '../../resources/images/icon_default_woman.png'}}" mode="aspectFill" ></image>
-            <view bindtap="goHisDetail" data-id="{{item._id}}">{{item.yiwen+item.hanwen}}</view>
+            <view bindtap="goHisDetail" data-id="{{item._id}}" class="{{item.isGone === 'true' ? 'isGone':''}}">
+              <text>{{item.yiwen}}</text>
+              <text>{{item.hanwen}}</text>
+            </view>
           </view>
         </view>
       </view>

@@ -34,10 +34,18 @@
 }
 .info{
   width: 100%;
+  padding-top: 10rpx;
 }
 .underphoto{
-  width: 100%;
   padding-left: 190rpx;
+  padding-right: 20rpx;
+}
+.updata_info{
+  font-size: 28rpx;
+  font-weight: normal;
+  margin-left: auto;
+  padding-left: 30rpx;
+  color: #e9d44a;
 }
 .name{
   font-weight: 600;
@@ -113,6 +121,7 @@
 .type{
   letter-spacing: 1rpx;
   font-weight: 600;
+  font-size: 30rpx;
 }
 .photoOuter{
   padding: 10rpx 20rpx;
@@ -123,74 +132,71 @@
   font-size: 34rpx;
 }
 .list{
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  padding: 20rpx 0;
+  gap:40rpx 20rpx;
 }
 .smallhoto{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-right: 10rpx;
 }
 .smallhoto>image{
 width: 120rpx;
 height: 120rpx;
 background-color:#939597;
 border-radius: 50%;
+border: 2px solid #F5DF4D;
 }
-.smallhoto>view{
+.smallhoto>view:not(.add){
   text-align: center;
-  font-size: medium;
+  font-size: 28rpx;
   border-radius: 8rpx;
   margin-top: 10rpx;
   font-weight: 600;
+  padding: 4rpx 20rpx;
+  letter-spacing: 1rpx;
+  background-color: #F5DF4D;
 }
-/*使屏幕变暗  */
-.commodity_screen {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #000;
-  opacity: 0.1;
-  overflow: hidden;
-  z-index: 1000;
-  color: #fff;
+.smallhoto>.isGone{
+  background-color: #939597 !important;
 }
-/*对话框 */
-.commodity_attr_box {
-  width: 100%;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 2000;
-  background: #fff;
-  padding: 40rpx 20rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+.smallhoto .add{
+  width: 120rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 60rpx;
+  font-weight: 600;
+  color: #e5e5e5;
+  border: 1px solid #e5e5e5;
 }
-.commodity_attr_box >view{
-width: 60%;
-height: 80rpx;
-margin: 20rpx 0;
-color: #939597;
-font-size: large;
-letter-spacing: 2rpx;
-text-align: center;
-line-height: 80rpx;
-border-radius: 8rpx;
-background: #000;
+.smallhoto>.add_text{
+   background-color: unset !important;
+   font-weight: normal !important;
+   border: 1px solid #e5e5e5;
 }
-.warning{
-background: #d81e06 !important;
+.smallhoto .add-hover>view{
+  color: #F5DF4D !important;
+  border: 1px solid #F5DF4D !important;
 }
-.default{
-  background: #F5DF4D !important;
-  color: #939597 !important;
-  }
+
+.end{
+  padding-bottom: 60rpx;
+}
+.delete{
+  margin-top: 30rpx;
+  height: 80rpx;
+  font-size: large;
+  letter-spacing: 4rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #ff2121;
+  color: #fff ;
+}

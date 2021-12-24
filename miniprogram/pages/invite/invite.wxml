@@ -1,0 +1,8 @@
+<view class="container">
+  <image src="{{background}}" mode="aspectFill"></image>
+  <canvas id="canvasPoster" canvas-id="canvasPoster"  type="2d"></canvas>
+  <view class="btn-group">
+  <button class="customize" catchtap="custom">自定义背景</button>
+  <button class="save" catchtap="saveCanvas">保存分享</button>
+  </view>
+</view>

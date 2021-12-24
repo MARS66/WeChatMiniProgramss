@@ -1,42 +1,21 @@
-<view class="logo-outer">
-      <!-- <view class="logo">
-        <image data-type="logo" wx:if ="{{!!logo}}" src="{{logo}}" mode="aspectFill" bindtap="upImage"></image>
-        <image data-type="logo" wx:else class="img" mode="aspectFill" src="../../static/icon/upImg.png" bindtap="upImage"></image>
-      </view>
-      <view data-type="logo"class="logotitle" bindtap="upImage">上传家族图标</view> -->
-      <image data-type="logo" src="{{imgUrl}}" mode="aspectFill"></image>
-</view>
-<view class="content">
-  <form catchsubmit="formSubmit" catchreset="formReset">
-    <view class="info">
-      <view>家族名称</view>
-      <input name="name" value="{{familyType}}" maxlength="10" placeholder="请输入家族名称" />
+<view class="outer">
+
+  <view class="navigator">
+    <text>名称</text> 
+    <view class="familyType">
+      <input value="{{familyType}}" placeholder="家族名" bindblur="handleBlur"/>
+      <image src="../../static/icon/right.png" mode="aspectFit"></image>
     </view>
-    <view class="info">
-      <view>家族简介</view>
-      <textarea name="info" value="{{info}}" maxlength='-1' placeholder="请输写家族的简要介绍" />
-    </view>
-    <view class="puyuan"> 
-      <view class="title">ꋊꀨ 谱源</view>
-      <view class="itemouter">
-        <view class="item" wx:for="{{puyuan}}" 
-        wx:for-item="item"  wx:for-index="index" wx:key="item">
-          <input class="yiwen" placeholder="彝族名" data-index="{{index}}" bindinput="bindInput" data-key="yiwen" 
-          name="{{'yiwen-'+index}}" maxlength="2" value="{{item.yiwen}}"></input>
-          <view class="line"></view>
-          <input class="hanwen" name="{{'hanwen-'+index}}" data-index="{{index}}" bindinput="bindInput" data-key="hanwen" 
-          placeholder="音译名" maxlength="2" value="{{item.hanwen}}"></input>
-        </view>
-        <view class="item">
-          <view class="yiwen add" bindtap="addItem">+</view>
-          <view class="line"></view>
-          <view class="hanwen delete"  bindtap="deleteItem">-</view>
-        </view>
-      </view>
-    </view>
-    <view class="btn-area" >
-      <button type="primary" formType="submit">提 交</button>
-      <button type="warn" formType="reset">重 置</button>
-    </view>
-    </form>
+  </view>
+
+<navigator class="navigator" url="/pages/root/root" hover-class="navigator-hover">
+  <text>谱源</text> 
+  <image src="../../static/icon/right.png" mode="aspectFit"></image>
+</navigator>
+
+  <navigator class="navigator" url="/pages/editor/editor" hover-class="navigator-hover">
+    <text>简介</text> 
+    <image src="../../static/icon/right.png" mode="aspectFit"></image>
+  </navigator>
+
 </view>

@@ -1,41 +1,53 @@
 <!--pages/index/index.wxml-->
 <scroll-view  scroll-y="true" style="height:100%">
+  <!-- 收索 -->
   <View class="search">
     <image src="{{imgUrl}}" mode="aspectFill"></image>
     <view>
-      <view class="search-input" bindtap="gotoSearch">
-        <input placeholder="输入关键词查询" placeholder-class="placeholder" type="text"></input>
-        <text>搜索</text>
-      </view>
+      <navigator url="/pages/search/index" class="search-input" bindtap="gotoSearch">
+        <view>关键字查找家人</view>
+        <icon class="icon-small" color="#fff" type="search" size="30"></icon>
+      </navigator>
     </view>
   </View>
-  <view >
-    <view class="title">全国族人分布图</view>
+
+  <!-- 内容 -->
+  <view class="content">
+    <view class="ec-title title">全国族人分布图</view>
     <view class="ec-canvas">
       <ec-canvas id="mychart" canvas-id="mychart1" ec="{{ ec1 }}"></ec-canvas>
     </view>
-  </view>
-  <view class="puyuan"> 
-    <view class="title">{{familyType}}家族简介</view>
-    <view  wx:if="{{info}}">
-     <textarea auto-height="{{true}}" disabled="{{true}}" value="{{info}}" maxlength="-1" cols="30" rows="10"></textarea>
-    </view>
-    <view class="epmty" wx:else> <text>暂无{{familyType}}家族简要介绍！</text>  
-      <text class="epmty2" bindtap="toAddFamlyInfo">去添加</text> </view>
-  </view>
-  <view class="puyuan"> 
-    <view class="title">ꋊꀨ 谱源</view>
-    <view  wx:if="{{puyuan&&puyuan.length>0}}">
-      <view class="oneItem" wx:for="{{puyuan}}" wx:for-item="row"  wx:key="row">
-        <view class="twoItem" wx:for="{{row}}" wx:for-item="item"  wx:key="item">
-          <view class="yiwen">{{item.yiwen}}</view>
-          <view class="line" wx:if="{{!!item.yiwen}}"></view>
-          <view class="hanwen">{{item.hanwen}}</view>
-        </view>
+    <view class="puyuan"> 
+      <view class="title">{{familyType||''}}简介</view>
+      <view  wx:if="{{info}}">
+        <editor id="editor"  read-only bindready="onEditorReady">
+        </editor>
       </view>
+      <view class="epmty" wx:else> <text>暂无{{familyType}}家族简介！</text>  
+        <text class="epmty2" bindtap="toAddFamlyInfo">去添加</text> </view>
     </view>
-    <view class="epmty" wx:else> <text>暂无{{familyType}}家族谱源信息！</text>  
-      <text class="epmty2" bindtap="toAddFamlyInfo">去添加</text> </view>
+
+    <view class="puyuan"  wx:if="{{puyuan&&puyuan.length>0}}"> 
+      <view class="title">ꋊꀨ 谱源</view>
+        <view class="oneItem">
+          <view class="twoItem"  wx:for="{{puyuan}}" wx:for-item="item"  wx:key="item">
+            <view class="yiwen">{{item.yiwen}}</view>
+            <view class="line" wx:if="{{!!item.yiwen}}"></view>
+            <view class="hanwen">{{item.hanwen}}</view>
+          </view>
+        </view>
+    </view>
   </view>
   
+  <!-- 弹框 -->
+  <view class="dialog" wx:if="{{needUser}}">
+    <view class="dialog_content">
+      <view class="dialog_title">提示</view>
+      <view class="text">授权微信用户信息，用于完善用户资料!</view>
+      <view class="btn_group">
+          <view catchtap="handleCancel">取消</view>
+          <view catchtap="getUserInfo">授权</view>
+      </view>
+    </view>
+  </view>
 </scroll-view >

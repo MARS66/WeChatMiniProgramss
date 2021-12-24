@@ -19,7 +19,7 @@ Page({
    this.setData({
     list:result,
     familyId,
-    imgUrl: `${getApp().globalData.imgUrl}bacImg.jpg`});
+    imgUrl: `${getApp().globalData.imgUrl}search.jpg`});
   },
   toAddPerson(){
     wx.navigateTo({
