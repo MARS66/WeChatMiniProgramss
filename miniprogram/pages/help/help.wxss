@@ -1,1 +1,7 @@
 /* pages/help/help.wxss */
+view{
+  font-size: 0;
+}
+image{
+  width: 100%;
+}
