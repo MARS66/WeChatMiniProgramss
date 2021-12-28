@@ -73,6 +73,17 @@
     </view>
   </view>
 
+  <view class="photoOuter" wx:if="{{!isWife}}">
+    <view class="title">谱系</view>
+    <view class="oneItem">
+          <view class="twoItem"  wx:for="{{userInfo.puyuan}}" wx:for-item="item"  wx:key="item">
+            <view class="yiwen">{{item.yiwen}}</view>
+            <view class="line" wx:if="{{!!item.yiwen}}"></view>
+            <view class="hanwen">{{item.hanwen}}</view>
+          </view>
+        </view>
+    </view>
+    
   <!-- 妻子 -->
   <view class="photoOuter" wx:if="{{userInfo.isMerry==='true' && userInfo.isBoy==='true' && !isWife}}">
     <view class="title">妻子</view>

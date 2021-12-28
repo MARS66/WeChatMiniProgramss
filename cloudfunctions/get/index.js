@@ -213,9 +213,20 @@ exports.main = async (event, context) => {
       person.parents= {...data.filter(item=>person.pId===item._id)[0]};
       person.children= sortArr([...data.filter(item=>item.pId===person._id)]);
       person.peer= sortArr([...data.filter(item=>item.pId===person.pId)]);
+      const {data:familyRoot} = await db.collection('family').where({_id:familyId}).get();
+      const fs=[];
+      function getF(pId){
+        const f= data.find(item=> item._id===pId);
+        if (f) {
+          const {yiwen,hanwen}=f;
+          fs.unshift({yiwen,hanwen});
+          getF(f.pId);
+        }
+      };
+      getF(_id);
+      person.puyuan=familyRoot[0].familyRoot.concat([...fs].splice(1))
       return  person
     },
-    
     // 获取条形图数据
     async getbar({familyId}){ 
       // const {data} = await db.collection('user').where({familyId}).limit(1000).get();
@@ -324,6 +335,7 @@ exports.main = async (event, context) => {
     })
     return result;
   },
+
   // 获取某个省的数据
   async getSichuan({familyId,province}){ 
     // const {data} = await db.collection('user').where({familyId,province}).limit(1000).get();

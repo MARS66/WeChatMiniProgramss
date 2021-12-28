@@ -12,6 +12,7 @@ Page({
   },
   
   onLoad () {
+    wx.cloud.callFunction({name:'timer'});
     wx.showLoading({
       title: '加载中',
     })

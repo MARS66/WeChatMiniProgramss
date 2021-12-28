@@ -127,22 +127,20 @@ radio-group label{
   justify-content: flex-start;
   align-items: center;
 }
+.button-sp-area{
+  padding-top: 60rpx;
+}
 button{
   width: 100% !important;
   margin-top: 30rpx;
-  margin-bottom: 30rpx;
-  font-weight: normal !important;
 }
 button[type='primary'] {
+  border-radius: unset !important;
   background-color: #F5DF4D !important;
-  color: #fff;
-}
-button[type='default'] {
-  background-color: #ff2121 !important;
-  color: #fff !important;
-}
-.button-sp-area{
-  padding: 60rpx 0;
+  padding: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #000;
 }
 .textareaOut{
   margin-top: 20rpx;

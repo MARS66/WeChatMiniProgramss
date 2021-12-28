@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/root/root",
     "pages/index/index",
+    "pages/addPerson/index",
     "pages/home/index",
+    "pages/detail/index",
+    "pages/root/root",
     "pages/help/help",
     "pages/search/index",
     "pages/mine/index",
@@ -11,10 +13,8 @@
     "pages/log/index",
     "pages/auth/auth",
     "pages/wife/index",
-    "pages/addPerson/index",
     "pages/dataAnalysis/index",
     "pages/editor/editor",
-    "pages/detail/index",
     "pages/familyTree/index",
     "pages/charts/gender/index",
     "pages/charts/education/index",

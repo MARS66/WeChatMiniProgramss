@@ -5,7 +5,7 @@
       <form catchsubmit="formSubmit" class="formSubmitOut">
           <input type="text"  placeholder-class="input" maxlength='6' name="familyType" placeholder="家族"/>
           <input type="number"  placeholder-class="input" maxlength='8'  name="code"   placeholder="邀请码"/>
-          <button	hover-class='submit_hover'  formType="submit">创建/登录</button>
+          <button	hover-class='submit_hover'  formType="submit">创建/加入</button>
       </form>
     </view>
     <view class="copyRight">Copyright © 2020 yukaiwei. All Rights Reserved.</view>

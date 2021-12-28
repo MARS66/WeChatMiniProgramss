@@ -200,3 +200,36 @@ border: 2px solid #F5DF4D;
   background: #ff2121;
   color: #fff ;
 }
+.oneItem{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  gap: 40rpx 30rpx;
+  padding-bottom: 40rpx;
+  padding-top: 20rpx;
+}
+.twoItem{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.yiwen{
+  box-sizing: border-box;
+  padding-bottom: 10rpx;
+  width: 100%;
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: 600;
+}
+.hanwen{
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 28rpx;
+  text-align: center;
+  padding-top: 10rpx;
+}
+.line{
+  height: 2rpx !important;
+  background-color: #000 !important;
+  width: 100%;
+}

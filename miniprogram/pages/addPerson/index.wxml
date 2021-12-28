@@ -8,8 +8,8 @@
       <image src="{{userInfo.avatar?userInfo.avatar:'../../static/icon/upImg.png'}}" data-type="avatar"  mode="aspectFill" bindtap="upImage"></image>
     </view>
   </view>
-  <view class="form">
   <form catchsubmit="formSubmit">
+  <view class="form">
     
     <view class="inputOuter">
       <view class="label">彝族名:</view>
@@ -89,9 +89,9 @@
       <view class="label">个人简介:</view>
       <textarea name="brief" show-confirm-bar="{{false}}" cursor-spacing="140" value="{{userInfo.brief}}" maxlength='-1' placeholder="个人简介（非必填）" />
     </view>
-    <view class="button-sp-area">
-      <button type="primary" size="default" form-type="submit">提 交</button>
-    </view>
+  </view>
+  <view class="button-sp-area">
+    <button type="primary" size="default" form-type="submit">提 交</button>
+  </view>
   </form>
-</view>
 </view>

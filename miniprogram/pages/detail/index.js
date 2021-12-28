@@ -9,6 +9,7 @@ Page({
     userInfo:null,
     isWife: false,
     isManager:false,
+    puyuan:[]
   },
 
   /**
@@ -79,7 +80,7 @@ Page({
   updata(){
     const {_id,pId} = this.data.userInfo;
     wx.navigateTo({
-      url: `../addPerson/index?pId=${pId}&id=${_id}`,
+      url: `../${this.data.isWife?'wife':'addPerson'}/index?pId=${pId}&id=${_id}`,
     })
   },
     // 添加妻子
@@ -102,14 +103,12 @@ Page({
       }
     });
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: async function () {
-    const {familyId}=wx.getStorageSync('user');
+
+  async  getUser(){
     wx.showLoading({
       title: '正在加载...',
     })
+    const {familyId}=wx.getStorageSync('user');
     const {result} = await wx.cloud.callFunction({
       name: 'get',
       data: {
@@ -117,9 +116,15 @@ Page({
         params:{_id:this.data.currentId,familyId,}
       },
       });
+      wx.hideLoading();
       if (result) {
         this.setData({userInfo:result})
       }
-      wx.hideLoading();
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  async onShow() {
+    await this.getUser()
   },
 })
