@@ -115,7 +115,7 @@
         <image bindtap="goHisDetail" data-id="{{userInfo.parents._id}}" src="{{userInfo.parents.avatar?userInfo.parents.avatar:'../../static/icon/icon_default_man.png'}}" mode="aspectFill" ></image>
         <view bindtap="goHisDetail" class="{{userInfo.parents.isGone === 'true' ? 'isGone':''}}" data-id="{{userInfo.parents._id}}" >{{userInfo.parents.yiwen+userInfo.parents.hanwen}}</view>
       </view>
-      <view class="smallhoto" wx:if="{{userInfo.parents.wife}}">
+      <view class="smallhoto" wx:if="{{userInfo.parents.wife}}" data-id="{{userInfo.parents._id}}"  bindtap="goHisDetail" data-iswife="{{true}}" >
         <image src="{{userInfo.parents.wife.avatar?userInfo.parents.wife.avatar:'../../static/icon/icon_default_woman.png'}}" mode="aspectFill" ></image>
         <view class="{{userInfo.parents.wife.isGone === 'true' ? 'isGone':''}}">{{userInfo.parents.wife.yiwen+userInfo.parents.wife.hanwen}}</view>
       </view>

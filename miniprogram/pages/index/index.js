@@ -12,7 +12,11 @@ Page({
   },
   
   onLoad () {
-    wx.cloud.callFunction({name:'timer'});
+    const {familyId} =wx.getStorageSync('user')
+    if (familyId) {
+      this.successFunc(familyId);
+      return;
+    }
     wx.showLoading({
       title: '加载中',
     })
