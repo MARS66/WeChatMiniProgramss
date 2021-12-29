@@ -5,9 +5,15 @@
       <form catchsubmit="formSubmit" class="formSubmitOut">
           <input type="text"  placeholder-class="input" maxlength='6' name="familyType" placeholder="家族"/>
           <input type="number"  placeholder-class="input" maxlength='8'  name="code"   placeholder="邀请码"/>
-          <button	hover-class='submit_hover'  formType="submit">创建/加入</button>
+          <button	hover-class='submit_hover'  formType="submit">创建/加入</button>    
+          <view class="links">
+            <navigator  hover-class="navigator-hover" open-type="reLaunch"	url='/pages/home/index?id=1526e12a601e378e025f51fa3a427818' >案例查看</navigator>
+            <view> , </view>
+            <navigator  hover-class="navigator-hover" 	url='/pages/help/help'> 帮助</navigator>
+          </view>
       </form>
     </view>
     <view class="copyRight">Copyright © 2020 yukaiwei. All Rights Reserved.</view>
+
 </view>
 

@@ -54,12 +54,12 @@ Page({
     series: [{
       name: '教育水平',
       type: 'pie',
-      center: ['50%', '50%'],
-      radius: 80,
+      center: ['50%', '60%'],
+      radius: 160,
       itemStyle: {
         normal: {
           label: {
-            show: true,
+            show: false,
             position: 'outer',
             formatter:  "{b}: {d}%"
           },

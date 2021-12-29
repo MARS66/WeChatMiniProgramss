@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/root/root",
+    "pages/mine/index",
     "pages/addPerson/index",
     "pages/home/index",
     "pages/detail/index",
-    "pages/root/root",
     "pages/help/help",
     "pages/search/index",
-    "pages/mine/index",
     "pages/familyInfo/index",
     "pages/invite/invite",
     "pages/log/index",

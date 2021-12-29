@@ -41,15 +41,22 @@ page{
   width: 160rpx;
   height: 160rpx;
   border-radius: 50%;
-  background-color: #939597;
-  border: 1rpx solid rgba(216, 214, 214, 0.295);
+  background-color: #F5DF4D;
+  border: 1rpx solid #F5DF4D;
 } 
 
 .userInfo{
   font-size: 40rpx;
   color: #fff;
   padding: 0 30rpx;
-  display: flex;
+}
+.userInfo view{
+  font-size: 24rpx;
+  padding-top: 10rpx;
+  color: #F5DF4D;
+}
+.navigator-hover{
+  background-color: unset;
 }
 .auth{
   box-sizing: border-box;
@@ -84,4 +91,51 @@ page{
 .item>view{
   font-size:small;
   font-weight: normal;
+}
+.dialog{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.301);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dialog_content{
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+  width: 60%;
+}
+.dialog_header{
+  text-align: center;
+  font-weight: 600;
+}
+.dialog_body{
+  padding: 40rpx 0;
+}
+.dialog_body input{
+  margin-top: 20rpx;
+  padding: 10rpx 20rpx;
+  border: 1px solid #E4E7ED;
+  color: #606266;
+}
+.dialog_btn{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dialog_btn button{
+  margin: 0 !important;
+  width: unset !important;
+  padding: 6rpx 48rpx;
+}
+.dialog_btn button:last-child{
+  color:#409EFF;
+}
+.dialog_body .tip{
+  font-size: 12px;
+  color: #909399;
 }

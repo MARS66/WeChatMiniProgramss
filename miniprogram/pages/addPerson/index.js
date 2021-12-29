@@ -57,7 +57,7 @@ Page({
   },
   // 表单检查
   checkForm(obj){
-    let unPassKey = Object.keys(obj).find((key)=>!['address','brief'].includes(key) && !obj[key])
+    let unPassKey = Object.keys(obj).find((key)=>!['address','brief','avatar'].includes(key) && !obj[key])
     if (unPassKey) return unPassKey;
     const reg = /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-7|9])|(?:5[0-3|5-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[1|8|9|5]))\d{8}$/;
     if ( obj.phone && !reg.test(obj.phone)) unPassKey='phone';

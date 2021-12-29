@@ -40,7 +40,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   async chinaData() {
-    const {familyId}= wx.getStorageSync('user');
+    const {familyId}= this.data;
     const {result} = await wx.cloud.callFunction({
       name: 'get',
       data: {
@@ -243,7 +243,9 @@ Page({
       avatarUrl,
       familyId:_id,
       nickName,
-      isManager: openid === creater || isManager
+      openid,
+      isManager:isManager||openid === creater,
+      canDelete: openid === creater
     });
     wx.setNavigationBarTitle({title: familyType});
   },

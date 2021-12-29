@@ -1,4 +1,4 @@
 <!--pages/help/help.wxml-->
 <view>
-  <image src="cloud://yigu-v5bi0.7969-yigu-v5bi0-1302998236/static/help.jpg" mode="widthFix"></image>
+  <image src="cloud://yigu-v5bi0.7969-yigu-v5bi0-1302998236/static/help.jpg" bindload="imgLoad" mode="widthFix"></image>
 </view>

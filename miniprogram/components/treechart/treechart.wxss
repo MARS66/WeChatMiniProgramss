@@ -13,8 +13,8 @@
 .user-wife-container {
   display: flex;
   align-items: center;
-  padding-left: 22.5rpx;
-  padding-right: 22.5rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }
 
 .user-container {

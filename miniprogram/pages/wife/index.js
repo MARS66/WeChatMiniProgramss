@@ -14,6 +14,7 @@ Page({
       isBoy: 'true',
       isMerry: 'true',
       isGone:'false',
+      avatar:''
     },
     rules:{
       lastName:'姓氏不能为空！',
@@ -46,7 +47,7 @@ Page({
   },
   // 表单检查
   checkForm(obj){
-    let unPassKey = Object.keys(obj).find((key)=>!['address','brief'].includes(key) && !obj[key])
+    let unPassKey = Object.keys(obj).find((key)=>!['address','brief','avatar'].includes(key) && !obj[key])
     if (unPassKey) return unPassKey;
     const reg = /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-7|9])|(?:5[0-3|5-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[1|8|9|5]))\d{8}$/;
     if (obj.phone && !reg.test(obj.phone)) unPassKey='phone';
@@ -65,7 +66,7 @@ Page({
     const unPassKey = this.checkForm(Object.assign(e.detail.value,{avatar,job,isGone}))
     if ( unPassKey) {
       wx.showToast({
-        title: rules[unPassKey || 'death'],
+        title: rules[unPassKey],
         icon:'none'
       })
       return
@@ -75,11 +76,12 @@ Page({
     db.collection('user').where({_id: this.data.upDataId,}).update({ data:{ wife:info}}).then(()=>{
       wx.hideLoading();
       wx.showToast({
-        icon: 'success',
         title:'更新成功',
-        duration: 2000,
+        icon: 'success',
         success: ()=>{
-          wx.navigateBack({delta: 1});
+         wx.navigateBack({
+           delta: 1,
+         })
         }
       });
     }).catch((err)=>{

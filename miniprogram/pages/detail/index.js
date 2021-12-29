@@ -9,6 +9,7 @@ Page({
     userInfo:null,
     isWife: false,
     isManager:false,
+    canDelete:false,
     puyuan:[]
   },
 
@@ -16,10 +17,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad({id,isWife}) {
-    const {isManager}=wx.getStorageSync('user')
+    const {isManager,canDelete}=wx.getStorageSync('user')
     this.setData({
       currentId:id,
       isManager,
+      canDelete,
       isWife:isWife==='true',
       imgUrl: `${getApp().globalData.imgUrl}bacImg.jpg`,
     })
@@ -46,7 +48,31 @@ Page({
   },
   //delete
   async delete(){
-    const {yiwen,hanwen,familyId,_id} = this.data.userInfo;
+    const {yiwen,hanwen,familyId,_id,wife} = this.data.userInfo;
+    //  删除妻子
+    if (this.data.isWife) {
+     wx.showModal({
+      title: '提示',
+      content: `是否删除${yiwen+hanwen}的妻子${wife.yiwen+wife.hanwen}信息？`,
+      success (res) {
+        if (res.confirm) {
+          wx.showLoading({title: '删除中...',})
+          const db= wx.cloud.database();
+          db.collection('user').where({_id}).update({ data: {wife:db.command.remove()}}).then(()=>{
+            wx.hideLoading({
+              success: (res) => {
+                wx.navigateBack({
+                  delta: 1,
+                })
+              },
+            })
+          })
+        }
+      }
+    })
+      return
+    }
+    // 删除支系
     wx.showModal({
       title: '提示',
       content: `是否删除${yiwen+hanwen}及其所有支系？`,

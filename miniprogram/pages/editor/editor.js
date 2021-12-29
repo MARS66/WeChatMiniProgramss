@@ -106,7 +106,6 @@ Page({
   },
 // 
   editorCtxComen(e) {
-    console.log(e);
     let { funcname } = e.currentTarget.dataset
     if (!funcname) return;
     this.editorCtx[funcname]();

@@ -63,8 +63,8 @@
         <text class="type">家庭地址：</text>
         <text>{{
           isWife?
-          userInfo.wife.province+'省'+userInfo.wife.city+'市(州)'+userInfo.wife.county+'县'+userInfo.wife.address
-        :userInfo.province+'省'+userInfo.city+'市(州)'+userInfo.county+'县'+userInfo.address}}
+          userInfo.wife.province+'省'+userInfo.wife.city+'市(州)'+userInfo.wife.county+'县'+(userInfo.wife.address||'')
+        :userInfo.province+'省'+userInfo.city+'市(州)'+userInfo.county+'县'+(userInfo.address||'')}}
         </text>
       </view>
       <view>
@@ -72,21 +72,10 @@
       </view>
     </view>
   </view>
-
-  <view class="photoOuter" wx:if="{{!isWife}}">
-    <view class="title">谱系</view>
-    <view class="oneItem">
-          <view class="twoItem"  wx:for="{{userInfo.puyuan}}" wx:for-item="item"  wx:key="item">
-            <view class="yiwen">{{item.yiwen}}</view>
-            <view class="line" wx:if="{{!!item.yiwen}}"></view>
-            <view class="hanwen">{{item.hanwen}}</view>
-          </view>
-        </view>
-    </view>
     
   <!-- 妻子 -->
   <view class="photoOuter" wx:if="{{userInfo.isMerry==='true' && userInfo.isBoy==='true' && !isWife}}">
-    <view class="title">妻子</view>
+    <view class="title" wx:if="{{!!userInfo.wife || isManager}}">妻子</view>
     <view class="list">
       <view class="smallhoto" wx:if="{{!!userInfo.wife}}">
         <image  bindtap="goHisDetail" data-id="{{userInfo._id}}" data-iswife="{{true}}"  src="{{userInfo.wife.avatar?userInfo.wife.avatar: '../../static/icon/icon_default_woman.png'}}" mode="aspectFill"></image>
@@ -122,12 +111,11 @@
     </view>
   </view>
   <!-- 子女 -->
-  <view class="photoOuter" wx:if="{{userInfo.isMerry==='true'}}">
+  <view class="photoOuter" wx:if="{{userInfo.isMerry==='true'&&userInfo.isBoy==='true'&&isManager || userInfo.children&&userInfo.children.length>0}}">
     <view class="title">子女</view>
     <view class="list">
-      <view class="smallhoto" hover-class="add-hover"  bindtap="addChild" wx:if="{{isManager}}">
-       <view class="add"> +</view>
-      <view class="add_text">添加子女</view>
+      <view class="smallhoto"   bindtap="addChild" wx:if="{{isManager}}">
+       <view class="add" hover-class="add-hover"> + </view>
       </view>
       <view class="smallhoto" wx:for="{{userInfo.children}}" wx:for-item="item"  wx:key="item">
         <image bindtap="goHisDetail" data-id="{{item._id}}" src="{{item.avatar? item.avatar: item.isBoy ? '../../static/icon/icon_default_man.png' : '../../resources/images/icon_default_woman.png'}}" mode="aspectFill" ></image>
@@ -145,6 +133,17 @@
       </view>
     </view>
   </view>
+ <!-- 谱系 -->
+  <view class="photoOuter" wx:if="{{!isWife}}">
+    <view class="title">谱系</view>
+    <view class="oneItem">
+          <view class="twoItem"  wx:for="{{userInfo.puyuan}}" wx:for-item="item"  wx:key="item">
+            <view class="yiwen">{{item.yiwen}}</view>
+            <view class="line" wx:if="{{!!item.yiwen}}"></view>
+            <view class="hanwen">{{item.hanwen}}</view>
+          </view>
+        </view>
+    </view>
   <!-- 删除 -->
-  <view wx:if="{{ isManager && !isWife}}" class="delete"  bindtap="delete">删除此支系</view>
+  <view wx:if="{{canDelete}}"  class="delete"  bindtap="delete"> {{isWife ? '删除': '删除此支系'}}</view>
 </view>

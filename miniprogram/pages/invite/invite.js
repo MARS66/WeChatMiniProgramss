@@ -62,7 +62,7 @@ Page({
     // 背景
     ctx.drawImage(backgroud, 0,0, width, height);
     // logo
-    ctx.drawImage(logo, 2,2, 120, 40);
+    ctx.drawImage(logo, 4,4, 120, 40);
     // 邀请
     // ctx.drawImage(inivite, width/2 -100, height-200, 200,100);
     ctx.fillStyle='rgba(255,255,255, 1)';

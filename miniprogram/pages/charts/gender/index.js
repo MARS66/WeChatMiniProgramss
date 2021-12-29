@@ -40,7 +40,7 @@ Page({
    }
   var option = {
     tooltip: {
-      show: true,
+      show: false,
       formatter: "{b} : {c}人 占比{d}%"
     }, 
     title: {
@@ -60,15 +60,13 @@ Page({
       name: '男女比例',
       type: 'pie',
       center: ['50%', '50%'],
-      radius: 80,
+      radius: 160,
       itemStyle: {
         normal: {
           label: {
             show: true,
             position: 'inner',
-            formatter: function(params) {
-              return (params.percent - 0).toFixed(0) + '%'
-            }
+            formatter: "{b}: {d}% 共{c}人 "
           },
           labelLine: {
             show: false
@@ -77,7 +75,7 @@ Page({
         emphasis: {
           label: {
             show: true,
-            formatter: "{b}\n{d}%"
+            formatter:"{b}: {d}% 共{c}人 "
           }
         }
       },

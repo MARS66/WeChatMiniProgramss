@@ -1,3 +1,4 @@
+
 <view class="caontent" bindlongpress="longTab">
   <view class="photo">
     <view class="back">
@@ -5,7 +6,10 @@
     </view>
     <view class="avatar">
       <image  src="{{userInfo.avatarUrl}}"  mode="aspectFill" bindtap="viewImage"></image>
-      <view class="userInfo">{{userInfo.nickName}}</view> 
+      <view class="userInfo">
+        <text>{{userInfo.nickName}}</text>
+        <view hover-class="navigator-hover" catchtap="editName">备注姓名</view>
+      </view> 
     </view>
   </view>
   <view class="auth">
@@ -16,4 +20,18 @@
       </button>
     </view>
   </view>
+</view>
+
+<view class="dialog" wx:if="{{dialog}}">
+  <form class="dialog_content" catchsubmit="formSubmit">
+    <view class="dialog_header">备注</view>
+    <view class="dialog_body">
+      <view class="tip">备注自己的真实姓名，以便于权限分发!</view>
+      <input type="text" name='nickName' value="{{userInfo.nickName}}" placeholder="备注信息"/>
+    </view>
+    <view class="dialog_btn">
+      <button catchtap="cancel">取消</button>
+      <button form-type="submit">确认</button>
+    </view>
+  </form>
 </view>

@@ -19,9 +19,9 @@
        maxlength="2"/>
     </view>
     <view class="btns">
-      <view class="add" catchtap="add">添加</view>
+      <view class="add" catchtap="add">+</view>
       <view class="line"></view>
-      <view class="delete" catchtap="delete">删除</view>
+      <view class="delete" catchtap="delete">-</view>
     </view>
   </view>
   

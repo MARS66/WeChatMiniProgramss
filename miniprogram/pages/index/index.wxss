@@ -68,6 +68,25 @@ button{
   color: #000;
   border-color: yellow;
 }
+
+.links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  padding:40rpx 0;
+  color: #fff;
+}
+.links navigator{
+  border-bottom: 1px solid #fff;
+}
+.hover{
+  color: #F5DF4D;
+  border-color: #F5DF4D;
+}
+.links view{
+  padding: 0 10rpx;
+}
 .copyRight{
   padding: 20rpx 0;
   width: 100%;

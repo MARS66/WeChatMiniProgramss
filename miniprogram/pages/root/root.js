@@ -1,5 +1,5 @@
 // pages/root/root.js
-      const db= wx.cloud.database();
+ const db= wx.cloud.database();
 Page({
 
   /**
@@ -22,8 +22,14 @@ Page({
     wx.setNavigationBarTitle({ title: '谱源信息编辑'});
     const {familyId}=wx.getStorageSync('user');
     const {data}=await db.collection('family').where({_id: familyId}).get();
+    const roots=data[0]?.familyRoot?.length>0?data[0]?.familyRoot:[
+      {
+        yinwem:'',
+        hanwem:'',
+      }
+    ]
    this.setData({
-    roots:data[0]?.familyRoot,
+    roots,
     familyId,
    })
   },

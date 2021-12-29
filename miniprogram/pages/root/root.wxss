@@ -23,16 +23,18 @@
   margin: 10rpx 0;
 }
 .add{
-  background-color: #07c160;
+  background-color: #000;
   color: #fff;
-  font-size: 24rpx;
+  font-size: 30rpx;
+  font-weight: 600;
   padding: 6rpx 0;
   border-radius: 4rpx;
 }
 .delete{
   background-color: red;
   color: #fff;
-  font-size: 24rpx;
+  font-size: 36rpx;
+  font-weight: 600;
   padding: 6rpx 0;
   border-radius: 4rpx;
 }

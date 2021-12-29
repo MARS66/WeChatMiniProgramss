@@ -19,11 +19,12 @@ image{
 }
 canvas{
   height: 80vh;
-  width: 80vw;
+  width: 90vw;
   background-color: #fff;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0);
 }
 .btn-group{
-  width: 80vw;
+  width: 90vw;
   margin-top: 40rpx;
   display: flex;
   align-items: center;

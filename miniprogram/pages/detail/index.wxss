@@ -182,7 +182,7 @@ border: 2px solid #F5DF4D;
    font-weight: normal !important;
    border: 1px solid #e5e5e5;
 }
-.smallhoto .add-hover>view{
+.smallhoto .add-hover{
   color: #F5DF4D !important;
   border: 1px solid #F5DF4D !important;
 }
@@ -203,8 +203,8 @@ border: 2px solid #F5DF4D;
 .oneItem{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(8,1fr);
-  gap: 40rpx 30rpx;
+  grid-template-columns: repeat(6,1fr);
+  gap: 40rpx 60rpx;
   padding-bottom: 40rpx;
   padding-top: 20rpx;
 }
