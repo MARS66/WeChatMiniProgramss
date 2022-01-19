@@ -71,3 +71,9 @@
 switch{
   transform: scale(0.6);
 }
+.btns{
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-end; */
+  font-size: 28rpx;
+}

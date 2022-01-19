@@ -75,7 +75,10 @@
     
   <!-- 妻子 -->
   <view class="photoOuter" wx:if="{{userInfo.isMerry==='true' && userInfo.isBoy==='true' && !isWife}}">
-    <view class="title" wx:if="{{!!userInfo.wife || isManager}}">妻子</view>
+    <view class="title" wx:if="{{!!userInfo.wife || isManager}}">
+      <text>妻子</text> 
+      <view class="tip" wx:if="{{!isManager}}">创建者(管理员)授权后可添加妻子信息！</view>
+    </view>
     <view class="list">
       <view class="smallhoto" wx:if="{{!!userInfo.wife}}">
         <image  bindtap="goHisDetail" data-id="{{userInfo._id}}" data-iswife="{{true}}"  src="{{userInfo.wife.avatar?userInfo.wife.avatar: '../../static/icon/icon_default_woman.png'}}" mode="aspectFill"></image>
@@ -112,7 +115,10 @@
   </view>
   <!-- 子女 -->
   <view class="photoOuter" wx:if="{{userInfo.isMerry==='true'&&userInfo.isBoy==='true'&&isManager || userInfo.children&&userInfo.children.length>0}}">
-    <view class="title">子女</view>
+    <view class="title"> 
+      <text>子女</text> 
+      <view class="tip" wx:if="{{!isManager}}">创建者(管理员)授权后可添加子女信息！</view>
+    </view>
     <view class="list">
       <view class="smallhoto"   bindtap="addChild" wx:if="{{isManager}}">
        <view class="add" hover-class="add-hover"> + </view>

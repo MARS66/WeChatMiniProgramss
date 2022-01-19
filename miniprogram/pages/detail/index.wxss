@@ -130,6 +130,8 @@
   padding: 10rpx 0;
   font-weight: 600;
   font-size: 34rpx;
+  display: flex;
+  align-items: center;
 }
 .list{
   display: grid;
@@ -232,4 +234,11 @@ border: 2px solid #F5DF4D;
   height: 2rpx !important;
   background-color: #000 !important;
   width: 100%;
+}
+.tip{
+  flex: 1;
+  padding:0 10rpx;
+  font-size: 12px;
+  font-weight: normal;
+  color: #ff2121;
 }

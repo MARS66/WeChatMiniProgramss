@@ -197,13 +197,13 @@ Page({
   //获取用户信息
   getUserInfo(){
     const that=this;
+    that.handleCancel();
     const {familyId}=this.data;
     wx.getUserProfile({
       desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: ({userInfo}) => {
         wx.cloud.callFunction({name: 'get',data: {func: 'addWeChatUser', params:{...userInfo,familyId}}}).then(()=>
         {
-          that.handleCancel();
           that.getFamilyData();
         })
       },

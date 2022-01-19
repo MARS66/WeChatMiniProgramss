@@ -1,11 +1,15 @@
 <!--pages/auth/auth.wxml-->
 <view catchsubmit="formSubmit" class="search">
-    <input type="text" bindblur="setKeywords" placeholder="输入用户微信昵称"/>
+    <input type="text" bindblur="setKeywords" placeholder="输入昵称查询"/>
     <icon class="icon-small" catchtap="search" color='white' type="search" size="26"></icon>
   <view class="tips">{{result.length ? '共'+count+'位微信用户浏览过本家普！':'查询结果为空！'}}</view>
 </view>
 
 <view class="result"  wx:if="{{result.length>0}}">
+<view class="btns">
+<view>全部授权</view>
+  <switch checked="{{allAuth}}"  bindchange="switchAll"/>
+</view>
   <view class="person" wx:for="{{result}}" wx:key='index'>
     <image src="{{item.avatarUrl}}" mode="aspectFill"></image>
     <view class="border">

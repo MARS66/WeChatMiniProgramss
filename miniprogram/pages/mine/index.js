@@ -65,24 +65,27 @@ Page({
   // 路由跳转
   handleOut({currentTarget:{dataset:{page}}}){
     const needAuth=['auth','familyInfo'];
-    const {isManager}=this.data.userInfo;
+    const {isManager,familyType}=this.data.userInfo;
     if (!page)return;
     if (page==='loginout') {
       wx.showModal({
         title: '提示',
-        content: '退出小程序？',
+        content: `退出${familyType}？`,
         success (res) {
           if (res.confirm) {
             wx.clearStorageSync('user');
-            wx.exitMiniProgram()
+            wx.redirectTo({
+              url: '/pages/index/index',
+            })
           }
         }
       })
+      return;
     }
     if (needAuth.includes(page)&&!isManager) {
       wx.showModal({
         title: '温馨提示',
-        content: '此功能涉及信息修改，请联系管理员或者家谱创建者获取修改授权！'
+        content: '此功能涉及信息修改，请联系管理员或者家谱创建者获取授权！'
       });
       return;
     }

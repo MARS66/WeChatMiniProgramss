@@ -66,7 +66,9 @@ exports.main = async (event, context) => {
     },
     // 记录微信用户
     async addWeChatUser(user){
-      const {OPENID} = wxContext
+      const {OPENID} = wxContext;
+      const {data} =  await db.collection('wechat_user').where({_openid:OPENID, familyId:user.familyId}).get();
+      if (data.length) return data;
       return await db.collection('wechat_user').add({data:{ ...user,_openid:OPENID}})
     },
     

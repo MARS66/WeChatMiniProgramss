@@ -7,7 +7,8 @@ Page({
   data: {
     keyword:'',
     count:0,
-    result:[]
+    result:[],
+    allAuth:false,
   },
 
   /**
@@ -25,9 +26,25 @@ Page({
   async search(){
     const {familyId}=wx.getStorageSync('user');
     const {keyword}=this.data;
-    const {result:{count,result}}= await wx.cloud.callFunction({name: 'get',data: {func: 'queryUser',params:{familyId:familyId,keyword}}})
-    this.setData({result,count});
+    const {result:{count,result}}= await wx.cloud.callFunction({name: 'get',data: {func: 'queryUser',params:{familyId:familyId,keyword}}});
+    this.setData({
+      result,
+      count,
+      allAuth:result.every(item=>item.isManager)
+    });
   },
+  switchAll(e){
+    const {familyId}=wx.getStorageSync('user');
+    const {value}=e.detail;
+    const db = wx.cloud.database();
+    const that=this
+    db.collection('wechat_user').where({familyId}).update({
+        data: {
+          isManager: value
+        },
+      }).then(that.search())
+  },
+
   switchChange(e){
     const {id,index}=e.currentTarget.dataset;
     const {value}=e.detail;

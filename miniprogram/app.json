@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/auth/auth",
     "pages/root/root",
     "pages/mine/index",
     "pages/addPerson/index",
@@ -11,7 +12,6 @@
     "pages/familyInfo/index",
     "pages/invite/invite",
     "pages/log/index",
-    "pages/auth/auth",
     "pages/wife/index",
     "pages/dataAnalysis/index",
     "pages/editor/editor",
